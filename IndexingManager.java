@@ -1,12 +1,23 @@
 
 
+import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
+import java.io.ByteArrayInputStream;
+import java.security.KeyStore;
+import java.security.KeyStoreException;
+import java.security.*;
+
+import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static java.sql.DriverManager.getConnection;
 
 //This is main class of IndexManager API. Central code will interact with this class for 
 // adding,deleting,updating and searching an index.It has methods for doing those tasks.
@@ -20,9 +31,11 @@ public class IndexingManager {
     private static int origcopyNum;
     private static String origtimerType;
     private static int origuserId;
+    private static int origLayerId;
     private static Long origTime;
-    
-    private static timer t1;
+    private static java.security.cert.Certificate origCerti;
+    static PublicKey pub;
+
     
     //  Creating Singleton object of Database_Utility class.
     
@@ -40,7 +53,7 @@ public class IndexingManager {
    
     // This method is used to add index entry to database. Central code will call this method and pass required arguments.
     
-   public void addEntry(String key,String value,int timer,int totalCopies,int copyNum,String timerType,int userId,Long time ){
+   public static void addEntry(String key, String value, int timer, int totalCopies, int copyNum, String timerType, int userId,Long time, java.security.cert.Certificate c){
        origkey=key;
        origvalue=value;
        origtime=timer;
@@ -48,11 +61,52 @@ public class IndexingManager {
        origcopyNum=copyNum;
        origtimerType=timerType;
        origuserId=userId;
+       origLayerId=0;
        origTime=time;
-       
-       utility.add_entry(origkey, origvalue, origtime, origtotalCopies, origcopyNum, origtimerType, origuserId,origTime);
-   
-       
+       origCerti=c;
+
+       //if(utility.search_userId(origuserId)){
+
+          Connection conn = utility.getConnection();
+           PreparedStatement stmt = null;
+           try {
+               stmt = conn.prepareStatement("select Certificate from keyvalue1 where userId=?");
+
+               stmt.setInt(1,origuserId );
+
+                ResultSet rs = null;
+
+               rs = stmt.executeQuery();
+               while(rs.next()){
+
+                  byte[] t =rs.getBytes("Certificate");
+                   CertificateFactory cf = CertificateFactory.getInstance("X.509");
+                   Certificate cert = cf.generateCertificate(new ByteArrayInputStream(t));
+                   System.out.println("Done");
+                    pub = cert.getPublicKey();
+                   System.out.println(pub);
+           }
+
+           } catch (SQLException e) {
+               e.printStackTrace();
+           } catch (CertificateException e) {
+               e.printStackTrace();
+           }
+
+       //}
+
+       Verif v=new Verif();
+       boolean b = v.Verify_Digital_Signature(c, origvalue);
+       if(b)
+
+       {
+           utility.add_entry(origkey, origvalue, origtime, origtotalCopies, origcopyNum, origtimerType, origuserId,origLayerId, origTime,origCerti);
+       }
+       else{
+
+           System.out.println("Signature not verified");
+
+       }
    }
    
    // This method is used to delete index entry to database.
@@ -145,26 +199,38 @@ return obj;
 
 //    Constructor function of class.
     
-/*    private IndexingManager(){
-//        Initialise function
-}
-*/
-//  Creating Singleton object of IndexingManager class.   
+  private IndexingManager() {
+      Provider provider = new BouncyCastleProvider();
+      Security.addProvider(provider);
+  }
+//  Creating Singleton object of IndexingManager class.
     
-//    public  synchronized IndexingManager getIndexingManager(){
-//       if(indexManager==null) {
-//           indexManager=new IndexingManager();
-//           return indexManager;
-//       }
-//       else{
-//           return indexManager;
-//       }
-//    }
+   public  synchronized IndexingManager getIndexingManager(){
+      if(indexManager==null) {
+         indexManager=new IndexingManager();
+           return indexManager;
+       }
+      else{
+         return indexManager;
+      }
+    }
     
     
     public static void main(String[] args) {
-       
-        maintenancethread();
+        SignatureVerif S2 = SignatureVerif.getInstance();
+        KeyStore k = S2.getKeyStore();
+        Certificate c1 = null;
+        try {
+            c1 =  k.getCertificate("Certificate");
+            PublicKey Key= c1.getPublicKey();
+            if(Key==pub){
+                System.out.println("hiiiiiiiiiiiiii");
+            }
+        } catch (KeyStoreException e) {
+            e.printStackTrace();
+        }
+        addEntry("hiii","hooo",5,6,7,"F",8,System.currentTimeMillis(), c1);
+        //maintenancethread();
     }
     
     
