@@ -27,7 +27,7 @@ public class Verif {
             e.printStackTrace();
         }
 
- // Following block is signing value using public key from keystore for testing purpose.
+ // Following block is signing value using private key from keystore for testing purpose.
 
         try {
             signature.initSign(S1.getFromKeyStore());

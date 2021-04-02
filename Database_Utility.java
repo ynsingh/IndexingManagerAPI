@@ -52,8 +52,8 @@ class Database_Utility {
                     + "timer TIME,"
                     + "totalCopies INTEGER,"
                     + "copyNum INTEGER,"
-                    + "timerType STRING(30),"
-                    + "userId INTEGER ,"
+                    + "timerType INTEGER,"
+                    + "userId STRING(30) ,"
                     + "LayerId INTEGER ,"
                     + " time TEXT(520) NOT NULL ,"
                     + " Certificate VARCHAR NOT NULL " + ")";
@@ -74,18 +74,18 @@ class Database_Utility {
 
     // This method is used to add index entry to database.
 
-    public static void add_entry(String key, String value, int timer, int totalCopies, int copyNum, String timerType, int userId,int LayerId, Long time, java.security.cert.Certificate c) {
+    public static void add_entry(String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId, int LayerId, Long time, java.security.cert.Certificate c) {
         try {
             Connection conn = getConnection();
             String sql = "INSERT INTO keyvalue1 (key,value,timer,totalCopies,copyNum,timerType,userId,LayerId,time,Certificate) VALUES(?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, key);
             pstmt.setString(2, value);
-            pstmt.setInt(3, timer);
+            pstmt.setLong(3, timer);
             pstmt.setInt(4, totalCopies);
             pstmt.setInt(5, copyNum);
-            pstmt.setString(6, timerType);
-            pstmt.setInt(7, userId);
+            pstmt.setBoolean(6, timerType);
+            pstmt.setString(7, userId);
             pstmt.setInt (8,LayerId);
             pstmt.setLong(9, time);
 
@@ -121,12 +121,12 @@ class Database_Utility {
                 System.out.println(val);
 
 
-                int tim = rs.getInt(2);
+                Long tim = rs.getLong(2);
 
                 int totCo = rs.getInt(3);
                 int copNum = rs.getInt(4);
-                String timeTyp = rs.getString(5);
-                int hashId = rs.getInt(6);
+                boolean timeTyp = rs.getBoolean(5);
+               String hashId = rs.getString(6);
                 Long time = rs.getLong(7);
 
 
@@ -198,7 +198,7 @@ class Database_Utility {
 
         try {
             Connection conn = getConnection();
-            PreparedStatement stmt = conn.prepareStatement("update keyvalue set Value = ? where Key = ?");
+            PreparedStatement stmt = conn.prepareStatement("update keyvalue1 set Value = ? where Key = ?");
 
             stmt.setString(1, Key);
             stmt.setString(2, Key);
@@ -210,7 +210,7 @@ class Database_Utility {
     }
 
 
-    public boolean search_userId(int userId){
+    public boolean search_userId(String userId){
      boolean b = false;
         Connection conn = getConnection();
 
@@ -218,7 +218,7 @@ class Database_Utility {
         try {
             stmt = conn.prepareStatement("select userId from keyvalue1 where userId=?");
 
-            stmt.setInt(1,userId);
+            stmt.setString(1,userId);
 
             ResultSet rs = stmt.executeQuery();
 

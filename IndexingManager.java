@@ -19,22 +19,22 @@ import java.util.logging.Logger;
 
 import static java.sql.DriverManager.getConnection;
 
-//This is main class of IndexManager API. Central code will interact with this class for 
+//This is main class of IndexingManager API. Central code will interact with this class for
 // adding,deleting,updating and searching an index.It has methods for doing those tasks.
 
 public class IndexingManager {
     private static IndexingManager indexManager;
     private static String origkey;
     private static String origvalue;
-    private static int origtime;
+    private static Long origtimer;
     private static int origtotalCopies;
     private static int origcopyNum;
-    private static String origtimerType;
-    private static int origuserId;
+    private static boolean origtimerType;
+    private static String origuserId;
     private static int origLayerId;
     private static Long origTime;
     private static java.security.cert.Certificate origCerti;
-    static PublicKey pub;
+
 
     
     //  Creating Singleton object of Database_Utility class.
@@ -53,10 +53,10 @@ public class IndexingManager {
    
     // This method is used to add index entry to database. Central code will call this method and pass required arguments.
     
-   public static void addEntry(String key, String value, int timer, int totalCopies, int copyNum, String timerType, int userId,Long time, java.security.cert.Certificate c){
+   public static void addEntry(String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId,Long time, java.security.cert.Certificate c){
        origkey=key;
        origvalue=value;
-       origtime=timer;
+       origtimer=timer;
        origtotalCopies=totalCopies;
        origcopyNum=copyNum;
        origtimerType=timerType;
@@ -65,14 +65,17 @@ public class IndexingManager {
        origTime=time;
        origCerti=c;
 
-       //if(utility.search_userId(origuserId)){
+    //Creating Connection
 
           Connection conn = utility.getConnection();
            PreparedStatement stmt = null;
            try {
+
+    //Retrieving Certificate from Base Layer DHT
+
                stmt = conn.prepareStatement("select Certificate from keyvalue1 where userId=?");
 
-               stmt.setInt(1,origuserId );
+               stmt.setString(1,origuserId );
 
                 ResultSet rs = null;
 
@@ -82,9 +85,15 @@ public class IndexingManager {
                   byte[] t =rs.getBytes("Certificate");
                    CertificateFactory cf = CertificateFactory.getInstance("X.509");
                    Certificate cert = cf.generateCertificate(new ByteArrayInputStream(t));
-                   System.out.println("Done");
-                    pub = cert.getPublicKey();
+
+                   System.out.println("Certificate Retrieved");
+
+
+     // Retrieving Public Key from  Certificate
+
+                   PublicKey pub = cert.getPublicKey();
                    System.out.println(pub);
+                   System.out.println(" Public Key Retrieved");
            }
 
            } catch (SQLException e) {
@@ -93,14 +102,17 @@ public class IndexingManager {
                e.printStackTrace();
            }
 
-       //}
+      //Verifying Digital Signature using Certificate
 
        Verif v=new Verif();
        boolean b = v.Verify_Digital_Signature(c, origvalue);
        if(b)
 
        {
-           utility.add_entry(origkey, origvalue, origtime, origtotalCopies, origcopyNum, origtimerType, origuserId,origLayerId, origTime,origCerti);
+
+           //Adding index only if Signature Verified
+
+           utility.add_entry(origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId,origLayerId, origTime,origCerti);
        }
        else{
 
@@ -111,13 +123,14 @@ public class IndexingManager {
    
    // This method is used to delete index entry to database.
    
-//   public void deleteEntry( String Key){
-//       
-//   utility.delete_entry(Key);
-//   
-//           
-//   
-//   }
+ /*public void deleteEntry( String Key){
+
+ utility.delete_entry(Key);
+
+
+  }*/
+
+
    
    // This method is used to update index entry to database.
    
@@ -132,7 +145,7 @@ public class IndexingManager {
     public ObjReturn searchEntry(String Key){
     
     ObjReturn obj=utility.search_entry(Key);
-return obj;
+    return obj;
     }
     
 //    This method is used to delete entries as per Timer Type and timer associated with it.
@@ -143,25 +156,25 @@ return obj;
             Connection conn = db.getConnection();
             PreparedStatement pst;
             int rowid;
-            int timer = 0;
+            Long timer = Long.valueOf(0);
             long time = 0;
             String key = null;
-            String timerType;
+            boolean timerType;
             try {
                pst=conn.prepareStatement("select * from keyvalue1");
                 ResultSet rs = pst.executeQuery();
                 while(rs.next()) {
-                    timerType = rs.getString("timerType");
+                    timerType = rs.getBoolean("timerType");
                     rowid=rs.getRow();
                     System.out.println(rowid);
                     System.out.println(timerType);
                     
                     
-                    if("F".equals(timerType)){
+                    if(timerType){
                         pst=conn.prepareStatement("SELECT timer,time,Key FROM keyvalue1 where rowid=?");
                         pst.setInt(1,rowid);
                         ResultSet rs2 =pst.executeQuery();
-                        timer = rs2.getInt("timer");
+                        timer = rs2.getLong("timer");
                         time=rs2.getLong("time");
                         key = rs2.getString("Key");
                         rs2.close();
@@ -223,13 +236,15 @@ return obj;
         try {
             c1 =  k.getCertificate("Certificate");
             PublicKey Key= c1.getPublicKey();
-            if(Key==pub){
-                System.out.println("hiiiiiiiiiiiiii");
-            }
+            System.out.println(Key);
+
+
         } catch (KeyStoreException e) {
             e.printStackTrace();
         }
-        addEntry("hiii","hooo",5,6,7,"F",8,System.currentTimeMillis(), c1);
+
+
+        //addEntry("hiii","hooo", (long) 1600,6,7,true ,"Mohsin",System.currentTimeMillis(), c1);
         //maintenancethread();
     }
     

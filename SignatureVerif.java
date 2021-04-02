@@ -211,7 +211,7 @@ public class SignatureVerif {
         return cert;
     }
 
-    // As methods and object of class is private these method are used to get public key and keystore.
+    // As methods and object of class is private these methods are used to get public key and keystore.
 
 
     PublicKey getPublicKey() {
