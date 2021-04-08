@@ -14,7 +14,9 @@ class Database_Utility {
 
     public static Database_Utility utility;
 
-    private Database_Utility(){}
+    private Database_Utility(){
+        conn=getConnection();
+    }
 
     public static synchronized Database_Utility getInstance() {
         if (utility == null) {
@@ -41,7 +43,7 @@ class Database_Utility {
     }
 
 
-    public static boolean createtable(int layerid, Connection conn) {
+    public void createtable(int layerid) {
         try {
             String fileName = "Table" + layerid;
 
@@ -60,23 +62,21 @@ class Database_Utility {
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
-            conn.close();
+            //conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
-        return true;
     }
 
 
     // This method is used to add index entry to database.
 
-    public static void add_entry(String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId, Long time, Certificate c, Connection conn1) {
+    public  void add_entry(int layerID, String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId, Long time, Certificate c) {
         try {
-
-            String sql = "INSERT INTO keyvalue1 (key,value,timer,totalCopies,copyNum,timerType,userId,time,Certificate) VALUES(?,?,?,?,?,?,?,?,?)";
-            PreparedStatement pstmt = conn1.prepareStatement(sql);
+            String tableName = "Table"+layerID;
+            String sql = "INSERT INTO "+tableName+" (key,value,timer,totalCopies,copyNum,timerType,userId,time,Certificate) VALUES(?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, key);
             pstmt.setString(2, value);
             pstmt.setLong(3, timer);
@@ -88,10 +88,9 @@ class Database_Utility {
             pstmt.setLong(8, time);
             pstmt.setString(9, String.valueOf(c));
 
-
             pstmt.executeUpdate();
             pstmt.close();
-            conn1.close();
+
         } catch (SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -105,7 +104,7 @@ class Database_Utility {
     public ObjReturn search_entry(String Key) {
         ObjReturn obj1 = new ObjReturn();
         try {
-            Connection conn = getConnection();
+
 
             PreparedStatement stmt = conn.prepareStatement("select value,timer,totalCopies,copyNum,timerType,userId,time from keyvalue1 where Key=?");
             stmt.setString(1, Key);
@@ -208,7 +207,6 @@ class Database_Utility {
 
     public boolean search_userId(String userId) {
         boolean b = false;
-        Connection conn = getConnection();
 
         PreparedStatement stmt = null;
         try {

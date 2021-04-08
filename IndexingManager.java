@@ -79,32 +79,27 @@ catch (Exception e)
 }*/
 
 
-    private boolean addTable(int layerId)
+    private boolean checkTable(int layerId)
 
     {
+        boolean isAvailable = false;
         try {
             ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
             while (rs.next()) {
                 String ld = rs.getString("TABLE_NAME");
-
                 String intValue = ld.replaceAll("[^0-9]", "");
-
+                System.out.println(intValue);
                 int v = Integer.parseInt(intValue);
-
                 if (v == layerId) {
-                    System.out.println("Table exists");
-                    return true;
+                    isAvailable = true;
                 }
-
-               /* else{
-                    utility.createtable(layerId,conn);
-                    System.out.println("Table created");
-                }*/
             }
+            rs.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return false;
+
+        return isAvailable;
     }
 
 
@@ -128,14 +123,14 @@ catch (Exception e)
         Verif v = new Verif();
         boolean b1 = v.Verify_Digital_Signature(origCerti, origvalue);
         if (b1) {
-            boolean b2 = addTable(origLayerId);
+            boolean b2 = checkTable(origLayerId);
             if (b2) {
-
-                utility.add_entry(origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti, conn);
+                utility.add_entry(origLayerId,origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                System.out.println("Entry added");
 
             } else {
-                utility.createtable(origLayerId, conn);
-                utility.add_entry(origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti, conn);
+                utility.createtable(origLayerId);
+                utility.add_entry(origLayerId,origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
             }
 
         } else {

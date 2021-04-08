@@ -16,6 +16,8 @@ public class Testing {
         } catch (KeyStoreException e) {
             e.printStackTrace();
         }
-        IM.addIndex("done","hooo", (long) 1600,6,7,true ,"Mohsin",5,System.currentTimeMillis(), c1);
+        //Database_Utility utility1 = Database_Utility.getInstance();
+        //utility1.add_entry("HIIiiiiiiiii","hooo", (long) 1600,6,7,true ,"Mohsin",System.currentTimeMillis(), c1);
+        IM.addIndex("index1","hooo", (long) 1600,6,7,true ,"Mohsin",13,System.currentTimeMillis(), c1);
     }
 }
