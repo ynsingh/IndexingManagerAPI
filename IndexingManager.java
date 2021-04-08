@@ -9,8 +9,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-//This is main class of IndexingManager API. Central code will interact with this class for
-// adding,deleting,updating and searching an index.It has methods for doing those tasks.
+//This is main class of IndexingManager API. Glue code will interact with this class for
+// adding,deleting,updating and searching an index.It has methods for doing these tasks.
 
 public class IndexingManager {
     private static IndexingManager indexManager;
@@ -78,18 +78,29 @@ catch (Exception e)
 
 }*/
 
+    //This method will check whether table for layerID requested exists or not.Returns true if table exists.
+
 
     private boolean checkTable(int layerId)
 
     {
         boolean isAvailable = false;
         try {
+
+   //This statement will fetch all tables available in database.
+
             ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
             while (rs.next()) {
+
                 String ld = rs.getString("TABLE_NAME");
+
+   //This statement will extract digits from table names.
+
                 String intValue = ld.replaceAll("[^0-9]", "");
-                System.out.println(intValue);
                 int v = Integer.parseInt(intValue);
+
+    //This statement will compare layerid with digits of table names.
+
                 if (v == layerId) {
                     isAvailable = true;
                 }
@@ -103,7 +114,7 @@ catch (Exception e)
     }
 
 
-    // This method is used to add index entry to database. Central code will call this method and pass required arguments.
+    // This method is used to add an index entry to database. Glue code will call this method and pass required arguments.
 
     public void addIndex(String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId, int layerID, Long time, java.security.cert.Certificate c) {
         origkey = key;
@@ -118,17 +129,29 @@ catch (Exception e)
         origCerti = c;
 
 
-        //Verifying Digital Signature using Certificate
+        //Verifying Digital Signature of Value using Certificate
 
         Verif v = new Verif();
+
         boolean b1 = v.Verify_Digital_Signature(origCerti, origvalue);
+
+        // If signature is verified
         if (b1) {
+
+        // This statement will check whether table exists or not.
+
             boolean b2 = checkTable(origLayerId);
             if (b2) {
+
+        //If table exists
+
                 utility.add_entry(origLayerId,origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
                 System.out.println("Entry added");
 
             } else {
+
+          //If table doesn't exist then create table and then add entry.
+
                 utility.createtable(origLayerId);
                 utility.add_entry(origLayerId,origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
             }
@@ -137,42 +160,8 @@ catch (Exception e)
             System.out.println("Signature not verified");
         }
 
-
-           /*PreparedStatement stmt = null;
-           try {
-
-    //Retrieving Certificate from Base Layer DHT
-
-               stmt = conn.prepareStatement("select Certificate from keyvalue1 where userId=?");
-
-               stmt.setString(1,origuserId );
-
-                ResultSet rs = null;
-
-               rs = stmt.executeQuery();
-               while(rs.next()){
-
-                  byte[] t =rs.getBytes("Certificate");
-                   CertificateFactory cf = CertificateFactory.getInstance("X.509");
-                   Certificate cert = cf.generateCertificate(new ByteArrayInputStream(t));
-
-                   System.out.println("Certificate Retrieved");
-
-
-     // Retrieving Public Key from  Certificate
-
-                   PublicKey pub = cert.getPublicKey();
-                   System.out.println(pub);
-                   System.out.println(" Public Key Retrieved");
-           }
-
-           } catch (SQLException e) {
-               e.printStackTrace();
-           } catch (CertificateException e) {
-               e.printStackTrace();
-           }*/
-
     }
+
 
     // This method is used to delete index entry to database.
    
@@ -183,20 +172,19 @@ catch (Exception e)
 
   }*/
 
+    // This method is used to update an index entry in database.User will pass Value which is to be updated and layer id to which user belongs.
 
-    // This method is used to update index entry to database.
+    public void updateEntry(String Key,String updatedValue,int layerID) {
 
-    public void updateEntry(String Key) {
-
-        utility.update_entry(Key);
+        utility.update_entry(Key,updatedValue,layerID);
 
     }
 
-    // This method is used to search index entry using key in database.
+    // This method is used to search index entry using key and layerID in database.
 
-    public ObjReturn searchEntry(String Key) {
+    public ObjReturn searchEntry(String Key,int layerID) {
 
-        ObjReturn obj = utility.search_entry(Key);
+        ObjReturn obj = utility.search_entry(Key,layerID);
         return obj;
     }
 
@@ -231,20 +219,17 @@ catch (Exception e)
                     System.out.println(time);
                     System.out.println(key);
 
-
                     if (!(timer == 0)) {
                         System.out.println(System.currentTimeMillis() - time > timer);
                         if (System.currentTimeMillis() - time > timer) {
-                            utility.delete_entry(rowid, conn);
+                            utility.delete_entry(rowid);
 
                         }
 
                     }
                 } else {
 
-
                 }
-
             }
             pst.close();
             rs.close();
@@ -258,7 +243,7 @@ catch (Exception e)
     }
 
 
-//    Constructor function of class.
+//    Constructor function of Main class.
 
     private IndexingManager() {
         Provider provider = new BouncyCastleProvider();
@@ -276,23 +261,5 @@ catch (Exception e)
             return indexManager;
         }
     }
-
-
-//    public static void main(String[] args) {
-//        SignatureVerif S2 = SignatureVerif.getInstance();
-//        KeyStore k = S2.getKeyStore();
-//        Certificate c1 = null;
-//        try {
-//            c1 =  k.getCertificate("Certificate");
-//            PublicKey Key= c1.getPublicKey();
-//
-//        } catch (KeyStoreException e) {
-//            e.printStackTrace();
-//        }
-//
-//        addIndex("done","hooo", (long) 1600,6,7,true ,"Mohsin",5,System.currentTimeMillis(), c1);
-//        //maintenancethread();
-//    }
-//
 
 }

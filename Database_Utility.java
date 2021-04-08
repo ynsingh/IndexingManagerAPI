@@ -75,7 +75,7 @@ class Database_Utility {
     public  void add_entry(int layerID, String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId, Long time, Certificate c) {
         try {
             String tableName = "Table"+layerID;
-            String sql = "INSERT INTO "+tableName+" (key,value,timer,totalCopies,copyNum,timerType,userId,time,Certificate) VALUES(?,?,?,?,?,?,?,?,?)";
+            String sql = "INSERT INTO "+ tableName +" (key,value,timer,totalCopies,copyNum,timerType,userId,time,Certificate) VALUES(?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, key);
             pstmt.setString(2, value);
@@ -95,18 +95,16 @@ class Database_Utility {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
     }
 
+    // This method is used to search an index entry in database.It needs Key and layerID as arguments.
 
-    // This method is used to delete index entry to database.
-
-    public ObjReturn search_entry(String Key) {
+    public ObjReturn search_entry(String Key,int layerId) {
         ObjReturn obj1 = new ObjReturn();
         try {
 
-
-            PreparedStatement stmt = conn.prepareStatement("select value,timer,totalCopies,copyNum,timerType,userId,time from keyvalue1 where Key=?");
+            String filename="Table"+layerId;
+            PreparedStatement stmt = conn.prepareStatement("select value,timer,totalCopies,copyNum,timerType,userId,time from " + filename + "where Key=?");
             stmt.setString(1, Key);
             ResultSet rs = stmt.executeQuery();
 //           SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -133,7 +131,6 @@ class Database_Utility {
                 obj1.setUserId(hashId);
                 obj1.setTime(time);
 
-
             }
         } catch (SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
@@ -142,37 +139,7 @@ class Database_Utility {
         return obj1;
     }
 
-    // This method is used to update index entry to database.
-
-//    public void main(String[] args) {
-//
-//        Connection conn = getConnection();
-////        createtable(2, conn);
-//
-//
-//       /* SignatureVerif S2 = SignatureVerif.getInstance();
-//        KeyStore k = S2.getKeyStore();
-//        try {
-//            add_entry("hiii","hooooo",6,1,8,"iiii",9,System.currentTimeMillis(), k.getCertificate("Certificate"));
-//        } catch (KeyStoreException e) {
-//            e.printStackTrace();
-//        }*/
-////add_entry("iiiii","hooooo",6,1,8,"iiii",9,System.currentTimeMillis());
-////add_entry("ooooo","hooooo",6,1,8,"iiii",9,System.currentTimeMillis());
-////add_entry("mmmmm","hooooo",6,1,8,"iiii",9,System.currentTimeMillis());
-//
-//
-////    ObjReturn obj2 =search_entry("hiii");
-////
-////
-////
-////  System.out.println(obj2.getTime());
-//
-//
-//    }
-    // This method is used to search index entry with key in database.
-
-    public void delete_entry(int rid, Connection conn) {
+    public void delete_entry(int rid) {
         try {
 
             PreparedStatement stmt = conn.prepareStatement("delete from keyvalue1 where rowid=?");
@@ -189,13 +156,13 @@ class Database_Utility {
         }
     }
 
-    public void update_entry(String Key) {
+    public void update_entry(String Key,String updValue, int layerID) {
 
         try {
-            Connection conn = getConnection();
-            PreparedStatement stmt = conn.prepareStatement("update keyvalue1 set Value = ? where Key = ?");
 
-            stmt.setString(1, Key);
+            String filename="Table"+layerID;
+            PreparedStatement stmt = conn.prepareStatement("update " + filename +"set Value = ? where Key = ?");
+            stmt.setString(1, updValue);
             stmt.setString(2, Key);
             stmt.executeUpdate();
         } catch (SQLException ex) {
