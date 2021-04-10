@@ -1,3 +1,5 @@
+package src.main;
+
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 
 import java.security.Provider;
@@ -87,19 +89,19 @@ catch (Exception e)
         boolean isAvailable = false;
         try {
 
-   //This statement will fetch all tables available in database.
+            //This statement will fetch all tables available in database.
 
             ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
             while (rs.next()) {
 
                 String ld = rs.getString("TABLE_NAME");
 
-   //This statement will extract digits from table names.
+                //This statement will extract digits from table names.
 
                 String intValue = ld.replaceAll("[^0-9]", "");
                 int v = Integer.parseInt(intValue);
 
-    //This statement will compare layerid with digits of table names.
+                //This statement will compare layerid with digits of table names.
 
                 if (v == layerId) {
                     isAvailable = true;
@@ -138,22 +140,22 @@ catch (Exception e)
         // If signature is verified
         if (b1) {
 
-        // This statement will check whether table exists or not.
+            // This statement will check whether table exists or not.
 
             boolean b2 = checkTable(origLayerId);
             if (b2) {
 
-        //If table exists
+                //If table exists
 
-                utility.add_entry(origLayerId,origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
                 System.out.println("Entry added");
 
             } else {
 
-          //If table doesn't exist then create table and then add entry.
+                //If table doesn't exist then create table and then add entry.
 
                 utility.createtable(origLayerId);
-                utility.add_entry(origLayerId,origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
             }
 
         } else {
@@ -174,17 +176,17 @@ catch (Exception e)
 
     // This method is used to update an index entry in database.User will pass Value which is to be updated and layer id to which user belongs.
 
-    public void updateEntry(String Key,String updatedValue,int layerID) {
+    public void updateEntry(String Key, String updatedValue, int layerID) {
 
-        utility.update_entry(Key,updatedValue,layerID);
+        utility.update_entry(Key, updatedValue, layerID);
 
     }
 
     // This method is used to search index entry using key and layerID in database.
 
-    public ObjReturn searchEntry(String Key,int layerID) {
+    public ObjReturn searchEntry(String Key, int layerID) {
 
-        ObjReturn obj = utility.search_entry(Key,layerID);
+        ObjReturn obj = utility.search_entry(Key, layerID);
         return obj;
     }
 
