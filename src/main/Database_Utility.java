@@ -1,4 +1,4 @@
-//This class has funtionality to interact with SQL database and perform assigned task by IndexingManager Class
+package src.main;//This class has funtionality to interact with SQL database and perform assigned task by IndexingManager Class
 
 
 import java.security.cert.Certificate;
@@ -33,8 +33,8 @@ class Database_Utility {
 
         try {
             Class.forName("org.sqlite.JDBC");
-            conn= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\a\\Documents\\NetBeansProjects\\IndexManagerAPI\\src\\KeyValuePairs.db");
-
+            //conn= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\a\\Documents\\NetBeansProjects\\IndexManagerAPI\\src\\KeyValuePairs.db");
+            conn= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\a\\Pictures\\IndexingManagerAPI.db");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
         }

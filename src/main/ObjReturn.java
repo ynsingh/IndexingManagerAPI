@@ -1,4 +1,4 @@
-//This calss is used to collect values from database corresponding to key and return values as an object
+package src.main;//This calss is used to collect values from database corresponding to key and return values as an object
 
 
 public class ObjReturn {
