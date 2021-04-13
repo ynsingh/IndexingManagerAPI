@@ -187,13 +187,48 @@ public class IndexingManager {
 //    This method is used to delete entries as per Timer Type and timer associated with it.
 
     public void maintenancethread() {
-        PreparedStatement pst;
+        PreparedStatement pst = null;
         int rowid;
         Long timer = Long.valueOf(0);
         long time = 0;
         String key = null;
         boolean timerType;
+
+
+        ResultSet rs = null;
         try {
+            rs = conn.getMetaData().getTables(null, null, null, null);
+
+            while (rs.next()) {
+
+                String ld = rs.getString("TABLE_NAME");
+                String intValue = ld.replaceAll("[^0-9]", "");
+                int layerid = Integer.parseInt(intValue);
+                String filename = "Table" + layerid;
+                pst = conn.prepareStatement("SELECT timer,time FROM " + filename);
+                ResultSet rs2 = pst.executeQuery();
+                timer = rs2.getLong("timer");
+                time = rs2.getLong("time");
+                rowid = rs2.getRow();
+                if (!(timer == 0)) {
+                    if (System.currentTimeMillis() - time > timer) {
+                        utility.delete_entry(rowid);
+
+                    }
+                }
+                rs2.close();
+
+            }
+            pst.close();
+            rs.close();
+            conn.close();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+        /*try {
             pst = conn.prepareStatement("select * from keyvalue1");
             ResultSet rs = pst.executeQuery();
             while (rs.next()) {
@@ -234,7 +269,7 @@ public class IndexingManager {
 
         } catch (SQLException ex) {
             Logger.getLogger(IndexingManager.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
 
     }
 
