@@ -107,21 +107,15 @@ class Database_Utility {
             PreparedStatement stmt = conn.prepareStatement("select value,timer,totalCopies,copyNum,timerType,userId,time from " + filename + "where Key=?");
             stmt.setString(1, Key);
             ResultSet rs = stmt.executeQuery();
-//           SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             while (rs.next()) {
 
                 String val = rs.getString(1);
-                System.out.println(val);
-
-
                 Long tim = rs.getLong(2);
-
                 int totCo = rs.getInt(3);
                 int copNum = rs.getInt(4);
                 boolean timeTyp = rs.getBoolean(5);
                 String hashId = rs.getString(6);
                 Long time = rs.getLong(7);
-
 
                 obj1.setValue1(val);
                 obj1.setTime1(tim);
@@ -156,13 +150,13 @@ class Database_Utility {
         }
     }
 
-    public void update_entry(String Key,String updValue, int layerID) {
+    public void update_entry(String Key, int layerID) {
 
         try {
 
             String filename="Table"+layerID;
-            PreparedStatement stmt = conn.prepareStatement("update " + filename +"set Value = ? where Key = ?");
-            stmt.setString(1, updValue);
+            PreparedStatement stmt = conn.prepareStatement("update " + filename +"set time = ? where Key = ?");
+            stmt.setLong(1,System.currentTimeMillis());
             stmt.setString(2, Key);
             stmt.executeUpdate();
         } catch (SQLException ex) {

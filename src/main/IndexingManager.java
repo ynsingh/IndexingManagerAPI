@@ -66,7 +66,7 @@ public class IndexingManager {
         return isAvailable;
     }
 
-    private boolean checkiforoiginal(int copynum){
+    private boolean checkiforiginal(int copynum){
         boolean isAvailable=false;
         if(copynum==0){
             isAvailable=true;
@@ -106,7 +106,7 @@ public class IndexingManager {
 
                 //If table exists
 
-                boolean b3=checkiforoiginal(int origcopyNum);
+                boolean b3=checkiforiginal(copyNum);
                 if(!b3) {
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
                     System.out.println("Entry added");
@@ -145,7 +145,7 @@ public class IndexingManager {
 
                 utility.createtable(origLayerId);
 
-                boolean b4=checkiforoiginal(int origcopyNum);
+                boolean b4=checkiforiginal(copyNum);
                 if(!b4) {
 
                 utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
@@ -170,9 +170,9 @@ public class IndexingManager {
 
     // This method is used to update an index entry in database.User will pass Value which is to be updated and layer id to which user belongs.
 
-    public void updateEntry(String Key, String updatedValue, int layerID) {
+    public void updateEntry(String Key,int layerID) {
 
-        utility.update_entry(Key, updatedValue, layerID);
+        utility.update_entry(Key,layerID);
 
     }
 
@@ -181,7 +181,16 @@ public class IndexingManager {
     public ObjReturn searchEntry(String Key, int layerID) {
 
         ObjReturn obj = utility.search_entry(Key, layerID);
+        boolean b=obj.timerType1;
+        //Send to output buffer
+
+        if(!b)
+        {
+            updateEntry(Key,layerID);
+        }
+
         return obj;
+
     }
 
 //    This method is used to delete entries as per Timer Type and timer associated with it.
@@ -191,10 +200,6 @@ public class IndexingManager {
         int rowid;
         Long timer = Long.valueOf(0);
         long time = 0;
-        String key = null;
-        boolean timerType;
-
-
         ResultSet rs = null;
         try {
             rs = conn.getMetaData().getTables(null, null, null, null);
@@ -217,7 +222,6 @@ public class IndexingManager {
                     }
                 }
                 rs2.close();
-
             }
             pst.close();
             rs.close();
@@ -281,6 +285,9 @@ public class IndexingManager {
         Security.addProvider(provider);
         utility = Database_Utility.getInstance();
         conn = utility.getConnection();
+        utility.createtable(100);
+
+
     }
 //  Creating Singleton object of IndexingManager class.
 
