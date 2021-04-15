@@ -1,7 +1,6 @@
 package src.main;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
-import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
@@ -9,7 +8,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -19,14 +17,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-
-import static src.Testing.Testing.xmlFilePath;
+import java.sql.*;
 
 //This is main class of IndexingManager API. Glue code will interact with this class for
 // adding,deleting,updating and searching an index.It has methods for doing these tasks.
@@ -128,31 +119,10 @@ public class IndexingManager {
                     System.out.println("Entry added");
                 }
                 else{
-                    String s1="Copy1";
-                    String concat1=origkey.concat(s1);
 
-                    MessageDigest messageDigest = null;
-                    try {
-                        messageDigest = MessageDigest.getInstance("SHA-1");
-                    } catch (NoSuchAlgorithmException e) {
-                        e.printStackTrace();
-                    }
-                    messageDigest.update(concat1.getBytes());
-                    String hashId1 = new String(messageDigest.digest());
-                    System.out.println(hashId1);
-                   // int hashId1= concat1.hashCode();
-                    String s2="Copy2";
-                    String concat2=origkey.concat(s2);
-                    MessageDigest messageDigest1 = null;
-                    try {
-                        messageDigest1 = MessageDigest.getInstance("SHA-1");
-                    } catch (NoSuchAlgorithmException e) {
-                        e.printStackTrace();
-                    }
-                    messageDigest.update(concat2.getBytes());
-                    String hashId2 = new String(messageDigest.digest());
-                    System.out.println(hashId2);
-                    //int hashId2=concat2.hashCode();
+                    String[] s=rootcalc(origkey);
+                    File f=XMLforRoot(s[0],s[1]);
+                    IMbuffer.addToIMOutputBuffer(f);
 
                 }
             } else {
@@ -166,6 +136,14 @@ public class IndexingManager {
 
                 utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
             }
+
+            else{
+                    String[] s=rootcalc(origkey);
+                    File f=XMLforRoot(s[0],s[1]);
+                    IMbuffer.addToIMOutputBuffer(f);
+
+                }
+
             }
 
         } else {
@@ -174,8 +152,105 @@ public class IndexingManager {
 
     }
 
+    public String[] rootcalc(String key){
+        String s1="Copy1";
+        String concat1=key.concat(s1);
 
-    // This method is used to delete index entry to database.
+        MessageDigest messageDigest = null;
+        try {
+            messageDigest = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        messageDigest.update(concat1.getBytes());
+        String hashId1 = new String(messageDigest.digest());
+
+        String s2="Copy2";
+        String concat2=key.concat(s2);
+        MessageDigest messageDigest1 = null;
+        try {
+            messageDigest1 = MessageDigest.getInstance("SHA-1");
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        messageDigest.update(concat2.getBytes());
+        String hashId2 = new String(messageDigest.digest());
+
+        String[] strArray1 = new String[2];
+        strArray1[0]=hashId1;
+        strArray1[1]=hashId2;
+        return strArray1;
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public File XMLforRoot(String hashID1,String hashID2) {
+        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\Root Nodes for Copy1 and Copy 2.xml";
+        try {
+
+            DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
+
+            Document document = documentBuilder.newDocument();
+
+            // root element
+            Element root = document.createElement("Root_Nodes_For_Copy1&Copy2");
+            document.appendChild(root);
+
+            // root1 element
+            Element root1 = document.createElement("Root1");
+            root1.appendChild(document.createTextNode(hashID1));
+            root.appendChild(root1);
+
+            // root2 element
+            Element root2 = document.createElement("Root2");
+            root2.appendChild(document.createTextNode(hashID2));
+            root.appendChild(root2);
+
+            // create the xml file
+            //transform the DOM Object to an XML File
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource domSource = new DOMSource(document);
+            StreamResult streamResult = new StreamResult(new File(xmlFilePath));
+
+            // If you use
+            // StreamResult result = new StreamResult(System.out);
+            // the output will be pushed to the standard output ...
+            // You can use that for debugging
+
+            transformer.transform(domSource, streamResult);
+
+            System.out.println("Done creating XML File");
+
+        } catch (ParserConfigurationException pce) {
+            pce.printStackTrace();
+        } catch (TransformerException tfe) {
+            tfe.printStackTrace();
+        }
+
+            File file =new File(xmlFilePath);
+
+            return file;
+        }
+
+
+        // This method is used to delete index entry to database.
    
  /*public void deleteEntry( String Key){
 
@@ -210,7 +285,7 @@ public class IndexingManager {
     }
 
     public File makeXML(String key, int layerID, String value1, Long time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, Long time){
-        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\return.xml";
+        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\Search Result for Key.xml";
         try {
 
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();

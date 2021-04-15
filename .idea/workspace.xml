@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="12c575c6-9a82-49d9-81c9-7609cafc42b0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Testing/Testing.java" afterPath="$PROJECT_DIR$/src/Testing/Testing.java" />
       <change beforePath="$PROJECT_DIR$/src/main/IndexingManager.java" afterPath="$PROJECT_DIR$/src/main/IndexingManager.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/IndexingManagerBuffer.java" afterPath="$PROJECT_DIR$/src/main/IndexingManagerBuffer.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,13 +18,13 @@
       <file leaf-file-name="IndexingManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="230">
-              <caret line="207" column="17" lean-forward="true" selection-start-line="207" selection-start-column="17" selection-end-line="207" selection-end-column="17" />
+            <state relative-caret-position="181">
+              <caret line="142" column="52" lean-forward="false" selection-start-line="142" selection-start-column="52" selection-end-line="142" selection-end-column="52" />
               <folding>
-                <marker date="1618471443036" expanded="true" signature="11029:11051" ph=" SELECT statement" />
-                <marker date="1618471443036" expanded="true" signature="11029:11052" ph=" SELECT statement (MISSINGVALUE)" />
-                <marker date="1618471443036" expanded="true" signature="11703:11726" ph=" SELECT statement (KEYVALUE1)" />
-                <marker date="1618471443036" expanded="true" signature="12076:12126" ph=" SELECT statement (KEYVALUE1)" />
+                <marker date="1618473858542" expanded="true" signature="12780:12802" ph=" SELECT statement" />
+                <marker date="1618473858542" expanded="true" signature="12780:12803" ph=" SELECT statement (MISSINGVALUE)" />
+                <marker date="1618473858542" expanded="true" signature="13454:13477" ph=" SELECT statement (KEYVALUE1)" />
+                <marker date="1618473858542" expanded="true" signature="13827:13877" ph=" SELECT statement (KEYVALUE1)" />
               </folding>
             </state>
           </provider>
@@ -484,7 +482,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618387684372</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="XML file created for search query and added to Output Buffer">
+      <created>1618471491883</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1618471491883</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -566,7 +571,8 @@
     <MESSAGE value="Copy Number functionality and hashing block added" />
     <MESSAGE value="Maintenance thread updated" />
     <MESSAGE value="XML file creation containing root nodes of Copy1 and Copy2 done" />
-    <option name="LAST_COMMIT_MESSAGE" value="XML file creation containing root nodes of Copy1 and Copy2 done" />
+    <MESSAGE value="XML file created for search query and added to Output Buffer" />
+    <option name="LAST_COMMIT_MESSAGE" value="XML file created for search query and added to Output Buffer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -580,10 +586,10 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1618471443036" expanded="true" signature="11029:11051" ph=" SELECT statement" />
-            <marker date="1618471443036" expanded="true" signature="11029:11052" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1618471443036" expanded="true" signature="11703:11726" ph=" SELECT statement (KEYVALUE1)" />
-            <marker date="1618471443036" expanded="true" signature="12076:12126" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="12780:12802" ph=" SELECT statement" />
+            <marker date="1618473858542" expanded="true" signature="12780:12803" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1618473858542" expanded="true" signature="13454:13477" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="13827:13877" ph=" SELECT statement (KEYVALUE1)" />
           </folding>
         </state>
       </provider>
@@ -643,10 +649,10 @@
         <state relative-caret-position="357">
           <caret line="21" column="36" lean-forward="true" selection-start-line="21" selection-start-column="36" selection-end-line="21" selection-end-column="36" />
           <folding>
-            <marker date="1618471443036" expanded="true" signature="11029:11051" ph=" SELECT statement" />
-            <marker date="1618471443036" expanded="true" signature="11029:11052" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1618471443036" expanded="true" signature="11703:11726" ph=" SELECT statement (KEYVALUE1)" />
-            <marker date="1618471443036" expanded="true" signature="12076:12126" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="12780:12802" ph=" SELECT statement" />
+            <marker date="1618473858542" expanded="true" signature="12780:12803" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1618473858542" expanded="true" signature="13454:13477" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="13827:13877" ph=" SELECT statement (KEYVALUE1)" />
           </folding>
         </state>
       </provider>
@@ -681,10 +687,10 @@
         <state relative-caret-position="4182">
           <caret line="246" column="49" lean-forward="true" selection-start-line="246" selection-start-column="49" selection-end-line="246" selection-end-column="49" />
           <folding>
-            <marker date="1618471443036" expanded="true" signature="11029:11051" ph=" SELECT statement" />
-            <marker date="1618471443036" expanded="true" signature="11029:11052" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1618471443036" expanded="true" signature="11703:11726" ph=" SELECT statement (KEYVALUE1)" />
-            <marker date="1618471443036" expanded="true" signature="12076:12126" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="12780:12802" ph=" SELECT statement" />
+            <marker date="1618473858542" expanded="true" signature="12780:12803" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1618473858542" expanded="true" signature="13454:13477" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="13827:13877" ph=" SELECT statement (KEYVALUE1)" />
           </folding>
         </state>
       </provider>
@@ -709,10 +715,10 @@
         <state relative-caret-position="1088">
           <caret line="64" column="89" lean-forward="true" selection-start-line="64" selection-start-column="89" selection-end-line="64" selection-end-column="89" />
           <folding>
-            <marker date="1618471443036" expanded="true" signature="11029:11051" ph=" SELECT statement" />
-            <marker date="1618471443036" expanded="true" signature="11029:11052" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1618471443036" expanded="true" signature="11703:11726" ph=" SELECT statement (KEYVALUE1)" />
-            <marker date="1618471443036" expanded="true" signature="12076:12126" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="12780:12802" ph=" SELECT statement" />
+            <marker date="1618473858542" expanded="true" signature="12780:12803" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1618473858542" expanded="true" signature="13454:13477" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="13827:13877" ph=" SELECT statement (KEYVALUE1)" />
           </folding>
         </state>
       </provider>
@@ -844,13 +850,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="207" column="17" lean-forward="true" selection-start-line="207" selection-start-column="17" selection-end-line="207" selection-end-column="17" />
+        <state relative-caret-position="181">
+          <caret line="142" column="52" lean-forward="false" selection-start-line="142" selection-start-column="52" selection-end-line="142" selection-end-column="52" />
           <folding>
-            <marker date="1618471443036" expanded="true" signature="11029:11051" ph=" SELECT statement" />
-            <marker date="1618471443036" expanded="true" signature="11029:11052" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1618471443036" expanded="true" signature="11703:11726" ph=" SELECT statement (KEYVALUE1)" />
-            <marker date="1618471443036" expanded="true" signature="12076:12126" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="12780:12802" ph=" SELECT statement" />
+            <marker date="1618473858542" expanded="true" signature="12780:12803" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1618473858542" expanded="true" signature="13454:13477" ph=" SELECT statement (KEYVALUE1)" />
+            <marker date="1618473858542" expanded="true" signature="13827:13877" ph=" SELECT statement (KEYVALUE1)" />
           </folding>
         </state>
       </provider>
