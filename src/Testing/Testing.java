@@ -3,6 +3,7 @@ package src.Testing;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import src.main.IndexingManager;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -38,8 +39,10 @@ public class Testing {
 
     public static final String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\xmlfile.xml";
     public static void main(String argv[]) {
+        IndexingManager IM= IndexingManager.getInstance();
+        IM.makeXML("hiii",2,"hoooo",System.currentTimeMillis(),2,2,true,"ccccc",System.currentTimeMillis());
 
-        try {
+       /* try {
 
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
 
@@ -95,7 +98,7 @@ public class Testing {
             pce.printStackTrace();
         } catch (TransformerException tfe) {
             tfe.printStackTrace();
-        }
+        }*/
     }
 }
 

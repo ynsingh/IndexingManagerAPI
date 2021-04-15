@@ -1,7 +1,20 @@
 package src.main;
 
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.w3c.dom.Attr;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
+import javax.xml.transform.TransformerException;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
+import java.io.File;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
@@ -12,6 +25,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static src.Testing.Testing.xmlFilePath;
 
 //This is main class of IndexingManager API. Glue code will interact with this class for
 // adding,deleting,updating and searching an index.It has methods for doing these tasks.
@@ -30,6 +45,7 @@ public class IndexingManager {
     private static java.security.cert.Certificate origCerti;
     private Connection conn;
     private Database_Utility utility;
+    private IndexingManagerBuffer IMbuffer;
 
     //This method will check whether table for layerID requested exists or not.Returns true if table exists.
 
@@ -117,25 +133,25 @@ public class IndexingManager {
 
                     MessageDigest messageDigest = null;
                     try {
-                        messageDigest = MessageDigest.getInstance("SHA-256");
+                        messageDigest = MessageDigest.getInstance("SHA-1");
                     } catch (NoSuchAlgorithmException e) {
                         e.printStackTrace();
                     }
                     messageDigest.update(concat1.getBytes());
                     String hashId1 = new String(messageDigest.digest());
-
+                    System.out.println(hashId1);
                    // int hashId1= concat1.hashCode();
                     String s2="Copy2";
                     String concat2=origkey.concat(s2);
                     MessageDigest messageDigest1 = null;
                     try {
-                        messageDigest1 = MessageDigest.getInstance("SHA-256");
+                        messageDigest1 = MessageDigest.getInstance("SHA-1");
                     } catch (NoSuchAlgorithmException e) {
                         e.printStackTrace();
                     }
                     messageDigest.update(concat2.getBytes());
                     String hashId2 = new String(messageDigest.digest());
-
+                    System.out.println(hashId2);
                     //int hashId2=concat2.hashCode();
 
                 }
@@ -176,24 +192,107 @@ public class IndexingManager {
 
     }
 
-    // This method is used to search index entry using key and layerID in database.
+    // This method is used to search index entry using key and layerID in database. Also it will put details of object in an output buffer as XML file.
 
-    public ObjReturn searchEntry(String Key, int layerID) {
+    public File searchEntry(String Key, int layerID) {
 
         ObjReturn obj = utility.search_entry(Key, layerID);
         boolean b=obj.timerType1;
-        //Send to output buffer
 
         if(!b)
         {
             updateEntry(Key,layerID);
         }
-
-        return obj;
+        File f=makeXML(Key,layerID,obj.value1,obj.time1,obj.totalCopies1,obj.copyNum1,obj.timerType1,obj.userId,obj.time);
+        IMbuffer.addToIMOutputBuffer(f);
+        return f;
 
     }
 
-//    This method is used to delete entries as per Timer Type and timer associated with it.
+    public File makeXML(String key, int layerID, String value1, Long time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, Long time){
+        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\return.xml";
+        try {
+
+            DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder documentBuilder = documentFactory.newDocumentBuilder();
+
+            Document document = documentBuilder.newDocument();
+
+            // root element
+            Element key1 = document.createElement("Search_Result_for_key");
+            document.appendChild(key1);
+            key1.setAttribute("Key",key);
+
+            // employee element
+            Element layerid = document.createElement("layerid");
+
+            key1.appendChild(layerid);
+            layerid.setAttribute("Id", String.valueOf(layerID));
+
+            // firstname element
+            Element Value = document.createElement("Value");
+            Value.appendChild(document.createTextNode(value1));
+            layerid.appendChild(Value);
+
+            // second element
+            Element timer = document.createElement("timer");
+            timer.appendChild(document.createTextNode(String.valueOf(time1)));
+            layerid.appendChild(timer);
+
+            // third element
+            Element totcopies = document.createElement("totcopies");
+            totcopies.appendChild(document.createTextNode(String.valueOf(totalCopies1)));
+            layerid.appendChild(totcopies);
+
+            // fourth element
+            Element copynum= document.createElement("copynum");
+            copynum.appendChild(document.createTextNode(String.valueOf(copyNum1)));
+            layerid.appendChild(copynum);
+
+            // fifth element
+            Element timertype= document.createElement("timertype");
+            timertype.appendChild(document.createTextNode(String.valueOf(timerType1)));
+            layerid.appendChild(timertype);
+
+            // sixth element
+            Element userid= document.createElement("userid");
+            userid.appendChild(document.createTextNode(userId));
+            layerid.appendChild(userid);
+
+            // seventh element
+            Element time2= document.createElement("time");
+            time2.appendChild(document.createTextNode(String.valueOf(time1)));
+            layerid.appendChild(time2);
+
+            // create the xml file
+            //transform the DOM Object to an XML File
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource domSource = new DOMSource(document);
+            StreamResult streamResult = new StreamResult(new File(xmlFilePath));
+
+            // If you use
+            // StreamResult result = new StreamResult(System.out);
+            // the output will be pushed to the standard output ...
+            // You can use that for debugging
+
+            transformer.transform(domSource, streamResult);
+
+            System.out.println("Done creating XML File");
+
+        } catch (ParserConfigurationException pce) {
+            pce.printStackTrace();
+        } catch (TransformerException tfe) {
+            tfe.printStackTrace();
+        }
+
+        File file=new File(xmlFilePath);
+   return file;
+    }
+
+
+//    This method is used to delete entries which are of type Fixed as per timer associated with it.
 
     public void maintenancethread() {
         PreparedStatement pst = null;
@@ -285,7 +384,9 @@ public class IndexingManager {
         Security.addProvider(provider);
         utility = Database_Utility.getInstance();
         conn = utility.getConnection();
-        utility.createtable(100);
+        IMbuffer=IndexingManagerBuffer.getInstance();
+        //utility.createtable(0);
+        //utility.createtable(100);
 
 
     }
