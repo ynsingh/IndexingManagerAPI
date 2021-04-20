@@ -8,6 +8,7 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -17,6 +18,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
+import java.security.cert.Certificate;
 import java.sql.*;
 
 //This is main class of IndexingManager API. Glue code will interact with this class for
@@ -41,7 +43,7 @@ public class IndexingManager {
     //This method will check whether table for layerID requested exists or not.Returns true if table exists.
 
 
-    private boolean checkTable(int layerId)
+    public boolean checkTable(int layerId)
 
     {
         boolean isAvailable = false;
@@ -53,17 +55,20 @@ public class IndexingManager {
             while (rs.next()) {
 
                 String ld = rs.getString("TABLE_NAME");
-
+                System.out.println(ld);
                 //This statement will extract digits from table names.
 
                 String intValue = ld.replaceAll("[^0-9]", "");
-                int v = Integer.parseInt(intValue);
-
+                System.out.println(intValue);
+                int v;
+                if (intValue != null) {
+                    v = Integer.parseInt(intValue);
+                    if (v == layerId) {
+                        isAvailable = true;
+                    }
+                }
                 //This statement will compare layerid with digits of table names.
 
-                if (v == layerId) {
-                    isAvailable = true;
-                }
             }
             rs.close();
         } catch (SQLException e) {
@@ -73,10 +78,12 @@ public class IndexingManager {
         return isAvailable;
     }
 
-    private boolean checkiforiginal(int copynum){
-        boolean isAvailable=false;
-        if(copynum==0){
-            isAvailable=true;
+    //This method will check whether index which is to be added is Copy0/Copy1/Copy2.If Copy0 it will return true.
+
+    private boolean checkiforiginal(int copynum) {
+        boolean isAvailable = false;
+        if (copynum == 0) {
+            isAvailable = true;
         }
         return isAvailable;
     }
@@ -113,34 +120,34 @@ public class IndexingManager {
 
                 //If table exists
 
-                boolean b3=checkiforiginal(copyNum);
-                if(!b3) {
+                boolean b3 = checkiforiginal(copyNum);
+                if (!b3) {
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
                     System.out.println("Entry added");
-                }
-                else{
+                } else {
 
-                    String[] s=rootcalc(origkey);
-                    File f=XMLforRoot(s[0],s[1]);
-                    IMbuffer.addToIMOutputBuffer(f);
-
+                    String[] s = rootcalc(origkey);
+                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    IMbuffer.addToIMOutputBuffer(f1);
+                    IMbuffer.addToIMOutputBuffer(f2);
                 }
             } else {
 
-                //If table doesn't exist then create table and then add entry.
+                //If table doesn't exist then create table and add entry.
 
                 utility.createtable(origLayerId);
 
-                boolean b4=checkiforiginal(copyNum);
-                if(!b4) {
+                boolean b4 = checkiforiginal(copyNum);
+                if (!b4) {
 
-                utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
-            }
-
-            else{
-                    String[] s=rootcalc(origkey);
-                    File f=XMLforRoot(s[0],s[1]);
-                    IMbuffer.addToIMOutputBuffer(f);
+                    utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                } else {
+                    String[] s = rootcalc(origkey);
+                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    IMbuffer.addToIMOutputBuffer(f1);
+                    IMbuffer.addToIMOutputBuffer(f2);
 
                 }
 
@@ -152,54 +159,58 @@ public class IndexingManager {
 
     }
 
-    public String[] rootcalc(String key){
-        String s1="Copy1";
-        String concat1=key.concat(s1);
+    //This method is used to calculate root nodes for Copy1 and Copy2,returns an array containing them.
 
+    public String[] rootcalc(String key) {
+        String s1 = "Copy1";
+        String concat1 = key.concat(s1);
+        String hashId1 = null;
+        String hashId2 = null;
         MessageDigest messageDigest = null;
         try {
             messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update(concat1.getBytes());
+            byte[] digest = messageDigest.digest();
+            StringBuilder hexString = new StringBuilder();
+            for (byte bytes : digest) {
+                hexString.append(String.format("%02x", bytes).toUpperCase());
+            }
+            hashId1 = hexString.toString();
+            System.out.println(hashId1);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        messageDigest.update(concat1.getBytes());
-        String hashId1 = new String(messageDigest.digest());
 
-        String s2="Copy2";
-        String concat2=key.concat(s2);
+
+        String s2 = "Copy2";
+        String concat2 = key.concat(s2);
         MessageDigest messageDigest1 = null;
         try {
             messageDigest1 = MessageDigest.getInstance("SHA-1");
+            messageDigest1.update(concat2.getBytes());
+            byte[] digest1 = messageDigest1.digest();
+            StringBuilder hexString1 = new StringBuilder();
+            for (byte bytes : digest1) {
+                hexString1.append(String.format("%02x", bytes).toUpperCase());
+            }
+            hashId2 = hexString1.toString();
+            System.out.println(hashId2);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        messageDigest.update(concat2.getBytes());
-        String hashId2 = new String(messageDigest.digest());
+
 
         String[] strArray1 = new String[2];
-        strArray1[0]=hashId1;
-        strArray1[1]=hashId2;
+        strArray1[0] = hashId1;
+        strArray1[1] = hashId2;
         return strArray1;
-
-
 
     }
 
+    //This method is used to create XML files containing root node,other details for key and add to output buffer for Glue code.
 
-
-
-
-
-
-
-
-
-
-
-
-
-    public File XMLforRoot(String hashID1,String hashID2) {
-        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\Root Nodes for Copy1 and Copy 2.xml";
+    public File XMLforRoot(String hashid, String key, String value, int LayerId, int copyNum, Long timer, boolean timerType, String userid, Long Time, Certificate Certi) {
+        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\For Root Node.xml";
         try {
 
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -209,18 +220,40 @@ public class IndexingManager {
             Document document = documentBuilder.newDocument();
 
             // root element
-            Element root = document.createElement("Root_Nodes_For_Copy1&Copy2");
+            Element root = document.createElement("Root_Node_For_Copy_and_Data");
             document.appendChild(root);
 
-            // root1 element
-            Element root1 = document.createElement("Root1");
-            root1.appendChild(document.createTextNode(hashID1));
-            root.appendChild(root1);
+            Element hashId = document.createElement("HashID");
+            hashId.appendChild(document.createTextNode(hashid));
+            root.appendChild(hashId);
 
-            // root2 element
-            Element root2 = document.createElement("Root2");
-            root2.appendChild(document.createTextNode(hashID2));
-            root.appendChild(root2);
+            Element layerid = document.createElement("layerid");
+            hashId.appendChild(layerid);
+            layerid.setAttribute("Id", String.valueOf(LayerId));
+
+            Element key1 = document.createElement("Key");
+            hashId.appendChild(key1);
+            key1.setAttribute("Key", key);
+
+            Element Value = document.createElement("Value");
+            Value.appendChild(document.createTextNode(value));
+            hashId.appendChild(Value);
+
+            Element copynum = document.createElement("copynum");
+            copynum.appendChild(document.createTextNode(String.valueOf(copyNum)));
+            hashId.appendChild(copynum);
+
+            Element timer2 = document.createElement("timer");
+            timer2.appendChild(document.createTextNode(String.valueOf(timer)));
+            hashId.appendChild(timer2);
+
+            Element timertype = document.createElement("timertype");
+            timertype.appendChild(document.createTextNode(String.valueOf(timerType)));
+            hashId.appendChild(timertype);
+
+            Element time2 = document.createElement("time");
+            time2.appendChild(document.createTextNode(String.valueOf(Time)));
+            hashId.appendChild(time2);
 
             // create the xml file
             //transform the DOM Object to an XML File
@@ -228,11 +261,6 @@ public class IndexingManager {
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(document);
             StreamResult streamResult = new StreamResult(new File(xmlFilePath));
-
-            // If you use
-            // StreamResult result = new StreamResult(System.out);
-            // the output will be pushed to the standard output ...
-            // You can use that for debugging
 
             transformer.transform(domSource, streamResult);
 
@@ -244,13 +272,12 @@ public class IndexingManager {
             tfe.printStackTrace();
         }
 
-            File file =new File(xmlFilePath);
+        File file = new File(xmlFilePath);
+        return file;
+    }
 
-            return file;
-        }
 
-
-        // This method is used to delete index entry to database.
+    // This method is used to delete index entry to database.
    
  /*public void deleteEntry( String Key){
 
@@ -259,11 +286,11 @@ public class IndexingManager {
 
   }*/
 
-    // This method is used to update an index entry in database.User will pass Value which is to be updated and layer id to which user belongs.
+    // This method is used to update current time for perpetual index entry an index entry.
 
-    public void updateEntry(String Key,int layerID) {
+    public void updateEntry(String Key, int layerID) {
 
-        utility.update_entry(Key,layerID);
+        utility.update_entry(Key, layerID);
 
     }
 
@@ -272,19 +299,18 @@ public class IndexingManager {
     public File searchEntry(String Key, int layerID) {
 
         ObjReturn obj = utility.search_entry(Key, layerID);
-        boolean b=obj.timerType1;
+        boolean b = obj.timerType1;
 
-        if(!b)
-        {
-            updateEntry(Key,layerID);
+        if (!b) {
+            updateEntry(Key, layerID);
         }
-        File f=makeXML(Key,layerID,obj.value1,obj.time1,obj.totalCopies1,obj.copyNum1,obj.timerType1,obj.userId,obj.time);
+        File f = makeXML(Key, layerID, obj.value1, obj.time1, obj.totalCopies1, obj.copyNum1, obj.timerType1, obj.userId, obj.time);
         IMbuffer.addToIMOutputBuffer(f);
         return f;
 
     }
 
-    public File makeXML(String key, int layerID, String value1, Long time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, Long time){
+    public File makeXML(String key, int layerID, String value1, Long time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, Long time) {
         String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\Search Result for Key.xml";
         try {
 
@@ -297,7 +323,7 @@ public class IndexingManager {
             // root element
             Element key1 = document.createElement("Search_Result_for_key");
             document.appendChild(key1);
-            key1.setAttribute("Key",key);
+            key1.setAttribute("Key", key);
 
             // employee element
             Element layerid = document.createElement("layerid");
@@ -321,22 +347,22 @@ public class IndexingManager {
             layerid.appendChild(totcopies);
 
             // fourth element
-            Element copynum= document.createElement("copynum");
+            Element copynum = document.createElement("copynum");
             copynum.appendChild(document.createTextNode(String.valueOf(copyNum1)));
             layerid.appendChild(copynum);
 
             // fifth element
-            Element timertype= document.createElement("timertype");
+            Element timertype = document.createElement("timertype");
             timertype.appendChild(document.createTextNode(String.valueOf(timerType1)));
             layerid.appendChild(timertype);
 
             // sixth element
-            Element userid= document.createElement("userid");
+            Element userid = document.createElement("userid");
             userid.appendChild(document.createTextNode(userId));
             layerid.appendChild(userid);
 
             // seventh element
-            Element time2= document.createElement("time");
+            Element time2 = document.createElement("time");
             time2.appendChild(document.createTextNode(String.valueOf(time1)));
             layerid.appendChild(time2);
 
@@ -346,11 +372,6 @@ public class IndexingManager {
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(document);
             StreamResult streamResult = new StreamResult(new File(xmlFilePath));
-
-            // If you use
-            // StreamResult result = new StreamResult(System.out);
-            // the output will be pushed to the standard output ...
-            // You can use that for debugging
 
             transformer.transform(domSource, streamResult);
 
@@ -362,12 +383,12 @@ public class IndexingManager {
             tfe.printStackTrace();
         }
 
-        File file=new File(xmlFilePath);
-   return file;
+        File file = new File(xmlFilePath);
+        return file;
     }
 
 
-//    This method is used to delete entries which are of type Fixed as per timer associated with it.
+//    This method is used to delete entries which are of type fixed as per timer associated with it.
 
     public void maintenancethread() {
         PreparedStatement pst = null;
@@ -405,52 +426,7 @@ public class IndexingManager {
             e.printStackTrace();
         }
 
-
-        /*try {
-            pst = conn.prepareStatement("select * from keyvalue1");
-            ResultSet rs = pst.executeQuery();
-            while (rs.next()) {
-                timerType = rs.getBoolean("timerType");
-                rowid = rs.getRow();
-                System.out.println(rowid);
-                System.out.println(timerType);
-
-
-                if (timerType) {
-                    pst = conn.prepareStatement("SELECT timer,time,Key FROM keyvalue1 where rowid=?");
-                    pst.setInt(1, rowid);
-                    ResultSet rs2 = pst.executeQuery();
-                    timer = rs2.getLong("timer");
-                    time = rs2.getLong("time");
-                    key = rs2.getString("Key");
-                    rs2.close();
-                    System.out.println(timer);
-                    System.out.println(time);
-                    System.out.println(key);
-
-                    if (!(timer == 0)) {
-                        System.out.println(System.currentTimeMillis() - time > timer);
-                        if (System.currentTimeMillis() - time > timer) {
-                            utility.delete_entry(rowid);
-
-                        }
-
-                    }
-                } else {
-
-                }
-            }
-            pst.close();
-            rs.close();
-            conn.close();
-
-
-        } catch (SQLException ex) {
-            Logger.getLogger(IndexingManager.class.getName()).log(Level.SEVERE, null, ex);
-        }*/
-
     }
-
 
 //    Constructor function of Main class.
 
@@ -459,12 +435,13 @@ public class IndexingManager {
         Security.addProvider(provider);
         utility = Database_Utility.getInstance();
         conn = utility.getConnection();
-        IMbuffer=IndexingManagerBuffer.getInstance();
-        //utility.createtable(0);
-        //utility.createtable(100);
-
+        IMbuffer = IndexingManagerBuffer.getInstance();
+        utility.createtable(100);
+        maintenancethread();
+        resultForIndexingManager();
 
     }
+
 //  Creating Singleton object of IndexingManager class.
 
     public static synchronized IndexingManager getInstance() {
@@ -476,4 +453,70 @@ public class IndexingManager {
         }
     }
 
+    //This method is used to generate xml file for routing manager to ascertain for which nodes I am root or not.After file generation
+    // objects of file are made and added to output buffer.
+
+    public void resultForIndexingManager() {
+        PreparedStatement stmt = null;
+        int rowlength;
+
+        try {
+            //This statement will fetch all tables available in database.
+            ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
+            while (rs.next()) {
+                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder builder = factory.newDocumentBuilder();
+                Document doc = builder.newDocument();
+
+                String ld = rs.getString("TABLE_NAME");
+                System.out.println(ld);
+
+                //This statement will extract digits from table names.
+
+                String intValue = ld.replaceAll("[^0-9]", "");
+                int v = Integer.parseInt(intValue);
+                System.out.println(v);
+
+                //create root Element
+
+                Element root = doc.createElement("CheckingRootNodeForIndex");
+                doc.appendChild(root);
+
+                root.setAttribute("LayerID", intValue);
+
+                int i =1;
+                    stmt = conn.prepareStatement("select key from " + ld);
+                    ResultSet rs2 = stmt.executeQuery();
+                    while (rs2.next()) {
+                        Element row1 = doc.createElement("DATA");
+                        root.appendChild(row1);
+                        row1.setAttribute("INDEX", "[" + i + "]");
+
+                        Element nodeID = doc.createElement("KEY");
+                        nodeID.appendChild(doc.createTextNode(rs2.getString("key")));
+                        row1.appendChild(nodeID);
+
+                        Element nodePub = doc.createElement("NEXTHOP");
+                        nodePub.appendChild(doc.createTextNode(""));
+                        row1.appendChild(nodePub);
+                        i+=1;
+                    }
+                    rs2.close();
+
+                TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                Transformer transformer = transformerFactory.newTransformer();
+                DOMSource domSource = new DOMSource(doc);
+
+                StreamResult streamResult = new StreamResult(new File(ld + "_RootNodeCheck" + ".xml"));
+                transformer.transform(domSource, streamResult);
+                System.out.println("Root Node checking file is generated");
+            }
+            rs.close();
+        } catch (TransformerException | SQLException e) {
+            e.printStackTrace();
+        } catch (ParserConfigurationException e) {
+            e.printStackTrace();
+        }
+
+    }
 }

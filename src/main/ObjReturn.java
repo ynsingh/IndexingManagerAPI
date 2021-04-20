@@ -1,4 +1,7 @@
-package src.main;//This calss is used to collect values from database corresponding to key and return values as an object
+package src.main;
+
+
+//This class is used to collect values from database corresponding to search query for key and return values in an object
 
 
 public class ObjReturn {

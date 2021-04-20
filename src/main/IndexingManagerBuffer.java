@@ -5,9 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
 
-
 //This class is used to create Input and Output Buffer for IndexingManager.
-
 
 public class IndexingManagerBuffer {
 
@@ -41,6 +39,7 @@ public class IndexingManagerBuffer {
 
 
  // Adding file to Input buffer. Returning true if added successfully.
+
     boolean addToIMInputBuffer(File file) {
         inputIMBufferLock.lock();
         inputIMBuffer.add(file);
@@ -75,7 +74,6 @@ public class IndexingManagerBuffer {
 
 // This method is used to fetch file from input buffer one by one.
 
-
     File fetchFromIMOutputBuffer() {
         outputIMBufferLock.lock();
         File file = null;
@@ -88,25 +86,5 @@ public class IndexingManagerBuffer {
         outputIMBufferLock.unlock();
         return file;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

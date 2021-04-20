@@ -103,7 +103,6 @@ public class SignatureVerif {
 
 // This method is used for saving Keystore
 
-
     private static void saveKeyStore() {
         FileOutputStream fos;
         try {
@@ -134,42 +133,6 @@ public class SignatureVerif {
         }
     }
 
-//    PublicKey strToPub(String str) {
-//        PublicKey publicKey = null;
-//        //converting string to byte initially and then back to public key
-//        byte[] bytePub1 = Base64.getDecoder().decode(str);
-//        if (str.equals("")) {
-//            return null;
-//        }
-//        KeyFactory factory;
-//        try {
-//            factory = KeyFactory.getInstance("RSA");
-//            publicKey = factory.generatePublic(new X509EncodedKeySpec(bytePub1));
-//        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-//
-//        }
-//        return publicKey;
-//    }
-//
-//    String pubToStr(PublicKey key) {
-//        String strPub;
-//        //converting public key to byte[] and then convert it in to string
-//        if (key == null) {
-//            strPub = "";
-//            return strPub;
-//        }
-//        byte[] bytePub = key.getEncoded();
-//        strPub = Base64.getEncoder().encodeToString(bytePub);
-//        return strPub;
-    //  }
-
-
-
-
-    // This method is used for retrieving private key from Keystore
-
-
-
       PrivateKey getFromKeyStore() {
          KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
          KeyStore.PrivateKeyEntry privateKeyEntry = null;
@@ -182,8 +145,8 @@ public class SignatureVerif {
         return privateKeyEntry.getPrivateKey();
        }
 
-    // This method is used for generating certificate
 
+    // This method is used for generating certificate
 
     private static X509Certificate generateCertificate() {
         // build a certificate generator
@@ -215,19 +178,12 @@ public class SignatureVerif {
 
     // As methods and object of class is private these methods are used to get public key and keystore.
 
-
     PublicKey getPublicKey() {
         return publicKey;
     }
 
-    KeyStore getKeyStore() {
+    public KeyStore getKeyStore() {
         return keyStore;
     }
-
-
-    public static void main(String[] args) {
-        SignatureVerif s = SignatureVerif.getInstance();
-    }
-
 
 }

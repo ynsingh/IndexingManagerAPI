@@ -6,8 +6,7 @@ import java.security.*;
 import java.security.cert.Certificate;
 import java.util.Base64;
 
-
-//This class is used to verify digital signature of incoming value for indexing.
+//This class is used to verify digital signature of value incoming for indexing.
 
 public class Verif {
 
@@ -57,22 +56,6 @@ public class Verif {
         return verify;
     }
 
-    public static void main(String args[]) {
-
-        java.security.cert.Certificate c1 = null;
-
-        try {
-            SignatureVerif S2 = SignatureVerif.getInstance();
-            KeyStore k = S2.getKeyStore();
-            c1 = k.getCertificate("Certificate");
-        } catch (KeyStoreException e) {
-            e.printStackTrace();
-        }
-        boolean v = new Verif().Verify_Digital_Signature( c1, "Hello");
-        System.out.println(v);
-
-
-    }
 }
 
 

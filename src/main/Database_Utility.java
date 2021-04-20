@@ -1,4 +1,4 @@
-package src.main;//This class has funtionality to interact with SQL database and perform assigned task by IndexingManager Class
+package src.main;//This class has functionality to interact with SQL database and perform assigned task by IndexingManager Class
 
 
 import java.security.cert.Certificate;
@@ -8,7 +8,7 @@ import java.util.logging.Logger;
 
 
 
-class Database_Utility {
+public class Database_Utility {
 
     private Connection conn;
 
@@ -17,6 +17,8 @@ class Database_Utility {
     private Database_Utility(){
         conn=getConnection();
     }
+
+    //Creating Singleton Object
 
     public static synchronized Database_Utility getInstance() {
         if (utility == null) {
@@ -34,7 +36,7 @@ class Database_Utility {
         try {
             Class.forName("org.sqlite.JDBC");
             //conn= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\a\\Documents\\NetBeansProjects\\IndexManagerAPI\\src\\KeyValuePairs.db");
-            conn= DriverManager.getConnection("jdbc:sqlite:C:\\Users\\a\\Pictures\\IndexingManagerAPI.db");
+            conn= DriverManager.getConnection("jdbc:sqlite:KeyValuePairs.db");
         } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -42,6 +44,7 @@ class Database_Utility {
 
     }
 
+//This method is used to create table in database as per layerid.
 
     public void createtable(int layerid) {
         try {
@@ -70,7 +73,7 @@ class Database_Utility {
     }
 
 
-    // This method is used to add index entry to database.
+    // This method is used to add index entry to database as per layer id.
 
     public  void add_entry(int layerID, String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId, Long time, Certificate c) {
         try {
@@ -133,6 +136,8 @@ class Database_Utility {
         return obj1;
     }
 
+    //This method is used to delete entry in particular table depending on layer id.
+
     public void delete_entry(int rid) {
         try {
 
@@ -150,6 +155,8 @@ class Database_Utility {
         }
     }
 
+    //This method is used to update time for perpetual entries.
+
     public void update_entry(String Key, int layerID) {
 
         try {
@@ -166,7 +173,7 @@ class Database_Utility {
     }
 
 
-    public boolean search_userId(String userId) {
+    /*public boolean search_userId(String userId) {
         boolean b = false;
 
         PreparedStatement stmt = null;
@@ -186,7 +193,7 @@ class Database_Utility {
 
 
         return b;
-    }
+    }*/
 }
 
 
