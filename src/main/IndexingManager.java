@@ -8,7 +8,6 @@ import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.transform.Transformer;
-import javax.xml.transform.TransformerConfigurationException;
 import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
@@ -20,6 +19,7 @@ import java.security.Provider;
 import java.security.Security;
 import java.security.cert.Certificate;
 import java.sql.*;
+import java.util.ArrayList;
 
 //This is main class of IndexingManager API. Glue code will interact with this class for
 // adding,deleting,updating and searching an index.It has methods for doing these tasks.
@@ -436,10 +436,21 @@ public class IndexingManager {
         utility = Database_Utility.getInstance();
         conn = utility.getConnection();
         IMbuffer = IndexingManagerBuffer.getInstance();
-        utility.createtable(100);
-        maintenancethread();
-        resultForIndexingManager();
 
+       // This statement is to create purge table. I have kept its layer id as 100.
+
+        utility.createtable(100);
+
+      //  This statement is to run maintenance thread on loading of class to purge entries whose timer has expired.
+
+        maintenancethread();
+
+      // This statement will request Routing manager to ascertain keys for which I am root node.
+
+        ArrayList<File> AL=resultForIndexingManager();
+        for(int j=0;j<=AL.size();j++) {
+            IMbuffer.addToIMOutputBuffer(AL.get(j));
+        }
     }
 
 //  Creating Singleton object of IndexingManager class.
@@ -456,9 +467,10 @@ public class IndexingManager {
     //This method is used to generate xml file for routing manager to ascertain for which nodes I am root or not.After file generation
     // objects of file are made and added to output buffer.
 
-    public void resultForIndexingManager() {
+    public ArrayList<File> resultForIndexingManager() {
         PreparedStatement stmt = null;
         int rowlength;
+        ArrayList<File> A = null;
 
         try {
             //This statement will fetch all tables available in database.
@@ -510,13 +522,18 @@ public class IndexingManager {
                 StreamResult streamResult = new StreamResult(new File(ld + "_RootNodeCheck" + ".xml"));
                 transformer.transform(domSource, streamResult);
                 System.out.println("Root Node checking file is generated");
+
+                File f=new File(ld + "_RootNodeCheck" + ".xml");
+                A.add(f);
             }
             rs.close();
+
+
         } catch (TransformerException | SQLException e) {
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
-
+        return A;
     }
 }
