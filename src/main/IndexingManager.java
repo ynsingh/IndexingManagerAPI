@@ -28,13 +28,13 @@ public class IndexingManager {
     private static IndexingManager indexManager;
     private static String origkey;
     private static String origvalue;
-    private static Long origtimer;
+    private static String origtimer;
     private static int origtotalCopies;
     private static int origcopyNum;
     private static boolean origtimerType;
     private static String origuserId;
     private static int origLayerId;
-    private static Long origTime;
+    private static String origTime;
     private static java.security.cert.Certificate origCerti;
     private Connection conn;
     private Database_Utility utility;
@@ -51,15 +51,14 @@ public class IndexingManager {
 
             //This statement will fetch all tables available in database.
 
-            ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
-            while (rs.next()) {
+            ResultSet rs1 = conn.getMetaData().getTables(null, null, null, null);
+            while (rs1.next()) {
 
-                String ld = rs.getString("TABLE_NAME");
-                System.out.println(ld);
+                String ld = rs1.getString("TABLE_NAME");
+
                 //This statement will extract digits from table names.
 
                 String intValue = ld.replaceAll("[^0-9]", "");
-                System.out.println(intValue);
                 int v;
                 if (intValue != null) {
                     v = Integer.parseInt(intValue);
@@ -70,7 +69,7 @@ public class IndexingManager {
                 //This statement will compare layerid with digits of table names.
 
             }
-            rs.close();
+            rs1.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -91,7 +90,7 @@ public class IndexingManager {
 
     // This method is used to add an index entry to database. Glue code will call this method and pass required arguments.
 
-    public void addIndex(String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId, int layerID, Long time, java.security.cert.Certificate c) {
+    public void addIndex(String key, String value, String timer, int totalCopies, int copyNum, boolean timerType, String userId, int layerID, String time, java.security.cert.Certificate c) {
         origkey = key;
         origvalue = value;
         origtimer = timer;
@@ -209,7 +208,7 @@ public class IndexingManager {
 
     //This method is used to create XML files containing root node,other details for key and add to output buffer for Glue code.
 
-    public File XMLforRoot(String hashid, String key, String value, int LayerId, int copyNum, Long timer, boolean timerType, String userid, Long Time, Certificate Certi) {
+    public File XMLforRoot(String hashid, String key, String value, int LayerId, int copyNum, String timer, boolean timerType, String userid, String Time, Certificate Certi) {
         String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\For Root Node.xml";
         try {
 
@@ -310,7 +309,7 @@ public class IndexingManager {
 
     }
 
-    public File makeXML(String key, int layerID, String value1, Long time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, Long time) {
+    public File makeXML(String key, int layerID, String value1,String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time) {
         String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\Search Result for Key.xml";
         try {
 
@@ -391,41 +390,50 @@ public class IndexingManager {
 //    This method is used to delete entries which are of type fixed as per timer associated with it.
 
     public void maintenancethread() {
-        PreparedStatement pst = null;
-        int rowid;
-        Long timer = Long.valueOf(0);
-        long time = 0;
-        ResultSet rs = null;
-        try {
-            rs = conn.getMetaData().getTables(null, null, null, null);
 
-            while (rs.next()) {
+        Thread maintenanceThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                System.out.println(Thread.currentThread());
+                PreparedStatement pst = null;
+                int rowid;
+                long timer = 0;
+                long time = 0;
+                String key;
 
-                String ld = rs.getString("TABLE_NAME");
-                String intValue = ld.replaceAll("[^0-9]", "");
-                int layerid = Integer.parseInt(intValue);
-                String filename = "Table" + layerid;
-                pst = conn.prepareStatement("SELECT timer,time FROM " + filename);
-                ResultSet rs2 = pst.executeQuery();
-                timer = rs2.getLong("timer");
-                time = rs2.getLong("time");
-                rowid = rs2.getRow();
-                if (!(timer == 0)) {
-                    if (System.currentTimeMillis() - time > timer) {
-                        utility.delete_entry(rowid);
 
+                try {
+                    ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
+
+                    while (rs.next()) {
+
+                        String ld = rs.getString("TABLE_NAME");
+                        String intValue = ld.replaceAll("[^0-9]", "");
+                        int layerid = Integer.parseInt(intValue);
+                        String filename = "Table" + layerid;
+                        pst = conn.prepareStatement("SELECT * FROM " + filename);
+                        ResultSet rs2 = pst.executeQuery();
+                        while(rs2.next()) {
+                        timer = Long.parseLong(rs2.getString("timer"));
+                        time = Long.parseLong(rs2.getString("time"));
+                        key=rs2.getString("Key");
+
+                            if (!(timer == 0)) {
+                                if (System.currentTimeMillis() - time > timer) {
+                                    utility.delete_entry(filename, key);
+                                }
+                            }
+                        }
+                        rs2.close();
                     }
+                    pst.close();
+                    rs.close();
+                    conn.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
                 }
-                rs2.close();
             }
-            pst.close();
-            rs.close();
-            conn.close();
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
+        }); maintenanceThread.start();
     }
 
 //    Constructor function of Main class.
@@ -439,18 +447,22 @@ public class IndexingManager {
 
        // This statement is to create purge table. I have kept its layer id as 100.
 
-        utility.createtable(100);
+        boolean k=checkTable(100);
+
+        if(!k) {
+            utility.createtable(100);
+        }
 
       //  This statement is to run maintenance thread on loading of class to purge entries whose timer has expired.
 
-        maintenancethread();
+      // maintenancethread();
 
       // This statement will request Routing manager to ascertain keys for which I am root node.
 
-        ArrayList<File> AL=resultForIndexingManager();
-        for(int j=0;j<=AL.size();j++) {
-            IMbuffer.addToIMOutputBuffer(AL.get(j));
-        }
+      //  ArrayList<File> AL=resultForIndexingManager();
+      //  for(int j=0;j<=AL.size();j++) {
+      //      IMbuffer.addToIMOutputBuffer(AL.get(j));
+       // }
     }
 
 //  Creating Singleton object of IndexingManager class.
@@ -523,8 +535,8 @@ public class IndexingManager {
                 transformer.transform(domSource, streamResult);
                 System.out.println("Root Node checking file is generated");
 
-                File f=new File(ld + "_RootNodeCheck" + ".xml");
-                A.add(f);
+               // File f=new File(ld + "_RootNodeCheck" + ".xml");
+               // A.add(f);
             }
             rs.close();
 

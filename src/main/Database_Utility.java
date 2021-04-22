@@ -53,19 +53,18 @@ public class Database_Utility {
             String sql = "CREATE TABLE " + fileName + "("
                     + "[Key] STRING (30) PRIMARY key NOT NULL,"
                     + "value STRING (255),"
-                    + "timer TIME,"
+                    + "timer STRING(30),"
                     + "totalCopies INTEGER,"
                     + "copyNum INTEGER,"
                     + "timerType INTEGER,"
                     + "userId STRING(30) ,"
                     + "LayerId INTEGER ,"
-                    + " time TEXT(520) NOT NULL ,"
+                    + " time STRING(30) NOT NULL ,"
                     + " Certificate VARCHAR NOT NULL " + ")";
 
 
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();
-            //conn.close();
         } catch (SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -75,20 +74,19 @@ public class Database_Utility {
 
     // This method is used to add index entry to database as per layer id.
 
-    public  void add_entry(int layerID, String key, String value, Long timer, int totalCopies, int copyNum, boolean timerType, String userId, Long time, Certificate c) {
+    public  void add_entry(int layerID, String key, String value, String timer, int totalCopies, int copyNum, boolean timerType, String userId, String time, Certificate c) {
         try {
             String tableName = "Table"+layerID;
             String sql = "INSERT INTO "+ tableName +" (key,value,timer,totalCopies,copyNum,timerType,userId,time,Certificate) VALUES(?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.setString(1, key);
             pstmt.setString(2, value);
-            pstmt.setLong(3, timer);
+            pstmt.setString(3, timer);
             pstmt.setInt(4, totalCopies);
             pstmt.setInt(5, copyNum);
             pstmt.setBoolean(6, timerType);
             pstmt.setString(7, userId);
-
-            pstmt.setLong(8, time);
+            pstmt.setString(8, time);
             pstmt.setString(9, String.valueOf(c));
 
             pstmt.executeUpdate();
@@ -113,12 +111,12 @@ public class Database_Utility {
             while (rs.next()) {
 
                 String val = rs.getString(1);
-                Long tim = rs.getLong(2);
+                String tim = rs.getString(2);
                 int totCo = rs.getInt(3);
                 int copNum = rs.getInt(4);
                 boolean timeTyp = rs.getBoolean(5);
                 String hashId = rs.getString(6);
-                Long time = rs.getLong(7);
+                String time = rs.getString(7);
 
                 obj1.setValue1(val);
                 obj1.setTime1(tim);
@@ -138,18 +136,16 @@ public class Database_Utility {
 
     //This method is used to delete entry in particular table depending on layer id.
 
-    public void delete_entry(int rid) {
+    public void delete_entry(String fileName, String key) {
+
         try {
+            PreparedStatement stmt1 = conn.prepareStatement("delete from " + fileName + " where Key=?");
 
-            PreparedStatement stmt = conn.prepareStatement("delete from keyvalue1 where rowid=?");
+            stmt1.setString(1, key);
 
-            stmt.setInt(1, rid);
-
-            int i = stmt.executeUpdate();
-            System.out.println(rid + "Deleted succesfully");
-            stmt.close();
-
-
+            stmt1.executeUpdate();
+            System.out.println(key + "Deleted succesfully");
+            stmt1.close();
         } catch (SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -163,7 +159,7 @@ public class Database_Utility {
 
             String filename="Table"+layerID;
             PreparedStatement stmt = conn.prepareStatement("update " + filename +"set time = ? where Key = ?");
-            stmt.setLong(1,System.currentTimeMillis());
+            stmt.setString(1, String.valueOf(System.currentTimeMillis()));
             stmt.setString(2, Key);
             stmt.executeUpdate();
         } catch (SQLException ex) {

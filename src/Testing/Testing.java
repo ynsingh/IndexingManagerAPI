@@ -23,6 +23,7 @@ import java.security.KeyStore;
 import java.security.KeyStoreException;
 import java.security.PublicKey;
 import java.security.cert.Certificate;
+import java.util.ArrayList;
 
 public class Testing {
 
@@ -39,11 +40,9 @@ public class Testing {
 //        }
 //       File f=IM.XMLforRoot(s[0],"HIII","helooo",2,2, (long) 34567890,true,"hooooo",System.currentTimeMillis(),c1);
 
-
-
-
-
-
+IM.maintenancethread();
+        System.out.println(Thread.currentThread()+"This is main");
+        //Database_Utility utility=Database_Utility.getInstance();
 
     }
 }

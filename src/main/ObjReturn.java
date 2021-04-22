@@ -8,12 +8,12 @@ public class ObjReturn {
     
         String key1;
         String value1;
-        Long time1;
+        String time1;
         int totalCopies1;
         int copyNum1;
         boolean timerType1;
         String userId;
-        Long time;
+        String time;
 
     public String getKey1() {
         return key1;
@@ -31,11 +31,11 @@ public class ObjReturn {
         this.value1 = value1;
     }
 
-    public Long getTime1() {
+    public String getTime1() {
         return time1;
     }
 
-    public void setTime1(Long time1) {
+    public void setTime1(String time1) {
         this.time1 = time1;
     }
 
@@ -71,11 +71,11 @@ public class ObjReturn {
         this.userId = userId;
     }
 
-    public Long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Long time) {
+    public void setTime(String time) {
         this.time = time;
     }
         
