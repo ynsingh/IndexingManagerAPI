@@ -1,8 +1,11 @@
 package src.main;
 
+import jdk.internal.org.xml.sax.SAXException;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -13,6 +16,7 @@ import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
 import java.io.File;
+import java.io.IOException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
@@ -368,7 +372,7 @@ public class IndexingManager {
     }
 
 
-//    This method is used to delete entries which are of type fixed as per timer associated with it.
+//    This method is used to delete entries which are of type fixed as per timer associated with it.This thread will run continuosly after every 15 minutes.
 
     public void maintenancethread() {
             while(true) {
@@ -417,12 +421,76 @@ public class IndexingManager {
                 });
                 maintenanceThread.start();
                 try {
-                    Thread.sleep(5000);
+                    Thread.sleep(900000);
                     System.out.println("Thread going to sleep");
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+    }
+
+    //This thread will run continuosly after every 30 minutes to ascertain for which nodes I am root. For which I am not
+    // will be transferred to Purge table whose layerid is 100.
+
+    public void maintenancethread1() {
+        while(true) {
+            Thread maintenanceThread1 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    // This statement will request Routing manager to ascertain keys for which I am root node.
+
+                    QueryForRoutingManager();
+                    for (int k=0;k<IMbuffer.;k++) {
+                    File f=IMbuffer.fetchFromIMInputBuffer();
+                    transfertopurge(f);
+}
+                }
+                });
+        maintenanceThread1.start();
+        try {
+            Thread.sleep(1800000);
+            System.out.println("Thread going to sleep");
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    }
+    public void transfertopurge(File file){
+        DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder documentBuilder = null;
+        String selfNodeID = null;
+        try {
+            documentBuilder = builderFactory.newDocumentBuilder();
+            Document doc = documentBuilder.parse(file);
+            doc.getDocumentElement().normalize();
+            String rootElement = doc.getDocumentElement().getNodeName();
+            String layerIDS = doc.getDocumentElement().getAttribute("LayerID");
+            int layerID = Integer.parseInt(layerIDS);
+            NodeList nodeList1 = doc.getElementsByTagName("DATA");
+            for (int i = 0; i < nodeList1.getLength(); i++) {
+                Node node = nodeList1.item(i);
+
+                if (node.getNodeType() == node.ELEMENT_NODE) {
+                    Element element = (Element) node;
+                    String index = node.getAttributes().getNamedItem("INDEX").getNodeValue();
+
+                    //Get value of all sub-Elements
+                    String key = element.getElementsByTagName("KEY").item(0).getTextContent();
+                    String hashid=element.getElementsByTagName("HASHID").item(0);
+                }
+            }
+            /*TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            DOMSource domSource = new DOMSource(doc);
+            StreamResult streamResult = new StreamResult(new File("ResponseToIndexM.xml"));
+            transformer.transform(domSource, streamResult);*/
+
+        } catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
+
+        } catch (org.xml.sax.SAXException e) {
+            e.printStackTrace();
+        }
     }
 
 //    Constructor function of Main class.
@@ -445,12 +513,6 @@ public class IndexingManager {
       //  This statement is to run maintenance thread on loading of class to purge entries whose timer has expired.
         maintenancethread();
 
-      // This statement will request Routing manager to ascertain keys for which I am root node.
-
-      //  ArrayList<File> AL=resultForIndexingManager();
-      //  for(int j=0;j<=AL.size();j++) {
-      //      IMbuffer.addToIMOutputBuffer(AL.get(j));
-       // }
     }
 
 //  Creating Singleton object of IndexingManager class.
@@ -467,7 +529,7 @@ public class IndexingManager {
     //This method is used to generate xml file for routing manager to ascertain for which nodes I am root or not.After file generation
     // objects of file are made and added to output buffer.
 
-    public void resultForIndexingManager() {
+    public void QueryForRoutingManager() {
         PreparedStatement stmt = null;
 
         try {

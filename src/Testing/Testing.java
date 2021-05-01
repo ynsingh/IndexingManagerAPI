@@ -32,7 +32,6 @@ public class Testing {
 
     public static void main(String argv[]) {
         /*maintenance thread 2
-                static remove
 IIT Kgp_MTP_Thesis template(1)*/
 
             //  IndexingManager IM= IndexingManager.getInstance();
