@@ -20,7 +20,6 @@ public class IndexingManagerBuffer {
  private IndexingManagerBuffer(){
 
  }
-
  //Making Singleton object
 
  public static IndexingManagerBuffer getInstance(){
@@ -36,7 +35,6 @@ public class IndexingManagerBuffer {
     private List<File> getInputIMBuffer() {
         return inputIMBuffer;
     }
-
 
  // Adding file to Input buffer. Returning true if added successfully.
 

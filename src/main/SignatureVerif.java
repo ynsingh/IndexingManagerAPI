@@ -72,7 +72,7 @@ public class SignatureVerif {
 
     // This method is used for key pair generation
 
-    private static void keyPairGeneration() {
+    private void keyPairGeneration() {
         try {
             String ALGORITHM = "RSA";
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(ALGORITHM, "BC");
@@ -88,7 +88,7 @@ public class SignatureVerif {
 
     // This method is used for loading keystore to package.
 
-    private static void loadKeyStore() {
+    private void loadKeyStore() {
         try {
 
             FileInputStream fis = new FileInputStream("keyStore.ks");
@@ -103,7 +103,7 @@ public class SignatureVerif {
 
 // This method is used for saving Keystore
 
-    private static void saveKeyStore() {
+    private void saveKeyStore() {
         FileOutputStream fos;
         try {
 
@@ -118,7 +118,7 @@ public class SignatureVerif {
 
     // This method is used for saving private key to Keystore
 
-    private static void saveToKeyStore() {
+    private void saveToKeyStore() {
         KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
         X509Certificate certificate = generateCertificate();
         java.security.cert.Certificate[] certChain = (java.security.cert.Certificate[]) new Certificate[1];
@@ -148,7 +148,7 @@ public class SignatureVerif {
 
     // This method is used for generating certificate
 
-    private static X509Certificate generateCertificate() {
+    private X509Certificate generateCertificate() {
         // build a certificate generator
         X509V3CertificateGenerator certGen = new X509V3CertificateGenerator();
         String CERTIFICATE_DN = "CN = cn , O = o, L =L ,ST = i1, C = c";

@@ -1,8 +1,6 @@
 package src.main;
 
-
 //This class is used to collect values from database corresponding to search query for key and return values in an object
-
 
 public class ObjReturn {
     

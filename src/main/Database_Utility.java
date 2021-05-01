@@ -1,5 +1,6 @@
-package src.main;//This class has functionality to interact with SQL database and perform assigned task by IndexingManager Class
+package src.main;
 
+//This class has functionality to interact with SQL database and perform assigned task by IndexingManager Class
 
 import java.security.cert.Certificate;
 import java.sql.*;
@@ -168,28 +169,6 @@ public class Database_Utility {
 
     }
 
-
-    /*public boolean search_userId(String userId) {
-        boolean b = false;
-
-        PreparedStatement stmt = null;
-        try {
-            stmt = conn.prepareStatement("select userId from keyvalue1 where userId=?");
-
-            stmt.setString(1, userId);
-
-            ResultSet rs = stmt.executeQuery();
-
-            if (rs.next()) {
-                return true;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-
-        return b;
-    }*/
 }
 
 

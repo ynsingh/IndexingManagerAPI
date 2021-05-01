@@ -42,7 +42,6 @@ public class IndexingManager {
 
     //This method will check whether table for layerID requested exists or not.Returns true if table exists.
 
-
     public boolean checkTable(int layerId)
 
     {
@@ -275,16 +274,6 @@ public class IndexingManager {
         return file;
     }
 
-
-    // This method is used to delete index entry to database.
-   
- /*public void deleteEntry( String Key){
-
- utility.delete_entry(Key);
-
-
-  }*/
-
     // This method is used to update current time for perpetual index entry an index entry.
 
     public void updateEntry(String Key, int layerID) {
@@ -324,43 +313,35 @@ public class IndexingManager {
             document.appendChild(key1);
             key1.setAttribute("Key", key);
 
-            // employee element
             Element layerid = document.createElement("layerid");
 
             key1.appendChild(layerid);
             layerid.setAttribute("Id", String.valueOf(layerID));
 
-            // firstname element
             Element Value = document.createElement("Value");
             Value.appendChild(document.createTextNode(value1));
             layerid.appendChild(Value);
 
-            // second element
             Element timer = document.createElement("timer");
             timer.appendChild(document.createTextNode(String.valueOf(time1)));
             layerid.appendChild(timer);
 
-            // third element
             Element totcopies = document.createElement("totcopies");
             totcopies.appendChild(document.createTextNode(String.valueOf(totalCopies1)));
             layerid.appendChild(totcopies);
 
-            // fourth element
             Element copynum = document.createElement("copynum");
             copynum.appendChild(document.createTextNode(String.valueOf(copyNum1)));
             layerid.appendChild(copynum);
 
-            // fifth element
             Element timertype = document.createElement("timertype");
             timertype.appendChild(document.createTextNode(String.valueOf(timerType1)));
             layerid.appendChild(timertype);
 
-            // sixth element
             Element userid = document.createElement("userid");
             userid.appendChild(document.createTextNode(userId));
             layerid.appendChild(userid);
 
-            // seventh element
             Element time2 = document.createElement("time");
             time2.appendChild(document.createTextNode(String.valueOf(time1)));
             layerid.appendChild(time2);
@@ -390,50 +371,58 @@ public class IndexingManager {
 //    This method is used to delete entries which are of type fixed as per timer associated with it.
 
     public void maintenancethread() {
+            while(true) {
+                Thread maintenanceThread = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println(Thread.currentThread());
+                        PreparedStatement pst = null;
+                        int rowid;
+                        long timer = 0;
+                        long time = 0;
+                        String key;
 
-        Thread maintenanceThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                System.out.println(Thread.currentThread());
-                PreparedStatement pst = null;
-                int rowid;
-                long timer = 0;
-                long time = 0;
-                String key;
 
+                        try {
+                            ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
 
-                try {
-                    ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
+                            while (rs.next()) {
 
-                    while (rs.next()) {
+                                String ld = rs.getString("TABLE_NAME");
+                                String intValue = ld.replaceAll("[^0-9]", "");
+                                int layerid = Integer.parseInt(intValue);
+                                String filename = "Table" + layerid;
+                                pst = conn.prepareStatement("SELECT * FROM " + filename);
+                                ResultSet rs2 = pst.executeQuery();
+                                while (rs2.next()) {
+                                    timer = Long.parseLong(rs2.getString("timer"));
+                                    time = Long.parseLong(rs2.getString("time"));
+                                    key = rs2.getString("Key");
 
-                        String ld = rs.getString("TABLE_NAME");
-                        String intValue = ld.replaceAll("[^0-9]", "");
-                        int layerid = Integer.parseInt(intValue);
-                        String filename = "Table" + layerid;
-                        pst = conn.prepareStatement("SELECT * FROM " + filename);
-                        ResultSet rs2 = pst.executeQuery();
-                        while(rs2.next()) {
-                        timer = Long.parseLong(rs2.getString("timer"));
-                        time = Long.parseLong(rs2.getString("time"));
-                        key=rs2.getString("Key");
-
-                            if (!(timer == 0)) {
-                                if (System.currentTimeMillis() - time > timer) {
-                                    utility.delete_entry(filename, key);
+                                    if (!(timer == 0)) {
+                                        if (System.currentTimeMillis() - time > timer) {
+                                            utility.delete_entry(filename, key);
+                                        }
+                                    }
                                 }
+                                rs2.close();
                             }
+                            pst.close();
+                            rs.close();
+                            conn.close();
+                        } catch (SQLException e) {
+                            e.printStackTrace();
                         }
-                        rs2.close();
                     }
-                    pst.close();
-                    rs.close();
-                    conn.close();
-                } catch (SQLException e) {
+                });
+                maintenanceThread.start();
+                try {
+                    Thread.sleep(5000);
+                    System.out.println("Thread going to sleep");
+                } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
-        }); maintenanceThread.start();
     }
 
 //    Constructor function of Main class.
@@ -454,8 +443,7 @@ public class IndexingManager {
         }
 
       //  This statement is to run maintenance thread on loading of class to purge entries whose timer has expired.
-
-      // maintenancethread();
+        maintenancethread();
 
       // This statement will request Routing manager to ascertain keys for which I am root node.
 
@@ -479,10 +467,8 @@ public class IndexingManager {
     //This method is used to generate xml file for routing manager to ascertain for which nodes I am root or not.After file generation
     // objects of file are made and added to output buffer.
 
-    public ArrayList<File> resultForIndexingManager() {
+    public void resultForIndexingManager() {
         PreparedStatement stmt = null;
-        int rowlength;
-        ArrayList<File> A = null;
 
         try {
             //This statement will fetch all tables available in database.
@@ -534,18 +520,15 @@ public class IndexingManager {
                 StreamResult streamResult = new StreamResult(new File(ld + "_RootNodeCheck" + ".xml"));
                 transformer.transform(domSource, streamResult);
                 System.out.println("Root Node checking file is generated");
-
-               // File f=new File(ld + "_RootNodeCheck" + ".xml");
-               // A.add(f);
+                File f=new File(ld + "_RootNodeCheck" + ".xml");
+                IMbuffer.addToIMOutputBuffer(f);
             }
             rs.close();
-
 
         } catch (TransformerException | SQLException e) {
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
-        return A;
     }
 }
