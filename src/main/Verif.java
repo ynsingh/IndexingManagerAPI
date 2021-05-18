@@ -14,9 +14,9 @@ public class Verif {
 
     public boolean Verify_Digital_Signature(Certificate c, String s) {
 
- // Creating object of SignatureVerif class for accessing keystore and its methods for cryptographic functions.
+ // Creating object of Cryptography class for accessing keystore and its methods for cryptographic functions.
 
-        SignatureVerif S1 = SignatureVerif.getInstance();
+        Cryptography S1 = Cryptography.getInstance();
         Signature signature = null;
         String signatureData = null;
         byte[] sigData = null;

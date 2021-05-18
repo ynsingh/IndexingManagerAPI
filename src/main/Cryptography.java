@@ -20,17 +20,17 @@ import java.util.Date;
 // This class is used for generating public and private key,keystore,dummy certificate for testing purpose,
 // putting private key and certificate in the keystore, retrieval of private key from the keystore.In short it performs cryptographic functions.
 
-public class SignatureVerif {
+public class Cryptography {
 
     private static PublicKey publicKey;
     private static PrivateKey privateKey;
     private static KeyStore keyStore;
-    private static SignatureVerif signatureVerif;
+    private static Cryptography signatureVerif;
     private static final char[] password = "abc@123".toCharArray();
 
   // This is constructor of class used to call required functions as per availability of keystore.
 
-    private SignatureVerif() {
+    private Cryptography() {
 
   // Adding BouncyCastle provider
 
@@ -63,9 +63,9 @@ public class SignatureVerif {
 
     // Creating Singleton
 
-    public static synchronized SignatureVerif getInstance() {
+    public static synchronized Cryptography getInstance() {
         if (signatureVerif == null) {
-            signatureVerif = new SignatureVerif();
+            signatureVerif = new Cryptography();
         }
         return signatureVerif;
     }
@@ -132,6 +132,8 @@ public class SignatureVerif {
 
         }
     }
+
+    // This method is used to get private key from Key Store.
 
       PrivateKey getFromKeyStore() {
          KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);

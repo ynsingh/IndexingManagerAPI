@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="CUSTOM_SCOPE_NAME" value="Module 'IndexingManagerAPI'" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="eaeaed0f-e4df-472c-b77a-f452e51973cb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/Testing/Testing.java" afterPath="$PROJECT_DIR$/src/Testing/Testing.java" />
+      <change beforePath="$PROJECT_DIR$/ReadMe" afterPath="$PROJECT_DIR$/ReadMe" />
+      <change beforePath="$PROJECT_DIR$/src/main/Database_Utility.java" afterPath="$PROJECT_DIR$/src/main/Database_Utility.java" />
       <change beforePath="$PROJECT_DIR$/src/main/IndexingManager.java" afterPath="$PROJECT_DIR$/src/main/IndexingManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/SignatureVerif.java" afterPath="$PROJECT_DIR$/src/main/Cryptography.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/Verif.java" afterPath="$PROJECT_DIR$/src/main/Verif.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,22 +26,32 @@
       <file leaf-file-name="Testing.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-98">
-              <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+            <state relative-caret-position="578">
+              <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexingManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IndexingManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="445" column="20" lean-forward="false" selection-start-line="445" selection-start-column="20" selection-end-line="445" selection-end-column="20" />
+            <state relative-caret-position="425">
+              <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="29" />
               <folding>
-                <marker date="1619870384934" expanded="true" signature="15400:15414" ph=" SELECT statement (MISSINGVALUE)" />
-                <marker date="1619870384934" expanded="true" signature="21862:21878" ph=" SELECT statement (MISSINGVALUE)" />
+                <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+                <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ReadMe" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ReadMe">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="679" lean-forward="false" selection-start-line="0" selection-start-column="679" selection-end-line="0" selection-end-column="679" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -52,13 +69,15 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/ReadMe" />
-        <option value="$PROJECT_DIR$/src/main/Database_Utility.java" />
         <option value="$PROJECT_DIR$/src/main/ObjReturn.java" />
-        <option value="$PROJECT_DIR$/src/main/SignatureVerif.java" />
         <option value="$PROJECT_DIR$/src/Testing/Testing.java" />
         <option value="$PROJECT_DIR$/src/main/IndexingManagerBuffer.java" />
+        <option value="$PROJECT_DIR$/src/main/Database_Utility.java" />
+        <option value="$PROJECT_DIR$/src/main/SignatureVerif.java" />
         <option value="$PROJECT_DIR$/src/main/IndexingManager.java" />
+        <option value="$PROJECT_DIR$/src/main/Cryptography.java" />
+        <option value="$PROJECT_DIR$/src/main/Verif.java" />
+        <option value="$PROJECT_DIR$/ReadMe" />
       </list>
     </option>
   </component>
@@ -83,8 +102,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -117,6 +134,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
@@ -287,7 +306,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619867651740</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Working on Maintenance Thread 2">
+      <created>1619870459781</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1619870459781</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -303,25 +329,25 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18008785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -361,13 +387,159 @@
     <MESSAGE value="Maintenance thread updated" />
     <MESSAGE value="ReadMe File Updated" />
     <MESSAGE value="All Classes refined" />
-    <option name="LAST_COMMIT_MESSAGE" value="All Classes refined" />
+    <MESSAGE value="Working on Maintenance Thread 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working on Maintenance Thread 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="9299">
+          <caret line="547" column="7" lean-forward="false" selection-start-line="547" selection-start-column="7" selection-end-line="547" selection-end-column="7" />
+          <folding>
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <marker date="1620060605304" expanded="true" signature="1483:1496" ph=" CREATE statement" />
+            <marker date="1620060605304" expanded="true" signature="2582:2707" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="3680:3771" ph=" SELECT statement (MISSINGVALUEWHERE)" />
+            <marker date="1620060605304" expanded="true" signature="4905:4945" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="5498:5546" ph=" UPDATE statement (MISSINGVALUESET)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Verif.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8993">
+          <caret line="529" column="59" lean-forward="true" selection-start-line="528" selection-start-column="6" selection-end-line="529" selection-end-column="59" />
+          <folding>
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="578">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7667">
+          <caret line="451" column="34" lean-forward="false" selection-start-line="451" selection-start-column="34" selection-end-line="451" selection-end-column="34" />
+          <folding>
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <marker date="1620060605304" expanded="true" signature="1483:1496" ph=" CREATE statement" />
+            <marker date="1620060605304" expanded="true" signature="2582:2707" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="3680:3771" ph=" SELECT statement (MISSINGVALUEWHERE)" />
+            <marker date="1620060605304" expanded="true" signature="4905:4945" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="5498:5546" ph=" UPDATE statement (MISSINGVALUESET)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7667">
+          <caret line="451" column="34" lean-forward="false" selection-start-line="451" selection-start-column="34" selection-end-line="451" selection-end-column="34" />
+          <folding>
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <marker date="1620060605304" expanded="true" signature="1483:1496" ph=" CREATE statement" />
+            <marker date="1620060605304" expanded="true" signature="2582:2707" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="3680:3771" ph=" SELECT statement (MISSINGVALUEWHERE)" />
+            <marker date="1620060605304" expanded="true" signature="4905:4945" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="5498:5546" ph=" UPDATE statement (MISSINGVALUESET)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7667">
+          <caret line="451" column="34" lean-forward="true" selection-start-line="451" selection-start-column="34" selection-end-line="451" selection-end-column="34" />
+          <folding>
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -381,8 +553,8 @@
         <state relative-caret-position="7905">
           <caret line="465" column="0" lean-forward="true" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
           <folding>
-            <marker date="1619870384934" expanded="true" signature="15400:15414" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1619870384934" expanded="true" signature="21862:21878" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -392,11 +564,11 @@
         <state relative-caret-position="425">
           <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding>
-            <marker date="1619867589711" expanded="true" signature="1480:1493" ph=" CREATE statement" />
-            <marker date="1619867589711" expanded="true" signature="2579:2704" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="3677:3768" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1619867589711" expanded="true" signature="4902:4942" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="5495:5543" ph=" UPDATE statement (MISSINGVALUESET)" />
+            <marker date="1620060605304" expanded="true" signature="1483:1496" ph=" CREATE statement" />
+            <marker date="1620060605304" expanded="true" signature="2582:2707" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="3680:3771" ph=" SELECT statement (MISSINGVALUEWHERE)" />
+            <marker date="1620060605304" expanded="true" signature="4905:4945" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="5498:5546" ph=" UPDATE statement (MISSINGVALUESET)" />
           </folding>
         </state>
       </provider>
@@ -414,11 +586,11 @@
         <state relative-caret-position="425">
           <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding>
-            <marker date="1619867589711" expanded="true" signature="1480:1493" ph=" CREATE statement" />
-            <marker date="1619867589711" expanded="true" signature="2579:2704" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="3677:3768" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1619867589711" expanded="true" signature="4902:4942" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="5495:5543" ph=" UPDATE statement (MISSINGVALUESET)" />
+            <marker date="1620060605304" expanded="true" signature="1483:1496" ph=" CREATE statement" />
+            <marker date="1620060605304" expanded="true" signature="2582:2707" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="3680:3771" ph=" SELECT statement (MISSINGVALUEWHERE)" />
+            <marker date="1620060605304" expanded="true" signature="4905:4945" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="5498:5546" ph=" UPDATE statement (MISSINGVALUESET)" />
           </folding>
         </state>
       </provider>
@@ -428,8 +600,8 @@
         <state relative-caret-position="731">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
-            <marker date="1619870384934" expanded="true" signature="15400:15414" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1619870384934" expanded="true" signature="21862:21878" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -447,8 +619,8 @@
         <state relative-caret-position="9316">
           <caret line="548" column="10" lean-forward="false" selection-start-line="548" selection-start-column="10" selection-end-line="548" selection-end-column="10" />
           <folding>
-            <marker date="1619870384934" expanded="true" signature="15400:15414" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1619870384934" expanded="true" signature="21862:21878" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -458,11 +630,11 @@
         <state relative-caret-position="425">
           <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding>
-            <marker date="1619867589711" expanded="true" signature="1480:1493" ph=" CREATE statement" />
-            <marker date="1619867589711" expanded="true" signature="2579:2704" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="3677:3768" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1619867589711" expanded="true" signature="4902:4942" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="5495:5543" ph=" UPDATE statement (MISSINGVALUESET)" />
+            <marker date="1620060605304" expanded="true" signature="1483:1496" ph=" CREATE statement" />
+            <marker date="1620060605304" expanded="true" signature="2582:2707" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="3680:3771" ph=" SELECT statement (MISSINGVALUEWHERE)" />
+            <marker date="1620060605304" expanded="true" signature="4905:4945" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="5498:5546" ph=" UPDATE statement (MISSINGVALUESET)" />
           </folding>
         </state>
       </provider>
@@ -480,8 +652,8 @@
         <state relative-caret-position="7208">
           <caret line="424" column="29" lean-forward="true" selection-start-line="424" selection-start-column="29" selection-end-line="424" selection-end-column="29" />
           <folding>
-            <marker date="1619870384934" expanded="true" signature="15400:15414" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1619870384934" expanded="true" signature="21862:21878" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -491,11 +663,11 @@
         <state relative-caret-position="340">
           <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
           <folding>
-            <marker date="1619867589711" expanded="true" signature="1480:1493" ph=" CREATE statement" />
-            <marker date="1619867589711" expanded="true" signature="2579:2704" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="3677:3768" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1619867589711" expanded="true" signature="4902:4942" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="5495:5543" ph=" UPDATE statement (MISSINGVALUESET)" />
+            <marker date="1620060605304" expanded="true" signature="1483:1496" ph=" CREATE statement" />
+            <marker date="1620060605304" expanded="true" signature="2582:2707" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="3680:3771" ph=" SELECT statement (MISSINGVALUEWHERE)" />
+            <marker date="1620060605304" expanded="true" signature="4905:4945" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="5498:5546" ph=" UPDATE statement (MISSINGVALUESET)" />
           </folding>
         </state>
       </provider>
@@ -507,76 +679,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ReadMe">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="507" lean-forward="false" selection-start-line="0" selection-start-column="507" selection-end-line="0" selection-end-column="507" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Table1_RootNodeCheck.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="109">
-          <caret line="170" column="4" lean-forward="false" selection-start-line="170" selection-start-column="4" selection-end-line="170" selection-end-column="4" />
-          <folding>
-            <marker date="1619867589711" expanded="true" signature="1480:1493" ph=" CREATE statement" />
-            <marker date="1619867589711" expanded="true" signature="2579:2704" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="3677:3768" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1619867589711" expanded="true" signature="4902:4942" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1619867589711" expanded="true" signature="5495:5543" ph=" UPDATE statement (MISSINGVALUESET)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ObjReturn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2295">
+          <caret line="150" column="7" lean-forward="false" selection-start-line="150" selection-start-column="7" selection-end-line="150" selection-end-column="53" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/SignatureVerif.java">
+    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="150" column="11" lean-forward="false" selection-start-line="150" selection-start-column="11" selection-end-line="150" selection-end-column="11" />
-          <folding />
+        <state relative-caret-position="193">
+          <caret line="155" column="0" lean-forward="true" selection-start-line="155" selection-start-column="0" selection-end-line="155" selection-end-column="0" />
+          <folding>
+            <marker date="1620060605304" expanded="true" signature="1483:1496" ph=" CREATE statement" />
+            <marker date="1620060605304" expanded="true" signature="2582:2707" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="3680:3771" ph=" SELECT statement (MISSINGVALUEWHERE)" />
+            <marker date="1620060605304" expanded="true" signature="4905:4945" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1620060605304" expanded="true" signature="5498:5546" ph=" UPDATE statement (MISSINGVALUESET)" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Verif.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="10" column="13" lean-forward="false" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="204">
+          <caret line="16" column="36" lean-forward="false" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManagerBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="11" column="19" lean-forward="false" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+        <state relative-caret-position="742">
+          <caret line="64" column="12" lean-forward="true" selection-start-line="64" selection-start-column="12" selection-end-line="64" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-98">
-          <caret line="50" column="34" lean-forward="true" selection-start-line="50" selection-start-column="34" selection-end-line="50" selection-end-column="34" />
+        <state relative-caret-position="578">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="445" column="20" lean-forward="false" selection-start-line="445" selection-start-column="20" selection-end-line="445" selection-end-column="20" />
+        <state relative-caret-position="425">
+          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="29" />
           <folding>
-            <marker date="1619870384934" expanded="true" signature="15400:15414" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1619870384934" expanded="true" signature="21862:21878" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="15385:15399" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1621172426281" expanded="true" signature="21847:21863" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReadMe">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="679" lean-forward="false" selection-start-line="0" selection-start-column="679" selection-end-line="0" selection-end-column="679" />
+          <folding />
         </state>
       </provider>
     </entry>

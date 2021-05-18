@@ -1,6 +1,6 @@
 package src.main;
 
-//This class has functionality to interact with SQL database and perform assigned task by IndexingManager Class
+//This class has functionality to interact with SQLite database and perform assigned task by IndexingManager Class
 
 import java.security.cert.Certificate;
 import java.sql.*;

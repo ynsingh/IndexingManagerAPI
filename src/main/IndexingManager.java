@@ -278,7 +278,7 @@ public class IndexingManager {
         return file;
     }
 
-    // This method is used to update current time for perpetual index entry an index entry.
+    // This method is used to update current time for perpetual index entry.
 
     public void updateEntry(String Key, int layerID) {
 
