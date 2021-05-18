@@ -1,17 +1,41 @@
 package src.main;
 
-//This class is used to collect values from database corresponding to search query for key and return values in an object
-
+/**
+ * This class is used to collect values from database corresponding to search query for key and return values in an object.
+ */
 public class ObjReturn {
-    
+
+    /**
+     * Key for which search query has come.
+     */
         String key1;
+    /**
+     * Value associated with Key
+     */
         String value1;
+    /**
+     * Timer associated with Key
+     */
         String time1;
         int totalCopies1;
+    /**
+     * Copy Number associated with Key
+     */
         int copyNum1;
+    /**
+     * Timer Type associated with key.
+     */
         boolean timerType1;
+    /**
+     * Userid for Key.
+     */
         String userId;
+    /**
+     * Time at which entry was added to database.
+     */
         String time;
+
+   // Following lines of code have setters and getters for object.
 
     public String getKey1() {
         return key1;
