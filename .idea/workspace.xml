@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="eaeaed0f-e4df-472c-b77a-f452e51973cb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/Cryptography.java" afterPath="$PROJECT_DIR$/src/main/Cryptography.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,19 +31,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Database_Utility.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+      <file leaf-file-name="Cryptography.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3230">
-              <caret line="192" column="51" lean-forward="false" selection-start-line="192" selection-start-column="51" selection-end-line="192" selection-end-column="51" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1621316708405" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-                <marker date="1621316708405" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-                <marker date="1621316708405" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-                <marker date="1621316708405" expanded="true" signature="6712:6752" ph=" DELETE statement (MISSINGVALUE)" />
-                <marker date="1621316708405" expanded="true" signature="7422:7470" ph=" UPDATE statement (MISSINGVALUESET)" />
-              </folding>
+            <state relative-caret-position="119">
+              <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,10 +59,10 @@
         <option value="$PROJECT_DIR$/src/main/IndexingManagerBuffer.java" />
         <option value="$PROJECT_DIR$/src/main/SignatureVerif.java" />
         <option value="$PROJECT_DIR$/src/main/IndexingManager.java" />
-        <option value="$PROJECT_DIR$/src/main/Cryptography.java" />
         <option value="$PROJECT_DIR$/src/main/Verif.java" />
         <option value="$PROJECT_DIR$/ReadMe" />
         <option value="$PROJECT_DIR$/src/main/Database_Utility.java" />
+        <option value="$PROJECT_DIR$/src/main/Cryptography.java" />
       </list>
     </option>
   </component>
@@ -319,7 +313,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621316819271</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Javadoc for Database Utility class added.">
+      <created>1621317246427</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1621317246427</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -333,7 +334,7 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -721,14 +722,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2295">
-          <caret line="150" column="7" lean-forward="false" selection-start-line="150" selection-start-column="7" selection-end-line="150" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Verif.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
@@ -781,8 +774,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3230">
-          <caret line="192" column="51" lean-forward="false" selection-start-line="192" selection-start-column="51" selection-end-line="192" selection-end-column="51" />
+        <state relative-caret-position="238">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
             <marker date="1621316708405" expanded="true" signature="1984:1997" ph=" CREATE statement" />
@@ -791,6 +784,14 @@
             <marker date="1621316708405" expanded="true" signature="6712:6752" ph=" DELETE statement (MISSINGVALUE)" />
             <marker date="1621316708405" expanded="true" signature="7422:7470" ph=" UPDATE statement (MISSINGVALUESET)" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
+          <folding />
         </state>
       </provider>
     </entry>

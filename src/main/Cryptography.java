@@ -17,22 +17,41 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 
-// This class is used for generating public and private key,keystore,dummy certificate for testing purpose,
-// putting private key and certificate in the keystore, retrieval of private key from the keystore.In short it performs cryptographic functions.
 
+
+/**Purpose of this class is testing.It is used for generating public and private key,keystore,dummy certificate,
+ * putting private key and certificate in the keystore, retrieval of private key from the keystore.
+ * In short it performs cryptographic functions.
+ */
 public class Cryptography {
 
+    /**
+     * Creating variable of Interface Public Key.
+     */
     private static PublicKey publicKey;
+    /**
+     * Creating variable of Interface Private Key.
+     */
     private static PrivateKey privateKey;
+    /**
+     * Creating object of Class KeyStore.
+     */
     private static KeyStore keyStore;
+    /**
+     * Creating object of Class Cryptography.
+     */
     private static Cryptography signatureVerif;
+    /**
+     * Variable to store password for Key Store.
+     */
     private static final char[] password = "abc@123".toCharArray();
 
-  // This is constructor of class used to call required functions as per availability of keystore.
-
+    /**
+     * This is constructor of class used to call required functions as per availability of keystore.
+     */
     private Cryptography() {
 
-  // Adding BouncyCastle provider
+  // Adding BouncyCastle provider by adding a jar file.
 
         Provider provider = new BouncyCastleProvider();
         Security.addProvider(provider);
@@ -61,8 +80,11 @@ public class Cryptography {
         }
     }
 
-    // Creating Singleton
 
+
+    /** Creating Singleton object of Cryptography Class.
+     * @return Object of Cryptography Class.
+     */
     public static synchronized Cryptography getInstance() {
         if (signatureVerif == null) {
             signatureVerif = new Cryptography();
@@ -70,8 +92,11 @@ public class Cryptography {
         return signatureVerif;
     }
 
-    // This method is used for key pair generation
 
+
+    /**
+     * This method is used for key pair generation.
+     */
     private void keyPairGeneration() {
         try {
             String ALGORITHM = "RSA";
@@ -86,8 +111,11 @@ public class Cryptography {
         }
     }
 
-    // This method is used for loading keystore to package.
 
+
+    /**
+     * This method is used for loading keystore to package.
+     */
     private void loadKeyStore() {
         try {
 
@@ -101,8 +129,9 @@ public class Cryptography {
         }
     }
 
-// This method is used for saving Keystore
-
+    /**
+     * This method is used for saving Keystore.
+     */
     private void saveKeyStore() {
         FileOutputStream fos;
         try {
@@ -116,8 +145,9 @@ public class Cryptography {
         }
     }
 
-    // This method is used for saving private key to Keystore
-
+    /**
+     * This method is used for saving private key to Keystore.
+     */
     private void saveToKeyStore() {
         KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
         X509Certificate certificate = generateCertificate();
@@ -133,8 +163,9 @@ public class Cryptography {
         }
     }
 
-    // This method is used to get private key from Key Store.
-
+    /** This method is used to get private key from Key Store.
+     * @return Private Key.
+     */
       PrivateKey getFromKeyStore() {
          KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
          KeyStore.PrivateKeyEntry privateKeyEntry = null;
@@ -147,9 +178,9 @@ public class Cryptography {
         return privateKeyEntry.getPrivateKey();
        }
 
-
-    // This method is used for generating certificate
-
+    /** This method is used for generating certificate.
+     * @return Certificate.
+     */
     private X509Certificate generateCertificate() {
         // build a certificate generator
         X509V3CertificateGenerator certGen = new X509V3CertificateGenerator();
@@ -178,12 +209,16 @@ public class Cryptography {
         return cert;
     }
 
-    // As methods and object of class is private these methods are used to get public key and keystore.
-
+    /**As methods and object of class is private this method is used to get public key. and keystore.
+     * @return Public Key
+     */
     PublicKey getPublicKey() {
         return publicKey;
     }
 
+    /** As methods and object of class is private this method is used to get keystore.
+     * @return KeyStore
+     */
     public KeyStore getKeyStore() {
         return keyStore;
     }
