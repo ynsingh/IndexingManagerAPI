@@ -1,26 +1,39 @@
 package src.main;
 
-//This class has functionality to interact with SQLite database and perform assigned task by IndexingManager Class
+
 
 import java.security.cert.Certificate;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
-
+/**
+ * This class has functionality to interact with SQLite database and perform assigned task by IndexingManager Class
+ */
 public class Database_Utility {
 
+    /**
+     * Creating Object of Class Connection for making connection to database.
+     */
     private Connection conn;
 
+    /**
+     * Creating object of Class Database Utility.
+     */
     public static Database_Utility utility;
 
+    /**
+     * Constructor of Database Utilty class made private.Connection is created in Constructor itself.
+     */
     private Database_Utility(){
         conn=getConnection();
     }
 
-    //Creating Singleton Object
 
+
+    /** Creating Singleton Object.
+     * @return Object of Database Utility class.
+     */
     public static synchronized Database_Utility getInstance() {
         if (utility == null) {
             utility = new Database_Utility();
@@ -30,8 +43,9 @@ public class Database_Utility {
         }
     }
 
-// This method is used to create connection with database.   
-
+    /** This method is used to create connection with database.
+     * @return Object of class Connection.
+     */
     public Connection getConnection() {
 
         try {
@@ -45,7 +59,11 @@ public class Database_Utility {
 
     }
 
-//This method is used to create table in database as per layerid.
+
+
+    /** This method is used to create table in database as per layerid.
+     * @param layerid  This argument is provided by user while adding an index entry.
+     */
 
     public void createtable(int layerid) {
         try {
@@ -73,8 +91,18 @@ public class Database_Utility {
     }
 
 
-    // This method is used to add index entry to database as per layer id.
-
+    /** This method is used to add index entry to database as per layer id.
+     * @param layerID This argument is provided by user while adding an index entry.
+     * @param key This argument is provided by user while adding an index entry.
+     * @param value This argument is provided by user while adding an index entry.
+     * @param timer This argument is provided by user while adding an index entry.  It tells time for which entry is to be stored.
+     * @param totalCopies This argument is provided by user while adding an index entry.
+     * @param copyNum This argument is provided by user while adding an index entry. It tells whether copy is original or not.
+     * @param timerType This argument is provided by user while adding an index entry. It tells whether timer is fixed or perpetual.
+     * @param userId This argument is provided by user while adding an index entry. This can be name or mail id.
+     * @param time This argument is provided by user while adding an index entry.
+     * @param c This argument is provided by user while adding an index entry. It is user's certificate.
+     */
     public  void add_entry(int layerID, String key, String value, String timer, int totalCopies, int copyNum, boolean timerType, String userId, String time, Certificate c) {
         try {
             String tableName = "Table"+layerID;
@@ -99,8 +127,12 @@ public class Database_Utility {
 
     }
 
-    // This method is used to search an index entry in database.It needs Key and layerID as arguments.
 
+    /** This method is used to search an index entry in database.
+     * @param Key Key which is to be searched.
+     * @param layerId Layerid to which key belongs.
+     * @return Returns an object which contain all details related to key.
+     */
     public ObjReturn search_entry(String Key,int layerId) {
         ObjReturn obj1 = new ObjReturn();
         try {
@@ -135,8 +167,11 @@ public class Database_Utility {
         return obj1;
     }
 
-    //This method is used to delete entry in particular table depending on layer id.
 
+    /** This method is used to delete entry in particular table depending on layer id.
+     * @param fileName It is table from which key is to be deleted.
+     * @param key Key which is to be deleted.
+     */
     public void delete_entry(String fileName, String key) {
 
         try {
@@ -152,8 +187,11 @@ public class Database_Utility {
         }
     }
 
-    //This method is used to update time for perpetual entries.
 
+    /** This method is used to update time for perpetual entries.
+     * @param Key Key for which time is to be updated.
+     * @param layerID Layerid to which key belongs.
+     */
     public void update_entry(String Key, int layerID) {
 
         try {
