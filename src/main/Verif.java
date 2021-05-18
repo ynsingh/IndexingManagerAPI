@@ -6,12 +6,17 @@ import java.security.*;
 import java.security.cert.Certificate;
 import java.util.Base64;
 
-//This class is used to verify digital signature of value incoming for indexing.
-
+/**
+ * This class is used to verify digital signature of value incoming for indexing. For testing value is signed
+ * using private key so that verification can be done using public key from certificate.
+ */
 public class Verif {
 
- //This method performs verification and return boolean value as per result.
-
+    /** This method performs verification and return boolean value as per result.
+     * @param c Certificate
+     * @param s Incoming value
+     * @return True if verified
+     */
     public boolean Verify_Digital_Signature(Certificate c, String s) {
 
  // Creating object of Cryptography class for accessing keystore and its methods for cryptographic functions.
