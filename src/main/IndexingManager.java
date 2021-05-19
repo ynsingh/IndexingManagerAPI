@@ -25,27 +25,72 @@ import java.security.cert.Certificate;
 import java.sql.*;
 import java.util.ArrayList;
 
-//This is main class of IndexingManager API. Glue code will interact with this class for
-// adding,deleting,updating and searching an index.It has methods for doing these tasks.
-
+/** This is main class of IndexingManager API. Glue code will interact with this class for adding and searching an index.It has methods
+ * for doing these tasks. Also, updation and deletion will be done as per timer type and timer associated with it.
+ */
 public class IndexingManager {
+    /**
+     * Creating a private object of class.
+     */
     private static IndexingManager indexManager;
+    /**
+     * Private variable to receive key.
+     */
     private static String origkey;
+    /**
+     * Private variable to receive Value.
+     */
     private static String origvalue;
+    /**
+     * Private variable to receive Timer(time for which key value pair to be stored).
+     */
     private static String origtimer;
+    /**
+     * Private variable to receive total copies. Can be used in future when dynamic redundancy.
+     */
     private static int origtotalCopies;
+    /**
+     * Private variable to receive Copy Number.
+     */
     private static int origcopyNum;
+    /**
+     * Private variable to receive Timer Type(Fixed or Perpetual).
+     * Fixed-Index remains for fixed time.
+     * Perpetual-Index time will be updated if accessed within timer specified.
+     */
     private static boolean origtimerType;
+    /**
+     * Private variable to receive Userid. Can be name or email id.
+     */
     private static String origuserId;
+    /**
+     * Private variable to receive Layerid. It will tell about layer to which key value pair belongs.
+     */
     private static int origLayerId;
     private static String origTime;
+    /**
+     * Private variable to receive User's Certificate.
+     */
     private static java.security.cert.Certificate origCerti;
+    /**
+     * Creating pivate object of class Connection.
+     */
     private Connection conn;
+    /**
+     * Creating pivate object of class Database Utility.
+     */
     private Database_Utility utility;
+    /**
+     * Creating pivate object of class Indexing Manager Buffer.
+     */
     private IndexingManagerBuffer IMbuffer;
 
-    //This method will check whether table for layerID requested exists or not.Returns true if table exists.
 
+
+    /** This method will check whether table for layerID requested exists or not.Returns true if table exists.
+     * @param layerId Comes as an argument with index entry.
+     * @return True if table exists.
+     */
     public boolean checkTable(int layerId)
 
     {
@@ -80,8 +125,10 @@ public class IndexingManager {
         return isAvailable;
     }
 
-    //This method will check whether index which is to be added is Copy0/Copy1/Copy2.If Copy0 it will return true.
-
+    /** This method will check whether index which is to be added is Copy0/Copy1/Copy2.If Copy0 it will return true.
+     * @param copynum Comes as an argument with index entry.
+     * @return True if copy is original.
+     */
     private boolean checkiforiginal(int copynum) {
         boolean isAvailable = false;
         if (copynum == 0) {
@@ -90,9 +137,19 @@ public class IndexingManager {
         return isAvailable;
     }
 
-
-    // This method is used to add an index entry to database. Glue code will call this method and pass required arguments.
-
+    /** This method is used to add an index entry to database. Glue code will call this method and pass required arguments.
+     * Following arguments are given by glue code.They have been specified above.
+     * @param key
+     * @param value
+     * @param timer
+     * @param totalCopies
+     * @param copyNum
+     * @param timerType
+     * @param userId
+     * @param layerID
+     * @param time
+     * @param c
+     */
     public void addIndex(String key, String value, String timer, int totalCopies, int copyNum, boolean timerType, String userId, int layerID, String time, java.security.cert.Certificate c) {
         origkey = key;
         origvalue = value;
@@ -106,13 +163,14 @@ public class IndexingManager {
         origCerti = c;
 
 
-        //Verifying Digital Signature of Value using Certificate
+        // Verifying Digital Signature of Value using Certificate
 
         Verif v = new Verif();
 
         boolean b1 = v.Verify_Digital_Signature(origCerti, origvalue);
 
         // If signature is verified
+
         if (b1) {
 
             // This statement will check whether table exists or not.
@@ -120,13 +178,15 @@ public class IndexingManager {
             boolean b2 = checkTable(origLayerId);
             if (b2) {
 
-                //If table exists
+                //If table exists.Check if copy is original or not.
 
                 boolean b3 = checkiforiginal(copyNum);
                 if (!b3) {
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
                     System.out.println("Entry added");
                 } else {
+
+                // If copy is original,calculate root nodes for redundant copies and put XML files containing all details for key valu pair in buffer for Glue Code to pick up.
 
                     String[] s = rootcalc(origkey);
                     File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
@@ -136,7 +196,7 @@ public class IndexingManager {
                 }
             } else {
 
-                //If table doesn't exist then create table and add entry.
+                //If table doesn't exist then create table and add entries accordingly as specified above for copy number.
 
                 utility.createtable(origLayerId);
 
@@ -156,13 +216,19 @@ public class IndexingManager {
             }
 
         } else {
+
+        //If Signature is not verified entry will not be added.
+
             System.out.println("Signature not verified");
         }
 
     }
 
-    //This method is used to calculate root nodes for Copy1 and Copy2,returns an array containing them.
-
+    /** This method is used to calculate root nodes for Copy1 and Copy2,returns an array containing them.Root calculation is done
+     * using Consistent hashing.Hash of concatenated string of key and copy number is calculated.
+     * @param key Key for which root nodes are to be calculated.
+     * @return String array containing root nodes.
+     */
     public String[] rootcalc(String key) {
         String s1 = "Copy1";
         String concat1 = key.concat(s1);
@@ -209,8 +275,20 @@ public class IndexingManager {
 
     }
 
-    //This method is used to create XML files containing root node,other details for key and add to output buffer for Glue code.
 
+    /** This method is used to create XML files containing root node,other details for key and add to output buffer for Glue code.
+     * @param hashid Root node to which copy is to be transferred.
+     * @param key
+     * @param value
+     * @param LayerId
+     * @param copyNum
+     * @param timer
+     * @param timerType
+     * @param userid
+     * @param Time
+     * @param Certi
+     * @return XML file containing all details.
+     */
     public File XMLforRoot(String hashid, String key, String value, int LayerId, int copyNum, String timer, boolean timerType, String userid, String Time, Certificate Certi) {
         String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\For Root Node.xml";
         try {
@@ -278,16 +356,22 @@ public class IndexingManager {
         return file;
     }
 
-    // This method is used to update current time for perpetual index entry.
-
+    /** This method is used to update current time for perpetual index entry.
+     * @param Key
+     * @param layerID
+     */
     public void updateEntry(String Key, int layerID) {
 
         utility.update_entry(Key, layerID);
 
     }
 
-    // This method is used to search index entry using key and layerID in database. Also it will put details of object in an output buffer as XML file.
+    /** This method is used to search index entry using key and layerID in database. Also it will put details of object in an output buffer as XML file.
 
+     * @param Key
+     * @param layerID
+     * @return XML file containing details for Search query.
+     */
     public File searchEntry(String Key, int layerID) {
 
         ObjReturn obj = utility.search_entry(Key, layerID);
@@ -302,6 +386,18 @@ public class IndexingManager {
 
     }
 
+    /** This method is used to make XML file for Search Query.It contains details pertaining to key searched.
+     * @param key
+     * @param layerID
+     * @param value1
+     * @param time1
+     * @param totalCopies1
+     * @param copyNum1
+     * @param timerType1
+     * @param userId
+     * @param time
+     * @return
+     */
     public File makeXML(String key, int layerID, String value1,String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time) {
         String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\Search Result for Key.xml";
         try {
@@ -372,8 +468,11 @@ public class IndexingManager {
     }
 
 
-//    This method is used to delete entries which are of type fixed as per timer associated with it.This thread will run continuosly after every 15 minutes.
+    /**
+     *  This method is used to delete entries which are of type fixed as per timer associated with it.
+     *  This thread will run continuously after every 15 minutes.
 
+     */
     public void maintenancethread() {
             while(true) {
                 Thread maintenanceThread = new Thread(new Runnable() {
@@ -429,9 +528,10 @@ public class IndexingManager {
             }
     }
 
-    //This thread will run continuosly after every 30 minutes to ascertain for which nodes I am root. For which I am not
-    // will be transferred to Purge table whose layerid is 100.
-
+    /**
+     * This thread will run continuously after every 30 minutes to ascertain for which nodes I am root.
+     * For which I am not, will be transferred to Purge table whose layerid is 100.
+     */
     public void maintenancethread1() {
         while(true) {
             Thread maintenanceThread1 = new Thread(new Runnable() {
@@ -456,6 +556,11 @@ public class IndexingManager {
         }
     }
     }
+
+    /** This method will receive response from Routing manager specifying keys for which I am root.
+     * For which I am not,will be transferred to purge table.
+     * @param file Response from Routing manager.
+     */
     public void transfertopurge(File file){
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
@@ -493,8 +598,11 @@ public class IndexingManager {
         }
     }
 
-//    Constructor function of Main class.
+//
 
+    /**
+     *  Private Constructor of Main class.
+     */
     private IndexingManager() {
         Provider provider = new BouncyCastleProvider();
         Security.addProvider(provider);
@@ -511,12 +619,16 @@ public class IndexingManager {
         }
 
       //  This statement is to run maintenance thread on loading of class to purge entries whose timer has expired.
+
         maintenancethread();
 
     }
 
 //  Creating Singleton object of IndexingManager class.
 
+    /** Creating Singleton object of class.
+     * @return Object of class.
+     */
     public static synchronized IndexingManager getInstance() {
         if (indexManager == null) {
             indexManager = new IndexingManager();
@@ -526,8 +638,9 @@ public class IndexingManager {
         }
     }
 
-    //This method is used to generate xml file for routing manager to ascertain for which nodes I am root or not.After file generation
-    // objects of file are made and added to output buffer.
+    /**This method is used to generate xml file for routing manager to ascertain for which nodes I am root or not.
+     * After file generation objects of file are made and added to output buffer.
+     */
 
     public void QueryForRoutingManager() {
         PreparedStatement stmt = null;
