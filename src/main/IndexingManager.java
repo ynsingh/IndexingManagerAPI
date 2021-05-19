@@ -471,7 +471,6 @@ public class IndexingManager {
     /**
      *  This method is used to delete entries which are of type fixed as per timer associated with it.
      *  This thread will run continuously after every 15 minutes.
-
      */
     public void maintenancethread() {
             while(true) {
@@ -504,7 +503,7 @@ public class IndexingManager {
 
                                     if (!(timer == 0)) {
                                         if (System.currentTimeMillis() - time > timer) {
-                                            utility.delete_entry(filename, key);
+                                            utility.delete_entry(layerid, key);
                                         }
                                     }
                                 }
@@ -541,10 +540,8 @@ public class IndexingManager {
                     // This statement will request Routing manager to ascertain keys for which I am root node.
 
                     QueryForRoutingManager();
-                    for (int k=0;k<IMbuffer.;k++) {
                     File f=IMbuffer.fetchFromIMInputBuffer();
                     transfertopurge(f);
-}
                 }
                 });
         maintenanceThread1.start();
@@ -582,24 +579,35 @@ public class IndexingManager {
 
                     //Get value of all sub-Elements
                     String key = element.getElementsByTagName("KEY").item(0).getTextContent();
-                    String hashid=element.getElementsByTagName("HASHID").item(0);
+                    String hashid= String.valueOf(element.getElementsByTagName("HASHID").item(0));
+                    if(!(hashid =="Root Node")){
+                        transfer(key,layerID);
+                        utility.delete_entry(layerID,key);
+                    }
                 }
             }
-            /*TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(doc);
             StreamResult streamResult = new StreamResult(new File("ResponseToIndexM.xml"));
-            transformer.transform(domSource, streamResult);*/
+            transformer.transform(domSource, streamResult);
 
-        } catch (ParserConfigurationException | SAXException | IOException | TransformerException e) {
+        } catch (ParserConfigurationException | IOException | TransformerException e) {
 
         } catch (org.xml.sax.SAXException e) {
             e.printStackTrace();
         }
     }
 
-//
+    /** This method takes layer id and key and transfer index entry to purge table.
+     * @param key
+     * @param layerid
+     */
+    public void transfer(String key,int layerid){
+        ObjReturn obj1 =utility.search_entry(key,layerid);
+        utility.add_entry(100,obj1.key1,obj1.value1,obj1.time1,obj1.totalCopies1,obj1.copyNum1,obj1.timerType1,obj1.userId,obj1.time,obj1.cert);
 
+    }
     /**
      *  Private Constructor of Main class.
      */
@@ -622,9 +630,9 @@ public class IndexingManager {
 
         maintenancethread();
 
+        //  This statement is to run maintenance thread on loading of class to ascertain root nodes.
+        maintenancethread1();
     }
-
-//  Creating Singleton object of IndexingManager class.
 
     /** Creating Singleton object of class.
      * @return Object of class.

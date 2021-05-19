@@ -1,5 +1,7 @@
 package src.main;
 
+import java.security.cert.Certificate;
+
 /**
  * This class is used to collect values from database corresponding to search query for key and return values in an object.
  */
@@ -34,6 +36,8 @@ public class ObjReturn {
      * Time at which entry was added to database.
      */
         String time;
+
+        Certificate cert;
 
    // Following lines of code have setters and getters for object.
 
@@ -100,10 +104,10 @@ public class ObjReturn {
     public void setTime(String time) {
         this.time = time;
     }
-        
-        
 
-   
-       
-    
+    public Certificate getcert(){return cert;}
+
+    public void setCert(Certificate cert) {
+        this.cert = cert;
+    }
 }

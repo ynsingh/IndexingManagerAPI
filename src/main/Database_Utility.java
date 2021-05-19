@@ -169,13 +169,14 @@ public class Database_Utility {
 
 
     /** This method is used to delete entry in particular table depending on layer id.
-     * @param fileName It is table from which key is to be deleted.
+     * @param layerid Layer id to which key belongs.
      * @param key Key which is to be deleted.
      */
-    public void delete_entry(String fileName, String key) {
+    public void delete_entry(int layerid, String key) {
 
         try {
-            PreparedStatement stmt1 = conn.prepareStatement("delete from " + fileName + " where Key=?");
+            String filename = "Table" + layerid;
+            PreparedStatement stmt1 = conn.prepareStatement("delete from " + filename + " where Key=?");
 
             stmt1.setString(1, key);
 
