@@ -384,6 +384,13 @@ public class IndexingManager {
         IMbuffer.addToIMOutputBuffer(f);
         return f;
 
+        if (ObjReturn obj = utility.search_entry(Key, layerID))
+        {
+            ObjReturn obj2= utility.search_entry(Key,100);
+            utility.add_entry(layerID,obj2.key1,obj2.value1,obj2.time1,obj2.totalCopies1,obj2.copyNum1,obj2.timerType1,obj2.userId,obj2.time,obj2.cert);
+
+        }
+
     }
 
     /** This method is used to make XML file for Search Query.It contains details pertaining to key searched.
@@ -541,7 +548,10 @@ public class IndexingManager {
 
                     QueryForRoutingManager();
                     File f=IMbuffer.fetchFromIMInputBuffer();
-                    transfertopurge(f);
+                    if(f.getName().startsWith("_Response"))
+                    {
+                        transfertopurge(f);
+                    }
                 }
                 });
         maintenanceThread1.start();
@@ -552,6 +562,41 @@ public class IndexingManager {
             e.printStackTrace();
         }
     }
+    }
+
+    /**
+     * This thread will run every 90 minutes and will delete whatever entries are available in Purge Table.
+     */
+    public void maintenancethread2() {
+        while(true) {
+            Thread maintenanceThread2 = new Thread(new Runnable() {
+                @Override
+                public void run() {
+
+                    // This statement will delete entries of purge table after 90 minutes.
+
+                    String filename = "Table" + 100;
+
+                    PreparedStatement stmt1 = null;
+                    try {
+                        stmt1 = conn.prepareStatement("delete from " + filename);
+
+                        stmt1.executeUpdate();
+                    }
+                    catch (SQLException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            });
+            maintenanceThread2.start();
+            try {
+                Thread.sleep(5400000);
+                System.out.println("Thread going to sleep");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /** This method will receive response from Routing manager specifying keys for which I am root.
@@ -580,19 +625,19 @@ public class IndexingManager {
                     //Get value of all sub-Elements
                     String key = element.getElementsByTagName("KEY").item(0).getTextContent();
                     String hashid= String.valueOf(element.getElementsByTagName("HASHID").item(0));
-                    if(!(hashid =="Root Node")){
-                        transfer(key,layerID);
+                    if(!(hashid =="RootNode")){
+                        transfer(key,100);
                         utility.delete_entry(layerID,key);
                     }
                 }
             }
-            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            /*TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(doc);
             StreamResult streamResult = new StreamResult(new File("ResponseToIndexM.xml"));
             transformer.transform(domSource, streamResult);
-
-        } catch (ParserConfigurationException | IOException | TransformerException e) {
+*/
+        } catch (ParserConfigurationException | IOException e) {
 
         } catch (org.xml.sax.SAXException e) {
             e.printStackTrace();
@@ -605,7 +650,7 @@ public class IndexingManager {
      */
     public void transfer(String key,int layerid){
         ObjReturn obj1 =utility.search_entry(key,layerid);
-        utility.add_entry(100,obj1.key1,obj1.value1,obj1.time1,obj1.totalCopies1,obj1.copyNum1,obj1.timerType1,obj1.userId,obj1.time,obj1.cert);
+        utility.add_entry(layerid,obj1.key1,obj1.value1,obj1.time1,obj1.totalCopies1,obj1.copyNum1,obj1.timerType1,obj1.userId,obj1.time,obj1.cert);
 
     }
     /**
@@ -632,6 +677,8 @@ public class IndexingManager {
 
         //  This statement is to run maintenance thread on loading of class to ascertain root nodes.
         maintenancethread1();
+        maintenancethread2();
+
     }
 
     /** Creating Singleton object of class.
