@@ -1,4 +1,4 @@
-
+package src.main;
 
 import java.nio.charset.StandardCharsets;
 import java.security.*;
@@ -6,18 +6,22 @@ import java.security.*;
 import java.security.cert.Certificate;
 import java.util.Base64;
 
-
-//This class is used to verify digital signature of incoming value for indexing.
-
+/**
+ * This class is used to verify digital signature of value incoming for indexing. For testing value is signed
+ * using private key so that verification can be done using public key from certificate.
+ */
 public class Verif {
 
- //This method performs verification and return boolean value as per result.
-
+    /** This method performs verification and return boolean value as per result.
+     * @param c Certificate
+     * @param s Incoming value
+     * @return True if verified
+     */
     public boolean Verify_Digital_Signature(Certificate c, String s) {
 
- // Creating object of SignatureVerif class for accessing keystore and its methods for cryptographic functions.
+ // Creating object of Cryptography class for accessing keystore and its methods for cryptographic functions.
 
-        SignatureVerif S1 = SignatureVerif.getInstance();
+        Cryptography S1 = Cryptography.getInstance();
         Signature signature = null;
         String signatureData = null;
         byte[] sigData = null;
@@ -27,7 +31,7 @@ public class Verif {
             e.printStackTrace();
         }
 
- // Following block is signing value using public key from keystore for testing purpose.
+ // Following block is signing value using private key from keystore for testing purpose.
 
         try {
             signature.initSign(S1.getFromKeyStore());
@@ -57,22 +61,6 @@ public class Verif {
         return verify;
     }
 
-    public static void main(String args[]) {
-
-        java.security.cert.Certificate c1 = null;
-
-        try {
-            SignatureVerif S2 = SignatureVerif.getInstance();
-            KeyStore k = S2.getKeyStore();
-            c1 = k.getCertificate("Certificate");
-        } catch (KeyStoreException e) {
-            e.printStackTrace();
-        }
-        boolean v = new Verif().Verify_Digital_Signature( c1, "Hello");
-        System.out.println(v);
-
-
-    }
 }
 
 

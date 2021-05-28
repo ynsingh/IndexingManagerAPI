@@ -1,3 +1,5 @@
+package src.main;
+
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.bouncycastle.x509.X509V3CertificateGenerator;
 
@@ -15,22 +17,41 @@ import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 import java.util.Date;
 
-// This class is used for generating public and private key,keystore,dummy certificate for testing purpose,
-// putting private key and certificate in the keystore, retrieval of private key from the keystore.In short it performs cryptographic functions.
 
-public class SignatureVerif {
 
+/**Purpose of this class is testing.It is used for generating public and private key,keystore,dummy certificate,
+ * putting private key and certificate in the keystore, retrieval of private key from the keystore.
+ * In short it performs cryptographic functions.
+ */
+public class Cryptography {
+
+    /**
+     * Creating variable of Interface Public Key.
+     */
     private static PublicKey publicKey;
+    /**
+     * Creating variable of Interface Private Key.
+     */
     private static PrivateKey privateKey;
+    /**
+     * Creating object of Class KeyStore.
+     */
     private static KeyStore keyStore;
-    private static SignatureVerif signatureVerif;
+    /**
+     * Creating object of Class Cryptography.
+     */
+    private static Cryptography signatureVerif;
+    /**
+     * Variable to store password for Key Store.
+     */
     private static final char[] password = "abc@123".toCharArray();
 
-  // This is constructor of class used to call required functions as per availability of keystore.
+    /**
+     * This is constructor of class used to call required functions as per availability of keystore.
+     */
+    private Cryptography() {
 
-    private SignatureVerif() {
-
-  // Adding BouncyCastle provider
+  // Adding BouncyCastle provider by adding a jar file.
 
         Provider provider = new BouncyCastleProvider();
         Security.addProvider(provider);
@@ -59,18 +80,24 @@ public class SignatureVerif {
         }
     }
 
-    // Creating Singleton
 
-    public static synchronized SignatureVerif getInstance() {
+
+    /** Creating Singleton object of Cryptography Class.
+     * @return Object of Cryptography Class.
+     */
+    public static synchronized Cryptography getInstance() {
         if (signatureVerif == null) {
-            signatureVerif = new SignatureVerif();
+            signatureVerif = new Cryptography();
         }
         return signatureVerif;
     }
 
-    // This method is used for key pair generation
 
-    private static void keyPairGeneration() {
+
+    /**
+     * This method is used for key pair generation.
+     */
+    private void keyPairGeneration() {
         try {
             String ALGORITHM = "RSA";
             KeyPairGenerator keyPairGenerator = KeyPairGenerator.getInstance(ALGORITHM, "BC");
@@ -84,9 +111,12 @@ public class SignatureVerif {
         }
     }
 
-    // This method is used for loading keystore to package.
 
-    private static void loadKeyStore() {
+
+    /**
+     * This method is used for loading keystore to package.
+     */
+    private void loadKeyStore() {
         try {
 
             FileInputStream fis = new FileInputStream("keyStore.ks");
@@ -99,10 +129,10 @@ public class SignatureVerif {
         }
     }
 
-// This method is used for saving Keystore
-
-
-    private static void saveKeyStore() {
+    /**
+     * This method is used for saving Keystore.
+     */
+    private void saveKeyStore() {
         FileOutputStream fos;
         try {
 
@@ -115,9 +145,10 @@ public class SignatureVerif {
         }
     }
 
-    // This method is used for saving private key to Keystore
-
-    private static void saveToKeyStore() {
+    /**
+     * This method is used for saving private key to Keystore.
+     */
+    private void saveToKeyStore() {
         KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
         X509Certificate certificate = generateCertificate();
         java.security.cert.Certificate[] certChain = (java.security.cert.Certificate[]) new Certificate[1];
@@ -132,42 +163,9 @@ public class SignatureVerif {
         }
     }
 
-//    PublicKey strToPub(String str) {
-//        PublicKey publicKey = null;
-//        //converting string to byte initially and then back to public key
-//        byte[] bytePub1 = Base64.getDecoder().decode(str);
-//        if (str.equals("")) {
-//            return null;
-//        }
-//        KeyFactory factory;
-//        try {
-//            factory = KeyFactory.getInstance("RSA");
-//            publicKey = factory.generatePublic(new X509EncodedKeySpec(bytePub1));
-//        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-//
-//        }
-//        return publicKey;
-//    }
-//
-//    String pubToStr(PublicKey key) {
-//        String strPub;
-//        //converting public key to byte[] and then convert it in to string
-//        if (key == null) {
-//            strPub = "";
-//            return strPub;
-//        }
-//        byte[] bytePub = key.getEncoded();
-//        strPub = Base64.getEncoder().encodeToString(bytePub);
-//        return strPub;
-    //  }
-
-
-
-
-    // This method is used for retrieving private key from Keystore
-
-
-
+    /** This method is used to get private key from Key Store.
+     * @return Private Key.
+     */
       PrivateKey getFromKeyStore() {
          KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
          KeyStore.PrivateKeyEntry privateKeyEntry = null;
@@ -180,10 +178,10 @@ public class SignatureVerif {
         return privateKeyEntry.getPrivateKey();
        }
 
-    // This method is used for generating certificate
-
-
-    private static X509Certificate generateCertificate() {
+    /** This method is used for generating certificate.
+     * @return Certificate.
+     */
+    private X509Certificate generateCertificate() {
         // build a certificate generator
         X509V3CertificateGenerator certGen = new X509V3CertificateGenerator();
         String CERTIFICATE_DN = "CN = cn , O = o, L =L ,ST = i1, C = c";
@@ -211,21 +209,18 @@ public class SignatureVerif {
         return cert;
     }
 
-    // As methods and object of class is private these method are used to get public key and keystore.
-
-
+    /**As methods and object of class is private this method is used to get public key. and keystore.
+     * @return Public Key
+     */
     PublicKey getPublicKey() {
         return publicKey;
     }
 
-    KeyStore getKeyStore() {
+    /** As methods and object of class is private this method is used to get keystore.
+     * @return KeyStore
+     */
+    public KeyStore getKeyStore() {
         return keyStore;
     }
-
-
-    public static void main(String[] args) {
-        SignatureVerif s = SignatureVerif.getInstance();
-    }
-
 
 }
