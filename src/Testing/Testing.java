@@ -4,7 +4,8 @@ import jdk.internal.org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import src.main.Database_Utility;
 import src.main.IndexingManager;
-import src.main.SignatureVerif;
+import src.main.Cryptography;
+import src.main.ObjReturn;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -27,29 +28,58 @@ import java.util.ArrayList;
 
 public class Testing {
 
-   // private static DocumentBuilderFactory builderFactory;
-   // private static String indexFileName;
 
     public static void main(String argv[]) {
-        /*maintenance thread 2
-IIT Kgp_MTP_Thesis template(1)*/
 
-            //  IndexingManager IM= IndexingManager.getInstance();
+        //Following block will test adding of an entry.
+        // {
+        IndexingManager IM= IndexingManager.getInstance();
+        /* Cryptography S2 = Cryptography.getInstance();
+       KeyStore k = S2.getKeyStore();
+       Certificate c1 = null;
+       try {
+           c1 =  k.getCertificate("Certificate");}
+        catch (KeyStoreException e) {
+           e.printStackTrace();
+        }*/
+
+        //IM.addIndex("hiii","hoooo","3000",2,1,false,"mohsin",2,"1621911095568",c1);
+       // IM.addIndex("hm","hoooo","3000",1,2,false,"mohsin",1,"1621911095568",c1);
+
+        //  }
+
+        // Following block will test searching of an entry.
+        //  {
+
+       /* Database_Utility u=Database_Utility.getInstance();
+        ObjReturn o=new ObjReturn();
+        o=u.search_entry("hiii",2);
+        System.out.println(o.getCopyNum1());
+        System.out.println(o.getTime());
+
+        File f=IM.searchEntry("hiii",2);
+        System.out.println(f.getName());*/
+
+        //  }
+        //Database_Utility u=Database_Utility.getInstance();
+        //u.createtable(0);
+      // IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",1,0,false,"mohsin",0,"1621911095568",c1);
+        //IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904<","hoooo","3000",1,1,false,"mohsin",0,"1621911095568",c1);
+        //IM.addIndex("hell","hoooo","3000",1,0,false,"mohsin",0,"1621911095568",c1);
+
+
+        //This block will check transfer of entry to purge table.
+
+        //{
+        // String filepath="ResponseToIndexM.xml";
+       /// IM.transfertopurge(new File(filepath));
+        // }
 
 
               /*ArrayList<File> B=IM.resultForIndexingManager();
         System.out.println(B.get(0).getName());
         System.out.println(B.get(1).getName());*/
 
-//
-//        SignatureVerif S2 = SignatureVerif.getInstance();
-//        KeyStore k = S2.getKeyStore();
-//        Certificate c1 = null;
-//        try {
-//            c1 =  k.getCertificate("Certificate");}
-//        catch (KeyStoreException e) {
-//            e.printStackTrace();
-//        }
 //       File f=IM.XMLforRoot(s[0],"HIII","helooo",2,2, (long) 34567890,true,"hooooo",System.currentTimeMillis(),c1);
 
 //IM.resultForIndexingManager();
@@ -59,44 +89,7 @@ IIT Kgp_MTP_Thesis template(1)*/
         //String filepath="Table1_RootNodeCheck.xml";
         //File f=responseForIndexingManager(filepath);
     }
-        /*public static File responseForIndexingManager (String indexFileName){
-            DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = null;
-            String selfNodeID = null;
-            try {
-                documentBuilder = builderFactory.newDocumentBuilder();
-                Document doc = documentBuilder.parse(new File(indexFileName));
-                doc.getDocumentElement().normalize();
-                String rootElement = doc.getDocumentElement().getNodeName();
-                String layerIDS = doc.getDocumentElement().getAttribute("LayerID");
-                int layerID = Integer.parseInt(layerIDS);
-                NodeList nodeList1 = doc.getElementsByTagName("DATA");
-                for (int i = 0; i < nodeList1.getLength(); i++) {
-                    Node node = nodeList1.item(i);
 
-                    if (node.getNodeType() == node.ELEMENT_NODE) {
-                        Element element = (Element) node;
-                        String index = node.getAttributes().getNamedItem("INDEX").getNodeValue();
-
-                        //Get value of all sub-Elements
-                        String key = element.getElementsByTagName("KEY").item(0).getTextContent();
-                        element.getElementsByTagName("HASHID").item(0).setTextContent("1252623738");
-                    }
-                }
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                DOMSource domSource = new DOMSource(doc);
-                StreamResult streamResult = new StreamResult(new File("ResponseToIndexM.xml"));
-                transformer.transform(domSource, streamResult);
-                System.out.println("ResponseToIndexM.xml" + "file updated");
-            } catch (ParserConfigurationException | IOException | TransformerException e) {
-
-            } catch (org.xml.sax.SAXException e) {
-                e.printStackTrace();
-            }
-            return new File("ResponseToIndexM.xml");
-
-        }*/
 
     }
 
