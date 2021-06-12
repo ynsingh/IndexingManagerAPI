@@ -302,7 +302,6 @@ public class IndexingManager {
      * @return XML file containing all details.
      */
     public File XMLforRoot(String hashid, String key, String value, int LayerId, int copyNum, String timer, boolean timerType, String userid, String Time, Certificate Certi) {
-        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\For Root Node.xml";
         try {
 
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -378,6 +377,9 @@ public class IndexingManager {
 
     }
 
+    public void deleteIndex(String Key, int layerID) {
+        utility.delete_entry(layerID,Key);
+    }
     /**
      * This method is used to search index entry using key and layerID in database. Also it will put details of object in an output buffer as XML file.
      *
@@ -387,30 +389,34 @@ public class IndexingManager {
      */
     public File searchIndex(String Key, int layerID) {
 
-        ObjReturn obj;
-        ObjReturn obj1;
+        ObjReturn obj=new ObjReturn();
+        ObjReturn obj1=new ObjReturn();
+        File f;
         obj = utility.search_entry(Key, layerID);
         boolean b = obj.timerType1;
+        System.out.println(b);
         String s=obj.getValue1();
+        System.out.println(s);
 
         if (!b) {
             updateIndex(Key, layerID);
-            File f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime());
+            f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime());
             IMbuffer.addToIMOutputBuffer(f);
-            return f;
+
         }
 
-       else{
-            File f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime());
+       else {
+             f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime());
             IMbuffer.addToIMOutputBuffer(f);
-            return f;
+
         }
 
-       /*if (s.equals("null")) {
+       if (s.equals("null")) {
             obj1 = utility.search_entry(Key,100);
         utility.add_entry(layerID,obj1.getKey1(),obj1.getValue1(),obj1.getTime1(),obj1.getTotalCopies1(),obj1.getCopyNum1(),obj1.getTimerType1(),obj1.getUserId(),obj1.getTime(),obj1.getcert());
 
-        }*/
+        }
+        return f;
 
     }
 
@@ -429,7 +435,7 @@ public class IndexingManager {
      * @return
      */
     public File makeXML(String key, int layerID, String value1, String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time) {
-        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\Search Result for Key.xml";
+
         try {
 
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -508,7 +514,6 @@ public class IndexingManager {
                 public void run() {
                     System.out.println(Thread.currentThread());
                     PreparedStatement pst = null;
-                    int rowid;
                     long timer = 0;
                     long time = 0;
                     String key;
@@ -661,12 +666,8 @@ public class IndexingManager {
                     }
                 }
             }
-            /*TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            DOMSource domSource = new DOMSource(doc);
-            StreamResult streamResult = new StreamResult(new File("ResponseToIndexM.xml"));
-            transformer.transform(domSource, streamResult);
-*/
+
+
         } catch (ParserConfigurationException | IOException e) {
 
         } catch (org.xml.sax.SAXException e) {
