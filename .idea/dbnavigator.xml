@@ -24,10 +24,14 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="7505d0fc-b10b-475d-8a7c-28d3289a32a8">
+        <schema name="main" object-types="table, view" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
-    <connection id="dad40bc3-8417-4353-8746-35f612ba1da6">
+    <connection id="7505d0fc-b10b-475d-8a7c-28d3289a32a8">
       <console name="Connection" type="STANDARD" schema="main" session="Main" />
     </connection>
   </component>
@@ -35,7 +39,7 @@
     <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
-    <connection id="dad40bc3-8417-4353-8746-35f612ba1da6" />
+    <connection id="7505d0fc-b10b-475d-8a7c-28d3289a32a8" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers />
@@ -63,7 +67,7 @@
   </component>
   <component name="DBNavigator.Project.Settings">
     <connections>
-      <connection id="dad40bc3-8417-4353-8746-35f612ba1da6" active="true">
+      <connection id="7505d0fc-b10b-475d-8a7c-28d3289a32a8" active="true">
         <database>
           <name value="Connection" />
           <description value="" />
@@ -74,11 +78,11 @@
           <driver-library value="" />
           <driver value="" />
           <url-type value="FILE" />
-          <host value="localhost" />
-          <port value="1234" />
-          <database value="database" />
+          <host value="" />
+          <port value="" />
+          <database value="" />
           <files>
-            <file path="C:\Users\a\Pictures\IndexingManagerAPI\KeyValuePairs.db" schema="main" />
+            <file path="D:\IndexingManagerAPI\KeyValuePairs.db" schema="main" />
           </files>
           <type value="NONE" />
           <user value="" />
@@ -209,8 +213,6 @@
           <object-type name="TABLE" enabled="true" />
           <object-type name="VIEW" enabled="true" />
           <object-type name="MATERIALIZED VIEW" enabled="true" />
-          <object-type name="NESTED TABLE" enabled="false" />
-          <object-type name="COLUMN" enabled="false" />
           <object-type name="INDEX" enabled="true" />
           <object-type name="CONSTRAINT" enabled="true" />
           <object-type name="DATASET TRIGGER" enabled="true" />
@@ -221,8 +223,6 @@
           <object-type name="FUNCTION" enabled="true" />
           <object-type name="PACKAGE" enabled="true" />
           <object-type name="TYPE" enabled="true" />
-          <object-type name="TYPE ATTRIBUTE" enabled="false" />
-          <object-type name="ARGUMENT" enabled="false" />
           <object-type name="DIMENSION" enabled="false" />
           <object-type name="CLUSTER" enabled="false" />
           <object-type name="DBLINK" enabled="true" />
