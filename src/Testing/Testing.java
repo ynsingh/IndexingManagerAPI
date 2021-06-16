@@ -35,29 +35,33 @@ public class Testing {
 
         // {
 
-        IndexingManager IM= IndexingManager.getInstance();
-        /* Cryptography S2 = Cryptography.getInstance();
+      /* IndexingManager IM= IndexingManager.getInstance();
+         Cryptography S2 = Cryptography.getInstance();
        KeyStore k = S2.getKeyStore();
        Certificate c1 = null;
        try {
            c1 =  k.getCertificate("Certificate");}
         catch (KeyStoreException e) {
            e.printStackTrace();
-        }
+        }*/
 
-        IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",2,1,false,"tom",2,"1621911095568",c1);
-        IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",1,2,false,"harry",1,"1621911095568",c1);
-*/
+       // IM.addIndex("3051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",2,1,false,"new",1,"1621911095568",c1);
+       // IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",1,2,false,"harry",1,"1621911095568",c1);
+
         //  }
+
+        Database_Utility u=Database_Utility.getInstance();
+        ObjReturn obj=new ObjReturn();
+        obj=u.search_entry("3051C7A9CD59A1BE822F699267C42DE64C0904",1);
+        System.out.println(obj.getValue1());
+
+
 
         // Following block will test searching of an entry.
         //  {
 
-        /*
-        File f=IM.searchIndex("hiii",2);
-        System.out.println(f.getName());
-        */
-
+        /*File f=IM.searchIndex("hiii",2);
+        System.out.println(f.getName());*/
         //  }
 
         // Following block will test updation of an entry.
@@ -83,6 +87,8 @@ public class Testing {
        IM.transfertopurge(new File(filepath));*/
 
         // }
+
+        //IM.usertoCertMap();
 
 
 //       File f=IM.XMLforRoot(s[0],"HIII","helooo",2,2, (long) 34567890,true,"hooooo",System.currentTimeMillis(),c1);

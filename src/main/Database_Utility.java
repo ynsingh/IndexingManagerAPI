@@ -1,7 +1,12 @@
 package src.main;
 
 
-import java.security.cert.Certificate;
+import org.bouncycastle.util.encoders.Base64;
+
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
+import java.security.cert.*;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -93,6 +98,22 @@ public class Database_Utility {
 
     }
 
+    /**
+     * This method is created to create table for userid to certificate mapping.Table number for this is kept as 101.
+     */
+    public void createtable1(){
+        try {
+            String fileName = "Table" + 101;
+            String sql = "CREATE TABLE " + fileName + "("
+                    + "userId STRING(30) ,"
+                    + " Certificate VARCHAR NOT NULL " + ")";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        }
 
     /**
      * This method is used to add index entry to database as per layer id.
@@ -109,6 +130,8 @@ public class Database_Utility {
      */
     public void add_entry(int layerID, String key, String value, String timer, int totalCopies, int copyNum, boolean timerType, String userId, String time, Certificate c) {
         try {
+            String b = java.util.Base64.getEncoder().encodeToString(c.getEncoded());
+
             String tableName = "Table" + layerID;
             String sql = "INSERT INTO " + tableName + " (key,value,timer,totalCopies,copyNum,timerType,userId,time,Certificate) VALUES(?,?,?,?,?,?,?,?,?)";
             PreparedStatement pstmt = conn.prepareStatement(sql);
@@ -120,13 +143,15 @@ public class Database_Utility {
             pstmt.setBoolean(6, timerType);
             pstmt.setString(7, userId);
             pstmt.setString(8, time);
-            pstmt.setString(9, String.valueOf(c));
+            pstmt.setString(9, b);
 
             pstmt.executeUpdate();
             pstmt.close();
 
         } catch (SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CertificateEncodingException e) {
+            e.printStackTrace();
         }
 
     }
@@ -145,7 +170,7 @@ public class Database_Utility {
         try {
 
             String filename = "Table" + layerId;
-            PreparedStatement stmt = conn.prepareStatement(" select value,timer,totalCopies,copyNum,timerType,userId,time from " + filename + " where Key=? ");
+            PreparedStatement stmt = conn.prepareStatement(" select value,timer,totalCopies,copyNum,timerType,userId,time,Certificate from " + filename + " where Key=? ");
             stmt.setString(1, Key);
             ResultSet rs = stmt.executeQuery();
 
@@ -159,8 +184,18 @@ public class Database_Utility {
                 boolean timeTyp = rs.getBoolean(5);
                 String hashId = rs.getString(6);
                 String time = rs.getString(7);
+                String s=rs.getString(8);
 
-                //Certificate cert= (Certificate) rs.getBlob(8);
+                //java.util.Base64.Decoder decoder= java.util.Base64.getDecoder();
+                byte[] decodedByte = java.util.Base64.getMimeDecoder().decode(s);
+                System.out.println(decodedByte);
+
+
+                CertificateFactory cf=CertificateFactory.getInstance("X.509");
+                ByteArrayInputStream bis=new ByteArrayInputStream(decodedByte);
+                Certificate cert=cf.generateCertificate(bis);
+                System.out.println(cert.getPublicKey());
+
 
                 obj1.setValue1(val);
                 obj1.setTime1(tim);
@@ -169,11 +204,13 @@ public class Database_Utility {
                 obj1.setTimerType1(timeTyp);
                 obj1.setUserId(hashId);
                 obj1.setTime(time);
-                //obj1.setCert(String.valueOf(cert));
+                obj1.setCert(cert);
 
             }
         } catch (SQLException ex) {
             Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CertificateException e) {
+            e.printStackTrace();
         }
 
         return obj1;

@@ -181,6 +181,14 @@ public class IndexingManager {
         if (b1) {
 
             // This statement will check whether table exists or not.
+            boolean b5=checkTable(101);
+            if(b5){
+                userToCertMap(origuserId,origCerti);
+            }
+            else{
+                utility.createtable1();
+                userToCertMap(origuserId,origCerti);
+            }
 
             boolean b2 = checkTable(origLayerId);
             if (b2) {
@@ -196,6 +204,7 @@ public class IndexingManager {
                     // If copy is original,calculate root nodes for redundant copies and put XML files containing all details for key valu pair in buffer for Glue Code to pick up.
 
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    System.out.println("Entry added");
                     String[] s = rootcalc(origkey);
                     File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
                     File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
@@ -258,8 +267,6 @@ public class IndexingManager {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-
-
         String s2 = "Copy2";
         String concat2 = key.concat(s2);
         MessageDigest messageDigest1 = null;
@@ -342,9 +349,18 @@ public class IndexingManager {
             timertype.appendChild(document.createTextNode(String.valueOf(timerType)));
             hashId.appendChild(timertype);
 
+            Element userId = document.createElement("userId");
+            timertype.appendChild(document.createTextNode(String.valueOf(userId)));
+            hashId.appendChild(userId);
+
             Element time2 = document.createElement("time");
             time2.appendChild(document.createTextNode(String.valueOf(Time)));
             hashId.appendChild(time2);
+
+            Element cert = document.createElement("Certificate");
+            time2.appendChild(document.createTextNode(String.valueOf(cert)));
+            hashId.appendChild(cert);
+
 
             // create the xml file
             //transform the DOM Object to an XML File
@@ -394,19 +410,16 @@ public class IndexingManager {
         File f;
         obj = utility.search_entry(Key, layerID);
         boolean b = obj.timerType1;
-        System.out.println(b);
         String s=obj.getValue1();
-        System.out.println(s);
-
         if (!b) {
             updateIndex(Key, layerID);
-            f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime());
+            f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(),obj.getcert());
             IMbuffer.addToIMOutputBuffer(f);
 
         }
 
        else {
-             f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime());
+             f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(),obj.getcert());
             IMbuffer.addToIMOutputBuffer(f);
 
         }
@@ -434,7 +447,7 @@ public class IndexingManager {
      * @param time
      * @return
      */
-    public File makeXML(String key, int layerID, String value1, String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time) {
+    public File makeXML(String key, int layerID, String value1, String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time,Certificate cert) {
 
         try {
 
@@ -480,6 +493,10 @@ public class IndexingManager {
             Element time2 = document.createElement("time");
             time2.appendChild(document.createTextNode(String.valueOf(time1)));
             layerid.appendChild(time2);
+
+            Element cert1 = document.createElement("cert");
+            cert1.appendChild(document.createTextNode(String.valueOf(cert)));
+            layerid.appendChild((Node) cert);
 
             // create the xml file
             //transform the DOM Object to an XML File
@@ -682,7 +699,7 @@ public class IndexingManager {
      */
     public void transfer(String key, ObjReturn obj4) {
 
-        utility.add_entry(100, key, obj4.getValue1(), obj4.getTime1(), obj4.getTotalCopies1(), obj4.getCopyNum1(), obj4.getTimerType1(), obj4.getUserId(), obj4.getTime(), null);
+        utility.add_entry(100, key, obj4.getValue1(), obj4.getTime1(), obj4.getTotalCopies1(), obj4.getCopyNum1(), obj4.getTimerType1(), obj4.getUserId(), obj4.getTime(), obj4.getcert());
 
     }
 
@@ -750,13 +767,13 @@ public class IndexingManager {
                 Document doc = builder.newDocument();
 
                 String ld = rs.getString("TABLE_NAME");
-                System.out.println(ld);
+
 
                 //This statement will extract digits from table names.
 
                 String intValue = ld.replaceAll("[^0-9]", "");
                 int v = Integer.parseInt(intValue);
-                System.out.println(v);
+
 
                 //create root Element
 
@@ -802,4 +819,28 @@ public class IndexingManager {
             e.printStackTrace();
         }
     }
-}
+
+    /**
+     * This method is used to create userid to certificate mapping.Table of only two columns and table number 101 is created first,
+     * then user id and certificates are copied whenever an index is added.
+     */
+    public void userToCertMap(String userid,Certificate c) {
+
+        PreparedStatement stmt = null;
+        PreparedStatement pstmt=null;
+        String filename="Table"+ 101;
+        String sql = "INSERT INTO " + filename + " (userId,Certificate) VALUES(?,?)";
+        try {
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1,userid);
+            pstmt.setString(2, String.valueOf(c));
+            pstmt.executeUpdate();
+            pstmt.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+            }
+
