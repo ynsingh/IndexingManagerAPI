@@ -103,7 +103,7 @@ public class Database_Utility {
         try {
             String fileName = "Table" + 101;
             String sql = "CREATE TABLE " + fileName + "("
-                    + "userId STRING(30) ,"
+                    + "[userId] STRING (30) PRIMARY key NOT NULL,"
                     + " Certificate VARCHAR NOT NULL " + ")";
             PreparedStatement pstmt = conn.prepareStatement(sql);
             pstmt.executeUpdate();

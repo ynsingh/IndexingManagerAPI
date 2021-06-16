@@ -24,6 +24,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
 import java.security.cert.Certificate;
+import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.sql.*;
@@ -184,16 +185,6 @@ public class IndexingManager {
 
         if (b1) {
 
-            // This statement will check whether table exists or not.
-            boolean b5=checkTable(101);
-            if(b5){
-                userToCertMap(origuserId,origCerti);
-            }
-            else{
-                utility.createtable1();
-                userToCertMap(origuserId,origCerti);
-            }
-
             boolean b2 = checkTable(origLayerId);
             if (b2) {
 
@@ -202,12 +193,14 @@ public class IndexingManager {
                 boolean b3 = checkiforiginal(copyNum);
                 if (!b3) {
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    userToCertMap(origuserId,origCerti);
                     System.out.println("Entry added");
                 } else {
 
                     // If copy is original,calculate root nodes for redundant copies and put XML files containing all details for key valu pair in buffer for Glue Code to pick up.
 
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    userToCertMap(origuserId,origCerti);
                     System.out.println("Entry added");
                     String[] s = rootcalc(origkey);
                     File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
@@ -724,6 +717,11 @@ public class IndexingManager {
         if (!k) {
             utility.createtable(100);
         }
+        boolean k1 = checkTable(101);
+
+        if (!k1) {
+            utility.createtable1();
+        }
 
         //  This statement is to run maintenance thread on loading of class to purge entries whose timer has expired.
 
@@ -829,28 +827,33 @@ public class IndexingManager {
      * then user id and certificates are copied whenever an index is added.
      */
     public void userToCertMap(String userid,Certificate c) {
-
-        PreparedStatement stmt = null;
-        PreparedStatement pstmt=null;
-        String filename="Table"+ 101;
-        String sql = "INSERT INTO " + filename + " (userId,Certificate) VALUES(?,?)";
         try {
+            String b = null;
+            System.out.println("hello");
+            b = java.util.Base64.getEncoder().encodeToString(c.getEncoded());
+            PreparedStatement pstmt = null;
+            String filename = "Table" + 101;
+            System.out.println("hello");
+            String sql = "INSERT INTO " + filename + " (userId,Certificate) VALUES(?,?)";
+            System.out.println("hello");
             pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1,userid);
-            pstmt.setString(2, String.valueOf(c));
+            pstmt.setString(1, userid);
+            pstmt.setString(2, b);
             pstmt.executeUpdate();
             pstmt.close();
-        } catch (SQLException e) {
+            System.out.println("hello");
+        }
+         catch(SQLException e){
+            e.printStackTrace();
+        } catch (CertificateEncodingException e) {
             e.printStackTrace();
         }
-
-
     }
 
+
+
     public Certificate fetchuserCerti(String userid){
-        System.out.println("Enter userId");
-        Scanner sc= new Scanner(System.in);
-        String str= sc.nextLine();
+
         String filename = "Table" + 101;
         PreparedStatement stmt = null;
         Certificate cert=null;

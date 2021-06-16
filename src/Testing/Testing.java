@@ -36,7 +36,7 @@ public class Testing {
         // {
 
        IndexingManager IM= IndexingManager.getInstance();
-       /*  Cryptography S2 = Cryptography.getInstance();
+        /* Cryptography S2 = Cryptography.getInstance();
        KeyStore k = S2.getKeyStore();
        Certificate c1 = null;
        try {
@@ -45,7 +45,7 @@ public class Testing {
            e.printStackTrace();
         }*/
 
-       // IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",2,1,false,"new",0,"1621911095568",c1);
+       // IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",2,1,false,"new1",1,"1621911095568",c1);
        // IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",1,2,false,"harry",1,"1621911095568",c1);
 
         //  }
@@ -83,13 +83,16 @@ public class Testing {
 
         //{
 
-         String filepath="ResponseToIndexM.xml";
-       IM.transfertopurge(new File(filepath));
 
+
+        /* String filepath="ResponseToIndexM.xml";
+       IM.transfertopurge(new File(filepath));
+*/
         // }
 
-        //IM.usertoCertMap();
-
+        /*Certificate c=IM.fetchuserCerti("new1");
+        System.out.println(c.getPublicKey());
+*/
 
 //       File f=IM.XMLforRoot(s[0],"HIII","helooo",2,2, (long) 34567890,true,"hooooo",System.currentTimeMillis(),c1);
 
