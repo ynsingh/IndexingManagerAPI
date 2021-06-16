@@ -73,6 +73,7 @@ public class Cryptography {
                 privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("Private Key", protectionParameter);
                 privateKey = privateKeyEntry.getPrivateKey();
                 java.security.cert.Certificate certificate =  keyStore.getCertificate("Certificate");
+
                 publicKey = certificate.getPublicKey();
             }
         } catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | IOException | UnrecoverableEntryException e) {

@@ -1,12 +1,11 @@
 package src.main;
 
 
-import org.bouncycastle.util.encoders.Base64;
-
 import java.io.ByteArrayInputStream;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
-import java.security.cert.*;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,14 +16,13 @@ import java.util.logging.Logger;
 public class Database_Utility {
 
     /**
-     * Creating Object of Class Connection for making connection to database.
-     */
-    private Connection conn;
-
-    /**
      * Creating object of Class Database Utility.
      */
     public static Database_Utility utility;
+    /**
+     * Creating Object of Class Connection for making connection to database.
+     */
+    private Connection conn;
 
     /**
      * Constructor of Database Utilty class made private.Connection is created in Constructor itself.
@@ -186,16 +184,11 @@ public class Database_Utility {
                 String time = rs.getString(7);
                 String s=rs.getString(8);
 
-                //java.util.Base64.Decoder decoder= java.util.Base64.getDecoder();
+
                 byte[] decodedByte = java.util.Base64.getMimeDecoder().decode(s);
-                System.out.println(decodedByte);
-
-
                 CertificateFactory cf=CertificateFactory.getInstance("X.509");
                 ByteArrayInputStream bis=new ByteArrayInputStream(decodedByte);
                 Certificate cert=cf.generateCertificate(bis);
-                System.out.println(cert.getPublicKey());
-
 
                 obj1.setValue1(val);
                 obj1.setTime1(tim);

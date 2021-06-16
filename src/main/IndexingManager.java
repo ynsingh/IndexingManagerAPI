@@ -16,6 +16,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -23,8 +24,11 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
 import java.security.cert.Certificate;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * This is main class of IndexingManager API. Glue code will interact with this class for adding and searching an index.It has methods
@@ -494,9 +498,9 @@ public class IndexingManager {
             time2.appendChild(document.createTextNode(String.valueOf(time1)));
             layerid.appendChild(time2);
 
-            Element cert1 = document.createElement("cert");
+            /*Element cert1 = document.createElement("cert");
             cert1.appendChild(document.createTextNode(String.valueOf(cert)));
-            layerid.appendChild((Node) cert);
+            layerid.appendChild((Node) cert);*/
 
             // create the xml file
             //transform the DOM Object to an XML File
@@ -669,13 +673,12 @@ public class IndexingManager {
                     //Get value of all sub-Elements
                     String key = element.getElementsByTagName("KEY").item(0).getTextContent();
                     String hashid = String.valueOf(element.getElementsByTagName("NEXTHOP").item(0).getTextContent());
-                    System.out.println(hashid);
                     if (!(hashid.equals("RootNode"))) {
-                        System.out.println(key);
-                        System.out.println(layerID);
+
                         ObjReturn obj3=utility.search_entry(key,layerID);
-                         File f=XMLforRoot(hashid,key,obj3.getValue1(),layerID,obj3.getCopyNum1(),obj3.getTime1(),obj3.getTimerType1(),obj3.getUserId(),obj3.getTime(),obj3.getcert());
-                         IMbuffer.addToIMOutputBuffer(f);
+
+                        /*File f=XMLforRoot(hashid,key,obj3.getValue1(),layerID,obj3.getCopyNum1(),obj3.getTime1(),obj3.getTimerType1(),obj3.getUserId(),obj3.getTime(),obj3.getcert());
+                        IMbuffer.addToIMOutputBuffer(f);*/
 
                         transfer(key,obj3);
                         utility.delete_entry(layerID, key);
@@ -698,6 +701,7 @@ public class IndexingManager {
      * @param obj4
      */
     public void transfer(String key, ObjReturn obj4) {
+        System.out.println("hoiiii");
 
         utility.add_entry(100, key, obj4.getValue1(), obj4.getTime1(), obj4.getTotalCopies1(), obj4.getCopyNum1(), obj4.getTimerType1(), obj4.getUserId(), obj4.getTime(), obj4.getcert());
 
@@ -842,5 +846,34 @@ public class IndexingManager {
 
 
     }
-            }
+
+    public Certificate fetchuserCerti(String userid){
+        System.out.println("Enter userId");
+        Scanner sc= new Scanner(System.in);
+        String str= sc.nextLine();
+        String filename = "Table" + 101;
+        PreparedStatement stmt = null;
+        Certificate cert=null;
+        try {
+            stmt = conn.prepareStatement(" select Certificate from " + filename + " where userId=? ");
+            stmt.setString(1, userid);
+            ResultSet rs = stmt.executeQuery();
+            String s=rs.getString("Certificate");
+            byte[] decodedByte = java.util.Base64.getMimeDecoder().decode(s);
+            CertificateFactory cf=CertificateFactory.getInstance("X.509");
+            ByteArrayInputStream bis=new ByteArrayInputStream(decodedByte);
+            cert=cf.generateCertificate(bis);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (CertificateException e) {
+            e.printStackTrace();
+        }
+
+        return cert;
+
+        }
+
+    }
+
 
