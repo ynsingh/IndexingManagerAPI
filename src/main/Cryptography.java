@@ -110,8 +110,6 @@ public class Cryptography {
         }
     }
 
-
-
     /**
      * This method is used for loading keystore to package.
      */
@@ -147,6 +145,8 @@ public class Cryptography {
     /**
      * This method is used for saving private key to Keystore.
      */
+
+    @SuppressWarnings("deprecation")
     private void saveToKeyStore() {
         KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
         X509Certificate certificate = generateCertificate();
@@ -180,6 +180,8 @@ public class Cryptography {
     /** This method is used for generating certificate.
      * @return Certificate.
      */
+
+    @SuppressWarnings("deprecation")
     private X509Certificate generateCertificate() {
         // build a certificate generator
         X509V3CertificateGenerator certGen = new X509V3CertificateGenerator();
