@@ -174,7 +174,7 @@ public class IndexingManager {
         origTime = time;
         origCerti = c;
 
-        System.out.println("hoooooo");
+
         // Verifying Digital Signature of Value using Certificate
 
         Verif v = new Verif();
@@ -203,8 +203,8 @@ public class IndexingManager {
                     userToCertMap(origuserId,origCerti);
                     System.out.println("Entry added");
                     String[] s = rootcalc(origkey);
-                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
-                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, 1, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, 2, origtimer, origtimerType, origuserId, origTime, origCerti);
                     IMbuffer.addToIMOutputBuffer(f1);
                     IMbuffer.addToIMOutputBuffer(f2);
                 }
@@ -218,10 +218,14 @@ public class IndexingManager {
                 if (!b4) {
 
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    userToCertMap(origuserId,origCerti);
+                    System.out.println("Entry added");
                 } else {
+                    utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    userToCertMap(origuserId,origCerti);
                     String[] s = rootcalc(origkey);
-                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
-                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, 1, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, 2, origtimer, origtimerType, origuserId, origTime, origCerti);
                     IMbuffer.addToIMOutputBuffer(f1);
                     IMbuffer.addToIMOutputBuffer(f2);
 
@@ -347,7 +351,7 @@ public class IndexingManager {
             hashId.appendChild(timertype);
 
             Element userId = document.createElement("userId");
-            timertype.appendChild(document.createTextNode(String.valueOf(userId)));
+            userId.appendChild(document.createTextNode(String.valueOf(userid)));
             hashId.appendChild(userId);
 
             Element time2 = document.createElement("time");
@@ -355,7 +359,7 @@ public class IndexingManager {
             hashId.appendChild(time2);
 
             Element cert = document.createElement("Certificate");
-            time2.appendChild(document.createTextNode(String.valueOf(cert)));
+            cert.appendChild(document.createTextNode(String.valueOf(Certi)));
             hashId.appendChild(cert);
 
 
@@ -546,6 +550,7 @@ public class IndexingManager {
                             ResultSet rs2 = pst.executeQuery();
                             while (rs2.next()) {
                                 timer = Long.parseLong(rs2.getString("timer"));
+                                System.out.println("hiii");
                                 time = Long.parseLong(rs2.getString("time"));
                                 key = rs2.getString("Key");
 
@@ -630,7 +635,8 @@ public class IndexingManager {
             });
             maintenanceThread2.start();
             try {
-                Thread.sleep(5400000);
+                Thread.sleep(5000);
+                //Thread.sleep(5400000);
                 System.out.println("Thread going to sleep");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -667,12 +673,11 @@ public class IndexingManager {
                     String key = element.getElementsByTagName("KEY").item(0).getTextContent();
                     String hashid = String.valueOf(element.getElementsByTagName("NEXTHOP").item(0).getTextContent());
                     if (!(hashid.equals("RootNode"))) {
-
+                        System.out.println("hello");
                         ObjReturn obj3=utility.search_entry(key,layerID);
-
+                        System.out.println(obj3.getUserId());
                         /*File f=XMLforRoot(hashid,key,obj3.getValue1(),layerID,obj3.getCopyNum1(),obj3.getTime1(),obj3.getTimerType1(),obj3.getUserId(),obj3.getTime(),obj3.getcert());
                         IMbuffer.addToIMOutputBuffer(f);*/
-
                         transfer(key,obj3);
                         utility.delete_entry(layerID, key);
 
@@ -764,57 +769,59 @@ public class IndexingManager {
             //This statement will fetch all tables available in database.
             ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
             while (rs.next()) {
+                System.out.println("hiiii");
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document doc = builder.newDocument();
 
                 String ld = rs.getString("TABLE_NAME");
-
-
+                System.out.println(ld);
                 //This statement will extract digits from table names.
 
                 String intValue = ld.replaceAll("[^0-9]", "");
                 int v = Integer.parseInt(intValue);
 
-
                 //create root Element
+                if (!(v == 100 && v == 101)) {
+                    Element root = doc.createElement("CheckingRootNodeForIndex");
+                    doc.appendChild(root);
 
-                Element root = doc.createElement("CheckingRootNodeForIndex");
-                doc.appendChild(root);
+                    root.setAttribute("LayerID", intValue);
+                    int i = 1;
+                    stmt = conn.prepareStatement("select key from " + ld + " where copyNum = ? ");
+                    stmt.setInt(1, 0);
+                    ResultSet rs2 = stmt.executeQuery();
+                    while (rs2.next()) {
+                        Element row1 = doc.createElement("DATA");
+                        root.appendChild(row1);
+                        row1.setAttribute("INDEX", "[" + i + "]");
 
-                root.setAttribute("LayerID", intValue);
+                        Element nodeID = doc.createElement("KEY");
+                        nodeID.appendChild(doc.createTextNode(rs2.getString("key")));
+                        row1.appendChild(nodeID);
 
-                int i = 1;
-                stmt = conn.prepareStatement("select key from " + ld + " where copyNum = ? ");
-                stmt.setInt(1,0);
-                ResultSet rs2 = stmt.executeQuery();
-                while (rs2.next()) {
-                    Element row1 = doc.createElement("DATA");
-                    root.appendChild(row1);
-                    row1.setAttribute("INDEX", "[" + i + "]");
+                        Element nodePub = doc.createElement("NEXTHOP");
+                        nodePub.appendChild(doc.createTextNode(""));
+                        row1.appendChild(nodePub);
+                        i += 1;
+                    }
+                    rs2.close();
 
-                    Element nodeID = doc.createElement("KEY");
-                    nodeID.appendChild(doc.createTextNode(rs2.getString("key")));
-                    row1.appendChild(nodeID);
+                    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                    Transformer transformer = transformerFactory.newTransformer();
+                    DOMSource domSource = new DOMSource(doc);
 
-                    Element nodePub = doc.createElement("NEXTHOP");
-                    nodePub.appendChild(doc.createTextNode(""));
-                    row1.appendChild(nodePub);
-                    i += 1;
+                    StreamResult streamResult = new StreamResult(new File(ld + "_RootNodeCheck" + ".xml"));
+                    transformer.transform(domSource, streamResult);
+                    File f = new File(ld + "_RootNodeCheck" + ".xml");
+                    IMbuffer.addToIMOutputBuffer(f);
+
+                    //rs.close();
+
                 }
-                rs2.close();
-
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                DOMSource domSource = new DOMSource(doc);
-
-                StreamResult streamResult = new StreamResult(new File(ld + "_RootNodeCheck" + ".xml"));
-                transformer.transform(domSource, streamResult);
-                File f = new File(ld + "_RootNodeCheck" + ".xml");
-                IMbuffer.addToIMOutputBuffer(f);
+                //rs.close();
             }
             rs.close();
-
         } catch (TransformerException | SQLException e) {
             e.printStackTrace();
         } catch (ParserConfigurationException e) {

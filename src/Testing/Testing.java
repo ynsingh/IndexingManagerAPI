@@ -36,7 +36,8 @@ public class Testing {
         // {
 
        IndexingManager IM= IndexingManager.getInstance();
-        /* Cryptography S2 = Cryptography.getInstance();
+
+      /*   Cryptography S2 = Cryptography.getInstance();
        KeyStore k = S2.getKeyStore();
        Certificate c1 = null;
        try {
@@ -45,56 +46,90 @@ public class Testing {
            e.printStackTrace();
         }*/
 
-       // IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",2,1,false,"new1",1,"1621911095568",c1);
-       // IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","hoooo","3000",1,2,false,"harry",1,"1621911095568",c1);
+        //IM.addIndex("mD2051C7A9CD59A1BE822F699267C42DE64C0904","peer","5000",2,0,false,"nick",0,"1621911095568",c1);
+        //IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","network","4000",1,2,false,"harry",2,"1621911095568",c1);
+        //IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904","manager","3000",1,2,true,"sidhu",0,"1621911095568",c1);
 
         //  }
 
-       /* Database_Utility u=Database_Utility.getInstance();
-        ObjReturn obj=new ObjReturn();
-        obj=u.search_entry("3051C7A9CD59A1BE822F699267C42DE64C0904",1);
-        System.out.println(obj.getValue1());*/
+         /* Database_Utility u=Database_Utility.getInstance();
+          ObjReturn obj=new ObjReturn();
+          obj=u.search_entry("pDD2051C7A9CD59A1BE822F699267C42DE64C0904",6);
+          System.out.println(obj.getValue1());*/
 
 
 
         // Following block will test searching of an entry.
         //  {
 
-      /*  File f=IM.searchIndex("3051C7A9CD59A1BE822F699267C42DE64C0904",1);
-        System.out.println(f.getName());*/
+//        File f=IM.searchIndex("pDD2051C7A9CD59A1BE822F699267C42DE64C0904",6);
+//        System.out.println(f.getName());
+
         //  }
 
         // Following block will test updation of an entry.
         //  {
 
-        //IM.updateIndex("3051C7A9CD59A1BE822F699267C42DE64C0904",1);
+        //IM.updateIndex("pDD2051C7A9CD59A1BE822F699267C42DE64C0904",6);
 
         //}
 
         // Following block will test deletion of an entry.
         //  {
 
-        //IM.deleteIndex("hiii",2);
+        //IM.deleteIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904",2);
 
         //}
 
 
         //This block will check transfer of entry to purge table.
 
+
+        //Error of braces
+        //Following thread will request Routing manager every 30 minutes to ascertain for which self is root or not.
+        // {
+
+        //IM.queryForRoutingManager();
+
+        //  }
+
         //{
 
-            //ERROR
+            // Minor ERROR
 
         /* String filepath="ResponseToIndexM.xml";
        IM.transfertopurge(new File(filepath));
 */
         // }
 
-        /*Certificate c=IM.fetchuserCerti("new1");
-        System.out.println(c.getPublicKey());
-*/
+        /*Certificate c=IM.fetchuserCerti("hardy");
+        System.out.println(c.getPublicKey());*/
 
-//       File f=IM.XMLforRoot(s[0],"HIII","helooo",2,2, (long) 34567890,true,"hooooo",System.currentTimeMillis(),c1);
+        //Following code will check if table of a layerid exists or not
+        // {
+        /*boolean b=IM.checkTable(1);
+        System.out.println(b);
+        */
+        // }
+
+        //ERROR
+
+        //Following thread will delete entries whose timer has expired.
+        // {
+
+       // IM.maintenancethread();
+
+        //  }
+
+        //Following thread will delete entries from purge table every 90 minutes.
+        // {
+
+        // IM.maintenancethread2();
+
+        //  }
+
+
+
 
 //IM.resultForIndexingManager();
         //System.out.println(Thread.currentThread()+"This is main");
