@@ -31,13 +31,22 @@ public class Testing {
 
     public static void main(String argv[]) {
 
-        //Following block will test adding of an entry.
-
-        // {
 
        IndexingManager IM= IndexingManager.getInstance();
 
-      /*   Cryptography S2 = Cryptography.getInstance();
+
+        //Following code will check if table of a layerid exists or not
+        // {
+        /*boolean b=IM.checkTable(1);
+        System.out.println(b);
+        */
+        // }
+
+        //Following block will test adding of an entry.
+
+        // { Following Code generates a Demo certificate for addition as part of an Index entry.
+
+        /* Cryptography S2 = Cryptography.getInstance();
        KeyStore k = S2.getKeyStore();
        Certificate c1 = null;
        try {
@@ -46,11 +55,20 @@ public class Testing {
            e.printStackTrace();
         }*/
 
-        //IM.addIndex("mD2051C7A9CD59A1BE822F699267C42DE64C0904","peer","5000",2,0,false,"nick",0,"1621911095568",c1);
+
+        //IM.addIndex("99267C42DE64C0904","peer","5000",2,2,false,"nks1",2,"1621911095568" ,c1);
         //IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","network","4000",1,2,false,"harry",2,"1621911095568",c1);
         //IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904","manager","3000",1,2,true,"sidhu",0,"1621911095568",c1);
 
         //  }
+
+        //Following code will calculate root for Key whose copy number is 0.This is done using hashing.
+
+        /*String[] test = new String[2];
+        test=IM.rootcalc("key");
+        System.out.println(test[0]);
+        System.out.println(test[1]);
+*/
 
          /* Database_Utility u=Database_Utility.getInstance();
           ObjReturn obj=new ObjReturn();
@@ -59,7 +77,7 @@ public class Testing {
 
 
 
-        // Following block will test searching of an entry.
+        // Following block will test searching of an entry in XML format.
         //  {
 
 //        File f=IM.searchIndex("pDD2051C7A9CD59A1BE822F699267C42DE64C0904",6);
@@ -85,7 +103,8 @@ public class Testing {
         //This block will check transfer of entry to purge table.
 
 
-        //Error of braces
+        //ERROR.Needn't make for 100 and 101.
+
         //Following thread will request Routing manager every 30 minutes to ascertain for which self is root or not.
         // {
 
@@ -95,22 +114,10 @@ public class Testing {
 
         //{
 
-            // Minor ERROR
+            // Minor ERROR but working
 
-        /* String filepath="ResponseToIndexM.xml";
-       IM.transfertopurge(new File(filepath));
-*/
-        // }
-
-        /*Certificate c=IM.fetchuserCerti("hardy");
-        System.out.println(c.getPublicKey());*/
-
-        //Following code will check if table of a layerid exists or not
-        // {
-        /*boolean b=IM.checkTable(1);
-        System.out.println(b);
-        */
-        // }
+         /*String filepath="ResponseToIndexM.xml";
+       IM.transfertopurge(new File(filepath));*/
 
         //ERROR
 
@@ -128,6 +135,17 @@ public class Testing {
 
         //  }
 
+        //Following method will make userid to certificate mapping.If userid is already present it will show an error that userid exists.
+        // {
+
+        // IM.userToCertMap("new",c1);
+
+        //  }
+
+
+        // Following code will fetch Certificate for userid.
+        /*Certificate c=IM.fetchuserCerti("hardy");
+        System.out.println(c.getPublicKey());*/
 
 
 

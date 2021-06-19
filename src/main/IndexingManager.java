@@ -264,7 +264,6 @@ public class IndexingManager {
                 hexString.append(String.format("%02x", bytes).toUpperCase());
             }
             hashId1 = hexString.toString();
-            System.out.println(hashId1);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -280,7 +279,6 @@ public class IndexingManager {
                 hexString1.append(String.format("%02x", bytes).toUpperCase());
             }
             hashId2 = hexString1.toString();
-            System.out.println(hashId2);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -673,11 +671,7 @@ public class IndexingManager {
                     String key = element.getElementsByTagName("KEY").item(0).getTextContent();
                     String hashid = String.valueOf(element.getElementsByTagName("NEXTHOP").item(0).getTextContent());
                     if (!(hashid.equals("RootNode"))) {
-                        System.out.println("hello");
                         ObjReturn obj3=utility.search_entry(key,layerID);
-                        System.out.println(obj3.getUserId());
-                        /*File f=XMLforRoot(hashid,key,obj3.getValue1(),layerID,obj3.getCopyNum1(),obj3.getTime1(),obj3.getTimerType1(),obj3.getUserId(),obj3.getTime(),obj3.getcert());
-                        IMbuffer.addToIMOutputBuffer(f);*/
                         transfer(key,obj3);
                         utility.delete_entry(layerID, key);
 
@@ -699,7 +693,6 @@ public class IndexingManager {
      * @param obj4
      */
     public void transfer(String key, ObjReturn obj4) {
-        System.out.println("hoiiii");
 
         utility.add_entry(100, key, obj4.getValue1(), obj4.getTime1(), obj4.getTotalCopies1(), obj4.getCopyNum1(), obj4.getTimerType1(), obj4.getUserId(), obj4.getTime(), obj4.getcert());
 
@@ -769,7 +762,7 @@ public class IndexingManager {
             //This statement will fetch all tables available in database.
             ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
             while (rs.next()) {
-                System.out.println("hiiii");
+
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document doc = builder.newDocument();
@@ -783,12 +776,13 @@ public class IndexingManager {
 
                 //create root Element
                 if (!(v == 100 && v == 101)) {
+                    System.out.println("hiii");
                     Element root = doc.createElement("CheckingRootNodeForIndex");
                     doc.appendChild(root);
 
                     root.setAttribute("LayerID", intValue);
                     int i = 1;
-                    stmt = conn.prepareStatement("select key from " + ld + " where copyNum = ? ");
+                    stmt = conn.prepareStatement("select Key from " + ld + " where copyNum = ? ");
                     stmt.setInt(1, 0);
                     ResultSet rs2 = stmt.executeQuery();
                     while (rs2.next()) {
@@ -819,6 +813,9 @@ public class IndexingManager {
                     //rs.close();
 
                 }
+                else{
+                    System.out.println("No valid table exists");
+                }
                 //rs.close();
             }
             rs.close();
@@ -836,21 +833,31 @@ public class IndexingManager {
     public void userToCertMap(String userid,Certificate c) {
         try {
             String b = null;
-            System.out.println("hello");
             b = java.util.Base64.getEncoder().encodeToString(c.getEncoded());
             PreparedStatement pstmt = null;
             String filename = "Table" + 101;
-            System.out.println("hello");
-            String sql = "INSERT INTO " + filename + " (userId,Certificate) VALUES(?,?)";
-            System.out.println("hello");
-            pstmt = conn.prepareStatement(sql);
-            pstmt.setString(1, userid);
-            pstmt.setString(2, b);
-            pstmt.executeUpdate();
-            pstmt.close();
-            System.out.println("hello");
-        }
-         catch(SQLException e){
+            /*PreparedStatement stmt = conn.prepareStatement(" select * from " + filename);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                if(!(rs.getString("userId").equals(userid))) {*/
+                   String sql = "INSERT INTO " + filename + " (userId,Certificate) VALUES(?,?)";
+                   pstmt = conn.prepareStatement(sql);
+                   pstmt.setString(1, userid);
+                   pstmt.setString(2, b);
+                   pstmt.executeUpdate();
+                   pstmt.close();
+                   System.out.println("UserId to Certificate Mapping done");
+             /*  }
+               else{
+                    System.out.println("in else");
+                   System.out.println("User Id exists");
+               }*/
+
+            }
+            //stmt.close();
+            //rs.close();
+
+         catch (SQLException e) {
             e.printStackTrace();
         } catch (CertificateEncodingException e) {
             e.printStackTrace();
