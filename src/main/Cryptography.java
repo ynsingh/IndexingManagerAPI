@@ -150,7 +150,7 @@ public class Cryptography {
     private void saveToKeyStore() {
         KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
         X509Certificate certificate = generateCertificate();
-        java.security.cert.Certificate[] certChain = (java.security.cert.Certificate[]) new Certificate[1];
+        java.security.cert.Certificate[] certChain = new java.security.cert.Certificate[5];
         certChain[0] = certificate;
         KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(privateKey, certChain);
         try {

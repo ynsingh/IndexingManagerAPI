@@ -193,14 +193,14 @@ public class IndexingManager {
                 boolean b3 = checkiforiginal(copyNum);
                 if (!b3) {
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
-                    userToCertMap(origuserId,origCerti);
+                    userToCertMap(origuserId, origCerti);
                     System.out.println("Entry added");
                 } else {
 
                     // If copy is original,calculate root nodes for redundant copies and put XML files containing all details for key valu pair in buffer for Glue Code to pick up.
 
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
-                    userToCertMap(origuserId,origCerti);
+                    userToCertMap(origuserId, origCerti);
                     System.out.println("Entry added");
                     String[] s = rootcalc(origkey);
                     File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, 1, origtimer, origtimerType, origuserId, origTime, origCerti);
@@ -218,11 +218,11 @@ public class IndexingManager {
                 if (!b4) {
 
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
-                    userToCertMap(origuserId,origCerti);
+                    userToCertMap(origuserId, origCerti);
                     System.out.println("Entry added");
                 } else {
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
-                    userToCertMap(origuserId,origCerti);
+                    userToCertMap(origuserId, origCerti);
                     String[] s = rootcalc(origkey);
                     File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, 1, origtimer, origtimerType, origuserId, origTime, origCerti);
                     File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, 2, origtimer, origtimerType, origuserId, origTime, origCerti);
@@ -393,8 +393,9 @@ public class IndexingManager {
     }
 
     public void deleteIndex(String Key, int layerID) {
-        utility.delete_entry(layerID,Key);
+        utility.delete_entry(layerID, Key);
     }
+
     /**
      * This method is used to search index entry using key and layerID in database. Also it will put details of object in an output buffer as XML file.
      *
@@ -404,28 +405,26 @@ public class IndexingManager {
      */
     public File searchIndex(String Key, int layerID) {
 
-        ObjReturn obj=new ObjReturn();
-        ObjReturn obj1=new ObjReturn();
+        ObjReturn obj = new ObjReturn();
+        ObjReturn obj1 = new ObjReturn();
         File f;
         obj = utility.search_entry(Key, layerID);
         boolean b = obj.timerType1;
-        String s=obj.getValue1();
+        String s = obj.getValue1();
         if (!b) {
             updateIndex(Key, layerID);
-            f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(),obj.getcert());
+            f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
+            IMbuffer.addToIMOutputBuffer(f);
+
+        } else {
+            f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
             IMbuffer.addToIMOutputBuffer(f);
 
         }
 
-       else {
-             f= makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(),obj.getcert());
-            IMbuffer.addToIMOutputBuffer(f);
-
-        }
-
-       if (s.equals("null")) {
-            obj1 = utility.search_entry(Key,100);
-        utility.add_entry(layerID,obj1.getKey1(),obj1.getValue1(),obj1.getTime1(),obj1.getTotalCopies1(),obj1.getCopyNum1(),obj1.getTimerType1(),obj1.getUserId(),obj1.getTime(),obj1.getcert());
+        if (s.equals("null")) {
+            obj1 = utility.search_entry(Key, 100);
+            utility.add_entry(layerID, obj1.getKey1(), obj1.getValue1(), obj1.getTime1(), obj1.getTotalCopies1(), obj1.getCopyNum1(), obj1.getTimerType1(), obj1.getUserId(), obj1.getTime(), obj1.getcert());
 
         }
         return f;
@@ -446,7 +445,7 @@ public class IndexingManager {
      * @param time
      * @return
      */
-    public File makeXML(String key, int layerID, String value1, String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time,Certificate cert) {
+    public File makeXML(String key, int layerID, String value1, String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time, Certificate cert) {
 
         try {
 
@@ -529,7 +528,6 @@ public class IndexingManager {
                 @Override
                 public void run() {
                     System.out.println(Thread.currentThread());
-                    PreparedStatement pst = null;
                     long timer = 0;
                     long time = 0;
                     String key;
@@ -543,24 +541,30 @@ public class IndexingManager {
                             String ld = rs.getString("TABLE_NAME");
                             String intValue = ld.replaceAll("[^0-9]", "");
                             int layerid = Integer.parseInt(intValue);
-                            String filename = "Table" + layerid;
-                            pst = conn.prepareStatement("SELECT * FROM " + filename);
-                            ResultSet rs2 = pst.executeQuery();
-                            while (rs2.next()) {
-                                timer = Long.parseLong(rs2.getString("timer"));
-                                System.out.println("hiii");
-                                time = Long.parseLong(rs2.getString("time"));
-                                key = rs2.getString("Key");
 
-                                if (!(timer == 0)) {
-                                    if (System.currentTimeMillis() - time > timer) {
-                                        utility.delete_entry(layerid, key);
+                            if (!(layerid == 101)) {
+
+                                String filename = "Table" + layerid;
+                                PreparedStatement pst = conn.prepareStatement("SELECT * FROM " + filename);
+                                ResultSet rs2 = pst.executeQuery();
+                                while (rs2.next()) {
+                                    timer = Long.parseLong(rs2.getString("timer"));
+                                    System.out.println("hiii");
+                                    time = Long.parseLong(rs2.getString("time"));
+                                    key = rs2.getString("Key");
+
+                                    if (!(timer == 0)) {
+                                        if (System.currentTimeMillis() - time > timer) {
+                                            utility.delete_entry(layerid, key);
+                                        }
                                     }
                                 }
+                                rs2.close();
+                                pst.close();
                             }
-                            rs2.close();
+
                         }
-                        pst.close();
+
                         rs.close();
                         conn.close();
                     } catch (SQLException e) {
@@ -660,7 +664,7 @@ public class IndexingManager {
             String layerIDS = doc.getDocumentElement().getAttribute("LayerID");
             int layerID = Integer.parseInt(layerIDS);
             NodeList nodeList1 = doc.getElementsByTagName("DATA");
-            for (int i = 0; i <= nodeList1.getLength(); i++) {
+            for (int i = 0; i < nodeList1.getLength(); i++) {
                 Node node = nodeList1.item(i);
 
                 if (node.getNodeType() == node.ELEMENT_NODE) {
@@ -671,8 +675,8 @@ public class IndexingManager {
                     String key = element.getElementsByTagName("KEY").item(0).getTextContent();
                     String hashid = String.valueOf(element.getElementsByTagName("NEXTHOP").item(0).getTextContent());
                     if (!(hashid.equals("RootNode"))) {
-                        ObjReturn obj3=utility.search_entry(key,layerID);
-                        transfer(key,obj3);
+                        ObjReturn obj3 = utility.search_entry(key, layerID);
+                        transfer(key, obj3);
                         utility.delete_entry(layerID, key);
 
                     }
@@ -689,7 +693,8 @@ public class IndexingManager {
 
     /**
      * This method takes key and object as arguments and transfer index entry to purge table.
-     *  @param key
+     *
+     * @param key
      * @param obj4
      */
     public void transfer(String key, ObjReturn obj4) {
@@ -773,9 +778,10 @@ public class IndexingManager {
 
                 String intValue = ld.replaceAll("[^0-9]", "");
                 int v = Integer.parseInt(intValue);
+                System.out.println(v);
 
                 //create root Element
-                if (!(v == 100 && v == 101)) {
+                if (!(v == 100 || v == 101)) {
                     System.out.println("hiii");
                     Element root = doc.createElement("CheckingRootNodeForIndex");
                     doc.appendChild(root);
@@ -812,8 +818,7 @@ public class IndexingManager {
 
                     //rs.close();
 
-                }
-                else{
+                } else {
                     System.out.println("No valid table exists");
                 }
                 //rs.close();
@@ -830,7 +835,7 @@ public class IndexingManager {
      * This method is used to create userid to certificate mapping.Table of only two columns and table number 101 is created first,
      * then user id and certificates are copied whenever an index is added.
      */
-    public void userToCertMap(String userid,Certificate c) {
+    public void userToCertMap(String userid, Certificate c) {
         try {
             String b = null;
             b = java.util.Base64.getEncoder().encodeToString(c.getEncoded());
@@ -840,24 +845,24 @@ public class IndexingManager {
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
                 if(!(rs.getString("userId").equals(userid))) {*/
-                   String sql = "INSERT INTO " + filename + " (userId,Certificate) VALUES(?,?)";
-                   pstmt = conn.prepareStatement(sql);
-                   pstmt.setString(1, userid);
-                   pstmt.setString(2, b);
-                   pstmt.executeUpdate();
-                   pstmt.close();
-                   System.out.println("UserId to Certificate Mapping done");
+            String sql = "INSERT INTO " + filename + " (userId,Certificate) VALUES(?,?)";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userid);
+            pstmt.setString(2, b);
+            pstmt.executeUpdate();
+            pstmt.close();
+            System.out.println("UserId to Certificate Mapping done");
              /*  }
                else{
                     System.out.println("in else");
                    System.out.println("User Id exists");
                }*/
 
-            }
-            //stmt.close();
-            //rs.close();
+        }
+        //stmt.close();
+        //rs.close();
 
-         catch (SQLException e) {
+        catch (SQLException e) {
             e.printStackTrace();
         } catch (CertificateEncodingException e) {
             e.printStackTrace();
@@ -865,21 +870,20 @@ public class IndexingManager {
     }
 
 
-
-    public Certificate fetchuserCerti(String userid){
+    public Certificate fetchuserCerti(String userid) {
 
         String filename = "Table" + 101;
         PreparedStatement stmt = null;
-        Certificate cert=null;
+        Certificate cert = null;
         try {
             stmt = conn.prepareStatement(" select Certificate from " + filename + " where userId=? ");
             stmt.setString(1, userid);
             ResultSet rs = stmt.executeQuery();
-            String s=rs.getString("Certificate");
+            String s = rs.getString("Certificate");
             byte[] decodedByte = java.util.Base64.getMimeDecoder().decode(s);
-            CertificateFactory cf=CertificateFactory.getInstance("X.509");
-            ByteArrayInputStream bis=new ByteArrayInputStream(decodedByte);
-            cert=cf.generateCertificate(bis);
+            CertificateFactory cf = CertificateFactory.getInstance("X.509");
+            ByteArrayInputStream bis = new ByteArrayInputStream(decodedByte);
+            cert = cf.generateCertificate(bis);
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -889,8 +893,8 @@ public class IndexingManager {
 
         return cert;
 
-        }
-
     }
+
+}
 
 

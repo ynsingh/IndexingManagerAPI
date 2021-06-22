@@ -46,7 +46,7 @@ public class Testing {
 
         // { Following Code generates a Demo certificate for addition as part of an Index entry.
 
-        /* Cryptography S2 = Cryptography.getInstance();
+       /*  Cryptography S2 = Cryptography.getInstance();
        KeyStore k = S2.getKeyStore();
        Certificate c1 = null;
        try {
@@ -57,7 +57,7 @@ public class Testing {
 
 
         //IM.addIndex("99267C42DE64C0904","peer","5000",2,2,false,"nks1",2,"1621911095568" ,c1);
-        //IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","network","4000",1,2,false,"harry",2,"1621911095568",c1);
+        //IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","network","4000",1,2,false,"harry",0,"1621911095568",c1);
         //IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904","manager","3000",1,2,true,"sidhu",0,"1621911095568",c1);
 
         //  }
@@ -103,7 +103,7 @@ public class Testing {
         //This block will check transfer of entry to purge table.
 
 
-        //ERROR.Needn't make for 100 and 101.
+
 
         //Following thread will request Routing manager every 30 minutes to ascertain for which self is root or not.
         // {
@@ -114,17 +114,15 @@ public class Testing {
 
         //{
 
-            // Minor ERROR but working
+      /*   String filepath="ResponseToIndexM.xml";
+       IM.transfertopurge(new File(filepath));
+*/
 
-         /*String filepath="ResponseToIndexM.xml";
-       IM.transfertopurge(new File(filepath));*/
-
-        //ERROR
 
         //Following thread will delete entries whose timer has expired.
         // {
 
-       // IM.maintenancethread();
+        //IM.maintenancethread();
 
         //  }
 
