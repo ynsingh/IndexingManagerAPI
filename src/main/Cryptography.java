@@ -73,6 +73,7 @@ public class Cryptography {
                 privateKeyEntry = (KeyStore.PrivateKeyEntry) keyStore.getEntry("Private Key", protectionParameter);
                 privateKey = privateKeyEntry.getPrivateKey();
                 java.security.cert.Certificate certificate =  keyStore.getCertificate("Certificate");
+
                 publicKey = certificate.getPublicKey();
             }
         } catch (KeyStoreException | NoSuchAlgorithmException | CertificateException | IOException | UnrecoverableEntryException e) {
@@ -92,8 +93,6 @@ public class Cryptography {
         return signatureVerif;
     }
 
-
-
     /**
      * This method is used for key pair generation.
      */
@@ -110,8 +109,6 @@ public class Cryptography {
 
         }
     }
-
-
 
     /**
      * This method is used for loading keystore to package.
@@ -148,10 +145,12 @@ public class Cryptography {
     /**
      * This method is used for saving private key to Keystore.
      */
+
+    @SuppressWarnings("deprecation")
     private void saveToKeyStore() {
         KeyStore.ProtectionParameter protectionParameter = new KeyStore.PasswordProtection(password);
         X509Certificate certificate = generateCertificate();
-        java.security.cert.Certificate[] certChain = (java.security.cert.Certificate[]) new Certificate[1];
+        java.security.cert.Certificate[] certChain = new java.security.cert.Certificate[5];
         certChain[0] = certificate;
         KeyStore.PrivateKeyEntry privateKeyEntry = new KeyStore.PrivateKeyEntry(privateKey, certChain);
         try {
@@ -181,6 +180,8 @@ public class Cryptography {
     /** This method is used for generating certificate.
      * @return Certificate.
      */
+
+    @SuppressWarnings("deprecation")
     private X509Certificate generateCertificate() {
         // build a certificate generator
         X509V3CertificateGenerator certGen = new X509V3CertificateGenerator();

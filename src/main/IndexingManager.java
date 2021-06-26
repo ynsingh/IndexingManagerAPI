@@ -1,5 +1,6 @@
 package src.main;
 
+import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import jdk.internal.org.xml.sax.SAXException;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
 import org.w3c.dom.Document;
@@ -15,6 +16,7 @@ import javax.xml.transform.TransformerException;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.dom.DOMSource;
 import javax.xml.transform.stream.StreamResult;
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
 import java.security.MessageDigest;
@@ -22,10 +24,15 @@ import java.security.NoSuchAlgorithmException;
 import java.security.Provider;
 import java.security.Security;
 import java.security.cert.Certificate;
+import java.security.cert.CertificateEncodingException;
+import java.security.cert.CertificateException;
+import java.security.cert.CertificateFactory;
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-/** This is main class of IndexingManager API. Glue code will interact with this class for adding and searching an index.It has methods
+/**
+ * This is main class of IndexingManager API. Glue code will interact with this class for adding and searching an index.It has methods
  * for doing these tasks. Also, updation and deletion will be done as per timer type and timer associated with it.
  */
 public class IndexingManager {
@@ -86,8 +93,9 @@ public class IndexingManager {
     private IndexingManagerBuffer IMbuffer;
 
 
-
-    /** This method will check whether table for layerID requested exists or not.Returns true if table exists.
+    /**
+     * This method will check whether table for layerID requested exists or not.Returns true if table exists.
+     *
      * @param layerId Comes as an argument with index entry.
      * @return True if table exists.
      */
@@ -125,7 +133,9 @@ public class IndexingManager {
         return isAvailable;
     }
 
-    /** This method will check whether index which is to be added is Copy0/Copy1/Copy2.If Copy0 it will return true.
+    /**
+     * This method will check whether index which is to be added is Copy0/Copy1/Copy2.If Copy0 it will return true.
+     *
      * @param copynum Comes as an argument with index entry.
      * @return True if copy is original.
      */
@@ -137,8 +147,10 @@ public class IndexingManager {
         return isAvailable;
     }
 
-    /** This method is used to add an index entry to database. Glue code will call this method and pass required arguments.
+    /**
+     * This method is used to add an index entry to database. Glue code will call this method and pass required arguments.
      * Following arguments are given by glue code.They have been specified above.
+     *
      * @param key
      * @param value
      * @param timer
@@ -173,8 +185,6 @@ public class IndexingManager {
 
         if (b1) {
 
-            // This statement will check whether table exists or not.
-
             boolean b2 = checkTable(origLayerId);
             if (b2) {
 
@@ -183,14 +193,18 @@ public class IndexingManager {
                 boolean b3 = checkiforiginal(copyNum);
                 if (!b3) {
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    userToCertMap(origuserId, origCerti);
                     System.out.println("Entry added");
                 } else {
 
-                // If copy is original,calculate root nodes for redundant copies and put XML files containing all details for key valu pair in buffer for Glue Code to pick up.
+                    // If copy is original,calculate root nodes for redundant copies and put XML files containing all details for key valu pair in buffer for Glue Code to pick up.
 
+                    utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    userToCertMap(origuserId, origCerti);
+                    System.out.println("Entry added");
                     String[] s = rootcalc(origkey);
-                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
-                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, 1, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, 2, origtimer, origtimerType, origuserId, origTime, origCerti);
                     IMbuffer.addToIMOutputBuffer(f1);
                     IMbuffer.addToIMOutputBuffer(f2);
                 }
@@ -204,10 +218,14 @@ public class IndexingManager {
                 if (!b4) {
 
                     utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    userToCertMap(origuserId, origCerti);
+                    System.out.println("Entry added");
                 } else {
+                    utility.add_entry(origLayerId, origkey, origvalue, origtimer, origtotalCopies, origcopyNum, origtimerType, origuserId, origTime, origCerti);
+                    userToCertMap(origuserId, origCerti);
                     String[] s = rootcalc(origkey);
-                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
-                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, origcopyNum, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f1 = XMLforRoot(s[0], origkey, origvalue, origLayerId, 1, origtimer, origtimerType, origuserId, origTime, origCerti);
+                    File f2 = XMLforRoot(s[1], origkey, origvalue, origLayerId, 2, origtimer, origtimerType, origuserId, origTime, origCerti);
                     IMbuffer.addToIMOutputBuffer(f1);
                     IMbuffer.addToIMOutputBuffer(f2);
 
@@ -217,15 +235,17 @@ public class IndexingManager {
 
         } else {
 
-        //If Signature is not verified entry will not be added.
+            //If Signature is not verified entry will not be added.
 
             System.out.println("Signature not verified");
         }
 
     }
 
-    /** This method is used to calculate root nodes for Copy1 and Copy2,returns an array containing them.Root calculation is done
+    /**
+     * This method is used to calculate root nodes for Copy1 and Copy2,returns an array containing them.Root calculation is done
      * using Consistent hashing.Hash of concatenated string of key and copy number is calculated.
+     *
      * @param key Key for which root nodes are to be calculated.
      * @return String array containing root nodes.
      */
@@ -244,12 +264,9 @@ public class IndexingManager {
                 hexString.append(String.format("%02x", bytes).toUpperCase());
             }
             hashId1 = hexString.toString();
-            System.out.println(hashId1);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-
-
         String s2 = "Copy2";
         String concat2 = key.concat(s2);
         MessageDigest messageDigest1 = null;
@@ -262,7 +279,6 @@ public class IndexingManager {
                 hexString1.append(String.format("%02x", bytes).toUpperCase());
             }
             hashId2 = hexString1.toString();
-            System.out.println(hashId2);
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
@@ -276,8 +292,10 @@ public class IndexingManager {
     }
 
 
-    /** This method is used to create XML files containing root node,other details for key and add to output buffer for Glue code.
-     * @param hashid Root node to which copy is to be transferred.
+    /**
+     * This method is used to create XML files containing root node,other details for key and add to output buffer for Glue code.
+     *
+     * @param hashid    Root node to which copy is to be transferred.
      * @param key
      * @param value
      * @param LayerId
@@ -290,7 +308,6 @@ public class IndexingManager {
      * @return XML file containing all details.
      */
     public File XMLforRoot(String hashid, String key, String value, int LayerId, int copyNum, String timer, boolean timerType, String userid, String Time, Certificate Certi) {
-        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\For Root Node.xml";
         try {
 
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -300,7 +317,7 @@ public class IndexingManager {
             Document document = documentBuilder.newDocument();
 
             // root element
-            Element root = document.createElement("Root_Node_For_Copy_and_Data");
+            Element root = document.createElement("Root_Node_For" + key + "Copy" + copyNum);
             document.appendChild(root);
 
             Element hashId = document.createElement("HashID");
@@ -331,20 +348,27 @@ public class IndexingManager {
             timertype.appendChild(document.createTextNode(String.valueOf(timerType)));
             hashId.appendChild(timertype);
 
+            Element userId = document.createElement("userId");
+            userId.appendChild(document.createTextNode(String.valueOf(userid)));
+            hashId.appendChild(userId);
+
             Element time2 = document.createElement("time");
             time2.appendChild(document.createTextNode(String.valueOf(Time)));
             hashId.appendChild(time2);
+
+            Element cert = document.createElement("Certificate");
+            cert.appendChild(document.createTextNode(String.valueOf(Certi)));
+            hashId.appendChild(cert);
+
 
             // create the xml file
             //transform the DOM Object to an XML File
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(document);
-            StreamResult streamResult = new StreamResult(new File(xmlFilePath));
+            StreamResult streamResult = new StreamResult(new File("Root_Node for" + key + "Copy" + copyNum + ".xml"));
 
             transformer.transform(domSource, streamResult);
-
-            System.out.println("Done creating XML File");
 
         } catch (ParserConfigurationException pce) {
             pce.printStackTrace();
@@ -352,48 +376,64 @@ public class IndexingManager {
             tfe.printStackTrace();
         }
 
-        File file = new File(xmlFilePath);
+        File file = new File("Root_Node for" + key + "Copy" + copyNum + ".xml");
         return file;
     }
 
-    /** This method is used to update current time for perpetual index entry.
+    /**
+     * This method is used to update current time for perpetual index entry.
+     *
      * @param Key
      * @param layerID
      */
-    public void updateEntry(String Key, int layerID) {
+    public void updateIndex(String Key, int layerID) {
 
         utility.update_entry(Key, layerID);
 
     }
 
-    /** This method is used to search index entry using key and layerID in database. Also it will put details of object in an output buffer as XML file.
+    public void deleteIndex(String Key, int layerID) {
+        utility.delete_entry(layerID, Key);
+    }
 
+    /**
+     * This method is used to search index entry using key and layerID in database. Also it will put details of object in an output buffer as XML file.
+     *
      * @param Key
      * @param layerID
      * @return XML file containing details for Search query.
      */
-    public File searchEntry(String Key, int layerID) {
+    public File searchIndex(String Key, int layerID) {
 
-        ObjReturn obj = utility.search_entry(Key, layerID);
+        ObjReturn obj = new ObjReturn();
+        ObjReturn obj1 = new ObjReturn();
+        File f;
+        obj = utility.search_entry(Key, layerID);
         boolean b = obj.timerType1;
-
+        String s = obj.getValue1();
         if (!b) {
-            updateEntry(Key, layerID);
+            updateIndex(Key, layerID);
+            f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
+            IMbuffer.addToIMOutputBuffer(f);
+
+        } else {
+            f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
+            IMbuffer.addToIMOutputBuffer(f);
+
         }
-        File f = makeXML(Key, layerID, obj.value1, obj.time1, obj.totalCopies1, obj.copyNum1, obj.timerType1, obj.userId, obj.time);
-        IMbuffer.addToIMOutputBuffer(f);
+
+        if (s.equals("null")) {
+            obj1 = utility.search_entry(Key, 100);
+            utility.add_entry(layerID, obj1.getKey1(), obj1.getValue1(), obj1.getTime1(), obj1.getTotalCopies1(), obj1.getCopyNum1(), obj1.getTimerType1(), obj1.getUserId(), obj1.getTime(), obj1.getcert());
+
+        }
         return f;
-
-        if (ObjReturn obj = utility.search_entry(Key, layerID))
-        {
-            ObjReturn obj2= utility.search_entry(Key,100);
-            utility.add_entry(layerID,obj2.key1,obj2.value1,obj2.time1,obj2.totalCopies1,obj2.copyNum1,obj2.timerType1,obj2.userId,obj2.time,obj2.cert);
-
-        }
 
     }
 
-    /** This method is used to make XML file for Search Query.It contains details pertaining to key searched.
+    /**
+     * This method is used to make XML file for Search Query.It contains details pertaining to key searched.
+     *
      * @param key
      * @param layerID
      * @param value1
@@ -405,8 +445,8 @@ public class IndexingManager {
      * @param time
      * @return
      */
-    public File makeXML(String key, int layerID, String value1,String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time) {
-        String xmlFilePath = "C:\\Users\\a\\Pictures\\IndexingManagerAPI\\Search Result for Key.xml";
+    public File makeXML(String key, int layerID, String value1, String time1, int totalCopies1, int copyNum1, boolean timerType1, String userId, String time, Certificate cert) {
+
         try {
 
             DocumentBuilderFactory documentFactory = DocumentBuilderFactory.newInstance();
@@ -415,8 +455,7 @@ public class IndexingManager {
 
             Document document = documentBuilder.newDocument();
 
-            // root element
-            Element key1 = document.createElement("Search_Result_for_key");
+            Element key1 = document.createElement("Search_Result_for" + key);
             document.appendChild(key1);
             key1.setAttribute("Key", key);
 
@@ -453,12 +492,16 @@ public class IndexingManager {
             time2.appendChild(document.createTextNode(String.valueOf(time1)));
             layerid.appendChild(time2);
 
+            /*Element cert1 = document.createElement("cert");
+            cert1.appendChild(document.createTextNode(String.valueOf(cert)));
+            layerid.appendChild((Node) cert);*/
+
             // create the xml file
             //transform the DOM Object to an XML File
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             DOMSource domSource = new DOMSource(document);
-            StreamResult streamResult = new StreamResult(new File(xmlFilePath));
+            StreamResult streamResult = new StreamResult(new File(layerID + "_Search Result for " + key + ".xml"));
 
             transformer.transform(domSource, streamResult);
 
@@ -470,41 +513,43 @@ public class IndexingManager {
             tfe.printStackTrace();
         }
 
-        File file = new File(xmlFilePath);
+        File file = new File(layerID + "_Search Result for " + key + ".xml");
         return file;
     }
 
 
     /**
-     *  This method is used to delete entries which are of type fixed as per timer associated with it.
-     *  This thread will run continuously after every 15 minutes.
+     * This method is used to delete entries which are of type fixed as per timer associated with it.
+     * This thread will run continuously after every 15 minutes.
      */
     public void maintenancethread() {
-            while(true) {
-                Thread maintenanceThread = new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-                        System.out.println(Thread.currentThread());
-                        PreparedStatement pst = null;
-                        int rowid;
-                        long timer = 0;
-                        long time = 0;
-                        String key;
+        while (true) {
+            Thread maintenanceThread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    System.out.println(Thread.currentThread());
+                    long timer = 0;
+                    long time = 0;
+                    String key;
 
 
-                        try {
-                            ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
+                    try {
+                        ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
 
-                            while (rs.next()) {
+                        while (rs.next()) {
 
-                                String ld = rs.getString("TABLE_NAME");
-                                String intValue = ld.replaceAll("[^0-9]", "");
-                                int layerid = Integer.parseInt(intValue);
+                            String ld = rs.getString("TABLE_NAME");
+                            String intValue = ld.replaceAll("[^0-9]", "");
+                            int layerid = Integer.parseInt(intValue);
+
+                            if (!(layerid == 101)) {
+
                                 String filename = "Table" + layerid;
-                                pst = conn.prepareStatement("SELECT * FROM " + filename);
+                                PreparedStatement pst = conn.prepareStatement("SELECT * FROM " + filename);
                                 ResultSet rs2 = pst.executeQuery();
                                 while (rs2.next()) {
                                     timer = Long.parseLong(rs2.getString("timer"));
+                                    System.out.println("hiii");
                                     time = Long.parseLong(rs2.getString("time"));
                                     key = rs2.getString("Key");
 
@@ -515,23 +560,26 @@ public class IndexingManager {
                                     }
                                 }
                                 rs2.close();
+                                pst.close();
                             }
-                            pst.close();
-                            rs.close();
-                            conn.close();
-                        } catch (SQLException e) {
-                            e.printStackTrace();
+
                         }
+
+                        rs.close();
+                        conn.close();
+                    } catch (SQLException e) {
+                        e.printStackTrace();
                     }
-                });
-                maintenanceThread.start();
-                try {
-                    Thread.sleep(900000);
-                    System.out.println("Thread going to sleep");
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
                 }
+            });
+            maintenanceThread.start();
+            try {
+                Thread.sleep(900000);
+                System.out.println("Thread going to sleep");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+        }
     }
 
     /**
@@ -539,36 +587,35 @@ public class IndexingManager {
      * For which I am not, will be transferred to Purge table whose layerid is 100.
      */
     public void maintenancethread1() {
-        while(true) {
+        while (true) {
             Thread maintenanceThread1 = new Thread(new Runnable() {
                 @Override
                 public void run() {
 
                     // This statement will request Routing manager to ascertain keys for which I am root node.
 
-                    QueryForRoutingManager();
-                    File f=IMbuffer.fetchFromIMInputBuffer();
-                    if(f.getName().startsWith("_Response"))
-                    {
+                    queryForRoutingManager();
+                    File f = IMbuffer.fetchFromIMInputBuffer();
+                    if (f.getName().startsWith("Responseto")) {
                         transfertopurge(f);
                     }
                 }
-                });
-        maintenanceThread1.start();
-        try {
-            Thread.sleep(1800000);
-            System.out.println("Thread going to sleep");
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+            });
+            maintenanceThread1.start();
+            try {
+                Thread.sleep(1800000);
+                System.out.println("Thread going to sleep");
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
-    }
     }
 
     /**
      * This thread will run every 90 minutes and will delete whatever entries are available in Purge Table.
      */
     public void maintenancethread2() {
-        while(true) {
+        while (true) {
             Thread maintenanceThread2 = new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -582,8 +629,7 @@ public class IndexingManager {
                         stmt1 = conn.prepareStatement("delete from " + filename);
 
                         stmt1.executeUpdate();
-                    }
-                    catch (SQLException e) {
+                    } catch (SQLException e) {
                         e.printStackTrace();
                     }
 
@@ -591,7 +637,8 @@ public class IndexingManager {
             });
             maintenanceThread2.start();
             try {
-                Thread.sleep(5400000);
+                Thread.sleep(5000);
+                //Thread.sleep(5400000);
                 System.out.println("Thread going to sleep");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -599,11 +646,13 @@ public class IndexingManager {
         }
     }
 
-    /** This method will receive response from Routing manager specifying keys for which I am root.
+    /**
+     * This method will receive response from Routing manager specifying keys for which I am root.
      * For which I am not,will be transferred to purge table.
+     *
      * @param file Response from Routing manager.
      */
-    public void transfertopurge(File file){
+    public void transfertopurge(File file) {
         DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder documentBuilder = null;
         String selfNodeID = null;
@@ -624,19 +673,17 @@ public class IndexingManager {
 
                     //Get value of all sub-Elements
                     String key = element.getElementsByTagName("KEY").item(0).getTextContent();
-                    String hashid= String.valueOf(element.getElementsByTagName("HASHID").item(0));
-                    if(!(hashid =="RootNode")){
-                        transfer(key,100);
-                        utility.delete_entry(layerID,key);
+                    String hashid = String.valueOf(element.getElementsByTagName("NEXTHOP").item(0).getTextContent());
+                    if (!(hashid.equals("RootNode"))) {
+                        ObjReturn obj3 = utility.search_entry(key, layerID);
+                        transfer(key, obj3);
+                        utility.delete_entry(layerID, key);
+
                     }
                 }
             }
-            /*TransformerFactory transformerFactory = TransformerFactory.newInstance();
-            Transformer transformer = transformerFactory.newTransformer();
-            DOMSource domSource = new DOMSource(doc);
-            StreamResult streamResult = new StreamResult(new File("ResponseToIndexM.xml"));
-            transformer.transform(domSource, streamResult);
-*/
+
+
         } catch (ParserConfigurationException | IOException e) {
 
         } catch (org.xml.sax.SAXException e) {
@@ -644,17 +691,20 @@ public class IndexingManager {
         }
     }
 
-    /** This method takes layer id and key and transfer index entry to purge table.
+    /**
+     * This method takes key and object as arguments and transfer index entry to purge table.
+     *
      * @param key
-     * @param layerid
+     * @param obj4
      */
-    public void transfer(String key,int layerid){
-        ObjReturn obj1 =utility.search_entry(key,layerid);
-        utility.add_entry(layerid,obj1.key1,obj1.value1,obj1.time1,obj1.totalCopies1,obj1.copyNum1,obj1.timerType1,obj1.userId,obj1.time,obj1.cert);
+    public void transfer(String key, ObjReturn obj4) {
+
+        utility.add_entry(100, key, obj4.getValue1(), obj4.getTime1(), obj4.getTotalCopies1(), obj4.getCopyNum1(), obj4.getTimerType1(), obj4.getUserId(), obj4.getTime(), obj4.getcert());
 
     }
+
     /**
-     *  Private Constructor of Main class.
+     * Private Constructor of Main class.
      */
     private IndexingManager() {
         Provider provider = new BouncyCastleProvider();
@@ -663,25 +713,36 @@ public class IndexingManager {
         conn = utility.getConnection();
         IMbuffer = IndexingManagerBuffer.getInstance();
 
-       // This statement is to create purge table. I have kept its layer id as 100.
+        // This statement is to create purge table. I have kept its layer id as 100.
 
-        boolean k=checkTable(100);
+        boolean k = checkTable(100);
 
-        if(!k) {
+        if (!k) {
             utility.createtable(100);
         }
+        boolean k1 = checkTable(101);
 
-      //  This statement is to run maintenance thread on loading of class to purge entries whose timer has expired.
+        if (!k1) {
+            utility.createtable1();
+        }
 
-        maintenancethread();
+        //  This statement is to run maintenance thread on loading of class to purge entries whose timer has expired.
+
+        //maintenancethread();
 
         //  This statement is to run maintenance thread on loading of class to ascertain root nodes.
-        maintenancethread1();
-        maintenancethread2();
+
+        //  maintenancethread1();
+
+        //  This statement is to run maintenance thread on loading of class to delete entries from purge table.
+
+        // maintenancethread2();
 
     }
 
-    /** Creating Singleton object of class.
+    /**
+     * Creating Singleton object of class.
+     *
      * @return Object of class.
      */
     public static synchronized IndexingManager getInstance() {
@@ -693,24 +754,26 @@ public class IndexingManager {
         }
     }
 
-    /**This method is used to generate xml file for routing manager to ascertain for which nodes I am root or not.
+    /**
+     * This method is used to generate xml file for routing manager to ascertain for which nodes I am root or not.
+     * This is done only for entries for which copyNum is 0 as it means I am root rigt now.
      * After file generation objects of file are made and added to output buffer.
      */
 
-    public void QueryForRoutingManager() {
+    public void queryForRoutingManager() {
         PreparedStatement stmt = null;
 
         try {
             //This statement will fetch all tables available in database.
             ResultSet rs = conn.getMetaData().getTables(null, null, null, null);
             while (rs.next()) {
+
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = factory.newDocumentBuilder();
                 Document doc = builder.newDocument();
 
                 String ld = rs.getString("TABLE_NAME");
                 System.out.println(ld);
-
                 //This statement will extract digits from table names.
 
                 String intValue = ld.replaceAll("[^0-9]", "");
@@ -718,14 +781,15 @@ public class IndexingManager {
                 System.out.println(v);
 
                 //create root Element
+                if (!(v == 100 || v == 101)) {
+                    System.out.println("hiii");
+                    Element root = doc.createElement("CheckingRootNodeForIndex");
+                    doc.appendChild(root);
 
-                Element root = doc.createElement("CheckingRootNodeForIndex");
-                doc.appendChild(root);
-
-                root.setAttribute("LayerID", intValue);
-
-                int i =1;
-                    stmt = conn.prepareStatement("select key from " + ld);
+                    root.setAttribute("LayerID", intValue);
+                    int i = 1;
+                    stmt = conn.prepareStatement("select Key from " + ld + " where copyNum = ? ");
+                    stmt.setInt(1, 0);
                     ResultSet rs2 = stmt.executeQuery();
                     while (rs2.next()) {
                         Element row1 = doc.createElement("DATA");
@@ -739,26 +803,98 @@ public class IndexingManager {
                         Element nodePub = doc.createElement("NEXTHOP");
                         nodePub.appendChild(doc.createTextNode(""));
                         row1.appendChild(nodePub);
-                        i+=1;
+                        i += 1;
                     }
                     rs2.close();
 
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                DOMSource domSource = new DOMSource(doc);
+                    TransformerFactory transformerFactory = TransformerFactory.newInstance();
+                    Transformer transformer = transformerFactory.newTransformer();
+                    DOMSource domSource = new DOMSource(doc);
 
-                StreamResult streamResult = new StreamResult(new File(ld + "_RootNodeCheck" + ".xml"));
-                transformer.transform(domSource, streamResult);
-                System.out.println("Root Node checking file is generated");
-                File f=new File(ld + "_RootNodeCheck" + ".xml");
-                IMbuffer.addToIMOutputBuffer(f);
+                    StreamResult streamResult = new StreamResult(new File(ld + "_RootNodeCheck" + ".xml"));
+                    transformer.transform(domSource, streamResult);
+                    File f = new File(ld + "_RootNodeCheck" + ".xml");
+                    IMbuffer.addToIMOutputBuffer(f);
+
+                    //rs.close();
+
+                } else {
+                    System.out.println("No valid table exists");
+                }
+                //rs.close();
             }
             rs.close();
-
         } catch (TransformerException | SQLException e) {
             e.printStackTrace();
         } catch (ParserConfigurationException e) {
             e.printStackTrace();
         }
     }
+
+    /**
+     * This method is used to create userid to certificate mapping.Table of only two columns and table number 101 is created first,
+     * then user id and certificates are copied whenever an index is added.
+     */
+    public void userToCertMap(String userid, Certificate c) {
+        try {
+            String b = null;
+            b = java.util.Base64.getEncoder().encodeToString(c.getEncoded());
+            PreparedStatement pstmt = null;
+            String filename = "Table" + 101;
+            /*PreparedStatement stmt = conn.prepareStatement(" select * from " + filename);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                if(!(rs.getString("userId").equals(userid))) {*/
+            String sql = "INSERT INTO " + filename + " (userId,Certificate) VALUES(?,?)";
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, userid);
+            pstmt.setString(2, b);
+            pstmt.executeUpdate();
+            pstmt.close();
+            System.out.println("UserId to Certificate Mapping done");
+             /*  }
+               else{
+                    System.out.println("in else");
+                   System.out.println("User Id exists");
+               }*/
+
+        }
+        //stmt.close();
+        //rs.close();
+
+        catch (SQLException e) {
+            e.printStackTrace();
+        } catch (CertificateEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    public Certificate fetchuserCerti(String userid) {
+
+        String filename = "Table" + 101;
+        PreparedStatement stmt = null;
+        Certificate cert = null;
+        try {
+            stmt = conn.prepareStatement(" select Certificate from " + filename + " where userId=? ");
+            stmt.setString(1, userid);
+            ResultSet rs = stmt.executeQuery();
+            String s = rs.getString("Certificate");
+            byte[] decodedByte = java.util.Base64.getMimeDecoder().decode(s);
+            CertificateFactory cf = CertificateFactory.getInstance("X.509");
+            ByteArrayInputStream bis = new ByteArrayInputStream(decodedByte);
+            cert = cf.generateCertificate(bis);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (CertificateException e) {
+            e.printStackTrace();
+        }
+
+        return cert;
+
+    }
+
 }
+
+

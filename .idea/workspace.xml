@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AnalysisUIOptions">
-    <option name="CUSTOM_SCOPE_NAME" value="Module 'IndexingManagerAPI'" />
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="IndexingManagerAPI" />
+    </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eaeaed0f-e4df-472c-b77a-f452e51973cb" name="Default" comment="">
+    <list default="true" id="8406d40d-e255-4c52-aafe-4b7c1552ac91" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/KeyValuePairs.db" afterPath="$PROJECT_DIR$/KeyValuePairs.db" />
+      <change beforePath="$PROJECT_DIR$/src/Testing/Testing.java" afterPath="$PROJECT_DIR$/src/Testing/Testing.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/Cryptography.java" afterPath="$PROJECT_DIR$/src/main/Cryptography.java" />
       <change beforePath="$PROJECT_DIR$/src/main/IndexingManager.java" afterPath="$PROJECT_DIR$/src/main/IndexingManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -16,30 +21,70 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="IndexingManagerAPI" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IndexingManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="IndexingManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="551" column="20" lean-forward="false" selection-start-line="551" selection-start-column="20" selection-end-line="551" selection-end-column="20" />
+            <state relative-caret-position="144">
+              <caret line="529" column="63" lean-forward="false" selection-start-line="529" selection-start-column="63" selection-end-line="529" selection-end-column="63" />
               <folding>
-                <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-                <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-                <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ObjReturn.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/ObjReturn.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="110" column="25" lean-forward="true" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
-              <folding>
-                <element signature="e#2130#2131#0" expanded="true" />
-                <element signature="e#2162#2163#0" expanded="true" />
+                <element signature="docComment;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+                <element signature="e#13520#13542#0" expanded="false" />
+                <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+                <element signature="e#18668#18690#0" expanded="false" />
+                <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+                <element signature="class#22358:22817" expanded="false" />
+                <element signature="method#run#0;class#22358:22817" expanded="false" />
+                <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+                <element signature="class#23334:23910" expanded="false" />
+                <element signature="method#run#0;class#23334:23910" expanded="false" />
+                <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+                <element signature="e#27219#27328#0" expanded="false" />
+                <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+                <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+                <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+                <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+                <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+                <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
               </folding>
             </state>
           </provider>
@@ -48,16 +93,39 @@
       <file leaf-file-name="Database_Utility.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1312">
-              <caret line="177" column="12" lean-forward="false" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="48" />
+            <state relative-caret-position="493">
+              <caret line="113" column="9" lean-forward="false" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-                <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-                <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-                <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-                <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
+                <element signature="docComment;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+                <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+                <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Testing.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="374">
+              <caret line="46" column="96" lean-forward="true" selection-start-line="46" selection-start-column="96" selection-end-line="46" selection-end-column="96" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -75,22 +143,26 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Testing/Testing.java" />
-        <option value="$PROJECT_DIR$/src/main/SignatureVerif.java" />
-        <option value="$PROJECT_DIR$/ReadMe" />
-        <option value="$PROJECT_DIR$/src/main/Cryptography.java" />
-        <option value="$PROJECT_DIR$/src/main/Verif.java" />
-        <option value="$PROJECT_DIR$/src/main/IndexingManagerBuffer.java" />
+        <option value="$PROJECT_DIR$/src/Cache/InMemoryCache.java" />
+        <option value="$PROJECT_DIR$/src/Cache/Cache.java" />
         <option value="$PROJECT_DIR$/src/main/ObjReturn.java" />
         <option value="$PROJECT_DIR$/src/main/Database_Utility.java" />
+        <option value="$PROJECT_DIR$/src/main/Cryptography.java" />
         <option value="$PROJECT_DIR$/src/main/IndexingManager.java" />
+        <option value="$PROJECT_DIR$/src/Testing/Testing.java" />
       </list>
     </option>
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="10" />
     <option name="y" value="20" />
-    <option name="width" value="1002" />
+    <option name="width" value="1346" />
     <option name="height" value="688" />
   </component>
   <component name="ProjectView">
@@ -108,9 +180,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -137,20 +210,14 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="settings.github" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/bcprov-jdk15to18-168.jar!/" />
+    <property name="last_opened_file_path" value="D:/Execution" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\a\Pictures\IndexingManagerAPI\src\Testing" />
-    </key>
+    <property name="settings.editor.selected.configurable" value="settings.github" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -279,657 +346,1458 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="eaeaed0f-e4df-472c-b77a-f452e51973cb" name="Default" comment="" />
-      <created>1619072067535</created>
+      <changelist id="8406d40d-e255-4c52-aafe-4b7c1552ac91" name="Default" comment="" />
+      <created>1623380311518</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1619072067535</updated>
+      <updated>1623380311518</updated>
     </task>
-    <task id="LOCAL-00001" summary="Maintenance thread updated">
-      <created>1619093181895</created>
+    <task id="LOCAL-00001" summary="hghgh">
+      <created>1623506436489</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1619093181895</updated>
+      <updated>1623506436489</updated>
     </task>
-    <task id="LOCAL-00002" summary="ReadMe File Updated">
-      <created>1619416184453</created>
+    <task id="LOCAL-00002" summary="Search Index Updated">
+      <created>1623520441648</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1619416184453</updated>
+      <updated>1623520441648</updated>
     </task>
-    <task id="LOCAL-00003" summary="All Classes refined">
-      <created>1619867651740</created>
+    <task id="LOCAL-00003" summary="Search Index Updated">
+      <created>1623828864355</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1619867651740</updated>
+      <updated>1623828864355</updated>
     </task>
-    <task id="LOCAL-00004" summary="Working on Maintenance Thread 2">
-      <created>1619870459781</created>
+    <task id="LOCAL-00004" summary="Userid to Certificate Mapping added">
+      <created>1623850960328</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1619870459781</updated>
+      <updated>1623850960328</updated>
     </task>
-    <task id="LOCAL-00005" summary="Readme updated">
-      <created>1621310877201</created>
+    <task id="LOCAL-00005" summary="Userid to Certificate Mapping tested">
+      <created>1623857782860</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1621310877201</updated>
+      <updated>1623857782860</updated>
     </task>
-    <task id="LOCAL-00006" summary="Javadoc for Database Utility class added.">
-      <created>1621316762916</created>
+    <task id="LOCAL-00006" summary="Cryptography class updated">
+      <created>1623920421028</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1621316762916</updated>
+      <updated>1623920421028</updated>
     </task>
-    <task id="LOCAL-00007" summary="Javadoc for Database Utility class added.">
-      <created>1621316819271</created>
+    <task id="LOCAL-00007" summary="Testing class updated">
+      <created>1624033126252</created>
       <option name="number" value="00007" />
       <option name="presentableId" value="LOCAL-00007" />
       <option name="project" value="LOCAL" />
-      <updated>1621316819271</updated>
+      <updated>1624033126252</updated>
     </task>
-    <task id="LOCAL-00008" summary="Javadoc for Database Utility class added.">
-      <created>1621317246427</created>
+    <task id="LOCAL-00008" summary="Testing class updated">
+      <created>1624107075317</created>
       <option name="number" value="00008" />
       <option name="presentableId" value="LOCAL-00008" />
       <option name="project" value="LOCAL" />
-      <updated>1621317246427</updated>
+      <updated>1624107075317</updated>
     </task>
-    <task id="LOCAL-00009" summary="Javadoc for Cryptography class added.">
-      <created>1621318775967</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1621318775967</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Javadoc for Cryptography class added.">
-      <created>1621319080442</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1621319080442</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Javadoc for Verif class added.">
-      <created>1621319760077</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1621319760078</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Javadoc for ObjReturn class added.">
-      <created>1621320321887</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1621320321887</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Javadoc for Indexing Manager Buffer class added.">
-      <created>1621323482550</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1621323482550</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Javadoc for Indexing Manager(Main) class added.">
-      <created>1621406541726</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1621406541726</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Maintenance thread for transfer to purge table updated.">
-      <created>1621418039068</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1621418039068</updated>
-    </task>
-    <option name="localTasksCounter" value="16" />
+    <option name="localTasksCounter" value="9" />
     <servers />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18008785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32626426" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="DB Execution Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980332" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32626426" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32952693" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20347957" sideWeight="0.8743883" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.4874214" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329429" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32861635" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18008785" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2579425" sideWeight="0.12561175" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+    </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Maintenance thread updated" />
-    <MESSAGE value="ReadMe File Updated" />
-    <MESSAGE value="All Classes refined" />
-    <MESSAGE value="Working on Maintenance Thread 2" />
-    <MESSAGE value="Readme updated" />
-    <MESSAGE value="Javadoc for Database Utility class added." />
-    <MESSAGE value="Javadoc for Cryptography class added." />
-    <MESSAGE value="Javadoc for Verif class added." />
-    <MESSAGE value="Javadoc for ObjReturn class added." />
-    <MESSAGE value="Javadoc for Indexing Manager Buffer class added." />
-    <MESSAGE value="Javadoc for Indexing Manager(Main) class added." />
-    <MESSAGE value="Maintenance thread for transfer to purge table updated." />
-    <option name="LAST_COMMIT_MESSAGE" value="Maintenance thread for transfer to purge table updated." />
+    <MESSAGE value="hghgh" />
+    <MESSAGE value="Search Index Updated" />
+    <MESSAGE value="Userid to Certificate Mapping added" />
+    <MESSAGE value="Userid to Certificate Mapping tested" />
+    <MESSAGE value="Cryptography class updated" />
+    <MESSAGE value="Testing class updated" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing class updated" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/Database_Utility.java</url>
+          <line>165</line>
+          <properties />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/Database_Utility.java</url>
+          <line>73</line>
+          <properties class="src.main.Database_Utility" method="createtable">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="2" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="13226">
+          <caret line="778" column="44" lean-forward="false" selection-start-line="778" selection-start-column="44" selection-end-line="778" selection-end-column="44" />
           <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2907">
-          <caret line="171" column="52" lean-forward="false" selection-start-line="171" selection-start-column="52" selection-end-line="171" selection-end-column="52" />
+        <state relative-caret-position="1921">
+          <caret line="113" column="9" lean-forward="true" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="29" />
-          <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IndexingManagerBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1887">
-          <caret line="111" column="36" lean-forward="false" selection-start-line="111" selection-start-column="8" selection-end-line="111" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="816">
-          <caret line="48" column="29" lean-forward="false" selection-start-line="48" selection-start-column="19" selection-end-line="48" selection-end-column="29" />
-          <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="2329">
+          <caret line="137" column="87" lean-forward="false" selection-start-line="137" selection-start-column="87" selection-end-line="137" selection-end-column="87" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9299">
-          <caret line="547" column="7" lean-forward="false" selection-start-line="547" selection-start-column="7" selection-end-line="547" selection-end-column="7" />
+        <state relative-caret-position="10829">
+          <caret line="637" column="30" lean-forward="true" selection-start-line="637" selection-start-column="30" selection-end-line="637" selection-end-column="30" />
           <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="2142">
+          <caret line="126" column="10" lean-forward="false" selection-start-line="126" selection-start-column="10" selection-end-line="126" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8772">
+          <caret line="547" column="0" lean-forward="false" selection-start-line="547" selection-start-column="0" selection-end-line="547" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2499">
+          <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="27" />
+        <state relative-caret-position="544">
+          <caret line="128" column="171" lean-forward="false" selection-start-line="128" selection-start-column="171" selection-end-line="128" selection-end-column="171" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Verif.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="38" lean-forward="false" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="8993">
-          <caret line="529" column="59" lean-forward="true" selection-start-line="528" selection-start-column="6" selection-end-line="529" selection-end-column="59" />
-          <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="1836">
+          <caret line="108" column="13" lean-forward="true" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7667">
-          <caret line="451" column="34" lean-forward="false" selection-start-line="451" selection-start-column="34" selection-end-line="451" selection-end-column="34" />
+        <state relative-caret-position="14229">
+          <caret line="837" column="40" lean-forward="false" selection-start-line="837" selection-start-column="40" selection-end-line="837" selection-end-column="40" />
           <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="27" />
+        <state relative-caret-position="2312">
+          <caret line="145" column="12" lean-forward="false" selection-start-line="145" selection-start-column="12" selection-end-line="146" selection-end-column="26" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        <state relative-caret-position="1037">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7667">
-          <caret line="451" column="34" lean-forward="false" selection-start-line="451" selection-start-column="34" selection-end-line="451" selection-end-column="34" />
+        <state relative-caret-position="2686">
+          <caret line="182" column="69" lean-forward="false" selection-start-line="182" selection-start-column="69" selection-end-line="182" selection-end-column="69" />
           <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="27" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7667">
-          <caret line="451" column="34" lean-forward="true" selection-start-line="451" selection-start-column="34" selection-end-line="451" selection-end-column="34" />
-          <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7905">
-          <caret line="465" column="0" lean-forward="true" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
-          <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1173">
-          <caret line="69" column="97" lean-forward="false" selection-start-line="69" selection-start-column="97" selection-end-line="69" selection-end-column="97" />
+        <state relative-caret-position="629">
+          <caret line="61" column="0" lean-forward="false" selection-start-line="61" selection-start-column="0" selection-end-line="61" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="238">
+          <caret line="21" column="0" lean-forward="false" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="731">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="3094">
+          <caret line="182" column="69" lean-forward="false" selection-start-line="182" selection-start-column="69" selection-end-line="182" selection-end-column="69" />
           <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="9316">
-          <caret line="548" column="10" lean-forward="false" selection-start-line="548" selection-start-column="10" selection-end-line="548" selection-end-column="10" />
-          <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="27" lean-forward="false" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
+        <state relative-caret-position="2295">
+          <caret line="135" column="65" lean-forward="false" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="595">
+          <caret line="35" column="12" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7208">
-          <caret line="424" column="29" lean-forward="true" selection-start-line="424" selection-start-column="29" selection-end-line="424" selection-end-column="29" />
+        <state relative-caret-position="3094">
+          <caret line="182" column="69" lean-forward="false" selection-start-line="182" selection-start-column="69" selection-end-line="182" selection-end-column="69" />
           <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="27" lean-forward="true" selection-start-line="25" selection-start-column="27" selection-end-line="25" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_251/src.zip!/java/sql/PreparedStatement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="76" column="14" lean-forward="false" selection-start-line="76" selection-start-column="14" selection-end-line="76" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/Table1_RootNodeCheck.xml" />
-    <entry file="file://$PROJECT_DIR$/ReadMe">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="679" lean-forward="false" selection-start-line="0" selection-start-column="679" selection-end-line="0" selection-end-column="679" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="818">
-          <caret line="94" column="36" lean-forward="true" selection-start-line="94" selection-start-column="36" selection-end-line="94" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Table1_RootNodeCheck.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Verif.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="969">
-          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
+        <state relative-caret-position="867">
+          <caret line="51" column="0" lean-forward="true" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="22" column="3" lean-forward="false" selection-start-line="22" selection-start-column="3" selection-end-line="22" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/IndexingManagerBuffer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="104" column="25" lean-forward="false" selection-start-line="104" selection-start-column="25" selection-end-line="104" selection-end-column="25" />
+        <state relative-caret-position="1581">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1312">
-          <caret line="177" column="12" lean-forward="false" selection-start-line="177" selection-start-column="12" selection-end-line="177" selection-end-column="48" />
+        <state relative-caret-position="2295">
+          <caret line="135" column="65" lean-forward="true" selection-start-line="135" selection-start-column="65" selection-end-line="135" selection-end-column="65" />
           <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1621417774130" expanded="true" signature="1984:1997" ph=" CREATE statement" />
-            <marker date="1621417774130" expanded="true" signature="4120:4245" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="5363:5454" ph=" SELECT statement (MISSINGVALUEWHERE)" />
-            <marker date="1621417774130" expanded="true" signature="6742:6782" ph=" DELETE statement (MISSINGVALUE)" />
-            <marker date="1621417774130" expanded="true" signature="7452:7500" ph=" UPDATE statement (MISSINGVALUESET)" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ObjReturn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="110" column="25" lean-forward="true" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
-          <folding>
-            <element signature="e#2130#2131#0" expanded="true" />
-            <element signature="e#2162#2163#0" expanded="true" />
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="551" column="20" lean-forward="false" selection-start-line="551" selection-start-column="20" selection-end-line="551" selection-end-column="20" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1621696742702" expanded="true" signature="18826:18840" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1621696742702" expanded="true" signature="21854:21866" ph=" DELETE statement (TABLE100)" />
-            <marker date="1621696742702" expanded="true" signature="27456:27472" ph=" SELECT statement (MISSINGVALUE)" />
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3417">
+          <caret line="201" column="36" lean-forward="true" selection-start-line="201" selection-start-column="36" selection-end-line="201" selection-end-column="36" />
+          <folding>
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1581">
+          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="38" column="11" lean-forward="false" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="544">
+          <caret line="32" column="5" lean-forward="false" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ObjReturn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1445">
+          <caret line="85" column="0" lean-forward="false" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2108">
+          <caret line="124" column="0" lean-forward="false" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ObjReturn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/InMemoryCache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Cache/Cache.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="0" lean-forward="true" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ResponseToIndexM.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="9" lean-forward="true" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="12" lean-forward="false" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/security/cert/Certificate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="150" column="27" lean-forward="false" selection-start-line="150" selection-start-column="27" selection-end-line="150" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ObjReturn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="105" column="5" lean-forward="true" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManagerBuffer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="35">
+          <caret line="32" column="0" lean-forward="true" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;field#inputIMBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;field#outputIMBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;field#inputIMBufferLock#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;field#outputIMBufferLock#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;field#indexingManagerBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;method#IndexingManagerBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="method#IndexingManagerBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;method#addToIMInputBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="method#addToIMInputBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;method#fetchFromIMInputBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="method#fetchFromIMInputBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;method#addToIMOutputBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="method#addToIMOutputBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="docComment;method#fetchFromIMOutputBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+            <element signature="method#fetchFromIMOutputBuffer#0;class#IndexingManagerBuffer#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Table0_RootNodeCheck.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="113" column="9" lean-forward="false" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+          <folding>
+            <element signature="docComment;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/security/KeyStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="1074" column="29" lean-forward="false" selection-start-line="1074" selection-start-column="29" selection-end-line="1074" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="74" column="46" lean-forward="false" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Verif.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+          <folding>
+            <element signature="docComment;class#Verif#0" expanded="false" />
+            <element signature="docComment;method#Verify_Digital_Signature#0;class#Verif#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="529" column="63" lean-forward="false" selection-start-line="529" selection-start-column="63" selection-end-line="529" selection-end-column="63" />
+          <folding>
+            <element signature="docComment;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origkey#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origvalue#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtotalCopies#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origcopyNum#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origtimerType#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origuserId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origLayerId#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#origCerti#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#conn#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#22358:22817" expanded="false" />
+            <element signature="method#run#0;class#22358:22817" expanded="false" />
+            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
+            <element signature="class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
+            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
+            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
+            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="46" column="96" lean-forward="true" selection-start-line="46" selection-start-column="96" selection-end-line="46" selection-end-column="96" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -939,10 +1807,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>IndexingManagerAPI:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
@@ -990,6 +1860,7 @@
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.6" />
               </list>
             </option>
           </splitter-proportions>

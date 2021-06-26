@@ -4,7 +4,8 @@ import jdk.internal.org.xml.sax.SAXException;
 import org.w3c.dom.*;
 import src.main.Database_Utility;
 import src.main.IndexingManager;
-import src.main.SignatureVerif;
+import src.main.Cryptography;
+import src.main.ObjReturn;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -27,30 +28,124 @@ import java.util.ArrayList;
 
 public class Testing {
 
-   // private static DocumentBuilderFactory builderFactory;
-   // private static String indexFileName;
 
     public static void main(String argv[]) {
-        /*maintenance thread 2
-IIT Kgp_MTP_Thesis template(1)*/
-
-            //  IndexingManager IM= IndexingManager.getInstance();
 
 
-              /*ArrayList<File> B=IM.resultForIndexingManager();
-        System.out.println(B.get(0).getName());
-        System.out.println(B.get(1).getName());*/
+       IndexingManager IM= IndexingManager.getInstance();
 
-//
-//        SignatureVerif S2 = SignatureVerif.getInstance();
-//        KeyStore k = S2.getKeyStore();
-//        Certificate c1 = null;
-//        try {
-//            c1 =  k.getCertificate("Certificate");}
-//        catch (KeyStoreException e) {
-//            e.printStackTrace();
-//        }
-//       File f=IM.XMLforRoot(s[0],"HIII","helooo",2,2, (long) 34567890,true,"hooooo",System.currentTimeMillis(),c1);
+
+        //Following code will check if table of a layerid exists or not
+        // {
+        /*boolean b=IM.checkTable(1);
+        System.out.println(b);
+        */
+        // }
+
+        //Following block will test adding of an entry.
+
+        // { Following Code generates a Demo certificate for addition as part of an Index entry.
+
+       /*  Cryptography S2 = Cryptography.getInstance();
+       KeyStore k = S2.getKeyStore();
+       Certificate c1 = null;
+       try {
+           c1 =  k.getCertificate("Certificate");}
+        catch (KeyStoreException e) {
+           e.printStackTrace();
+        }*/
+
+
+        //IM.addIndex("99267C42DE64C0904","peer","5000",2,2,false,"nks1",2,"1621911095568" ,c1);
+        //IM.addIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904","network","4000",1,2,false,"harry",0,"1621911095568",c1);
+        //IM.addIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904","manager","3000",1,2,true,"sidhu",0,"1621911095568",c1);
+
+        //  }
+
+        //Following code will calculate root for Key whose copy number is 0.This is done using hashing.
+
+        /*String[] test = new String[2];
+        test=IM.rootcalc("key");
+        System.out.println(test[0]);
+        System.out.println(test[1]);
+*/
+
+         /* Database_Utility u=Database_Utility.getInstance();
+          ObjReturn obj=new ObjReturn();
+          obj=u.search_entry("pDD2051C7A9CD59A1BE822F699267C42DE64C0904",6);
+          System.out.println(obj.getValue1());*/
+
+
+
+        // Following block will test searching of an entry in XML format.
+        //  {
+
+//        File f=IM.searchIndex("pDD2051C7A9CD59A1BE822F699267C42DE64C0904",6);
+//        System.out.println(f.getName());
+
+        //  }
+
+        // Following block will test updation of an entry.
+        //  {
+
+        //IM.updateIndex("pDD2051C7A9CD59A1BE822F699267C42DE64C0904",6);
+
+        //}
+
+        // Following block will test deletion of an entry.
+        //  {
+
+        //IM.deleteIndex("DD2051C7A9CD59A1BE822F699267C42DE64C0904",2);
+
+        //}
+
+
+        //This block will check transfer of entry to purge table.
+
+
+
+
+        //Following thread will request Routing manager every 30 minutes to ascertain for which self is root or not.
+        // {
+
+        //IM.queryForRoutingManager();
+
+        //  }
+
+        //{
+
+      /*   String filepath="ResponseToIndexM.xml";
+       IM.transfertopurge(new File(filepath));
+*/
+
+
+        //Following thread will delete entries whose timer has expired.
+        // {
+
+        //IM.maintenancethread();
+
+        //  }
+
+        //Following thread will delete entries from purge table every 90 minutes.
+        // {
+
+        // IM.maintenancethread2();
+
+        //  }
+
+        //Following method will make userid to certificate mapping.If userid is already present it will show an error that userid exists.
+        // {
+
+        // IM.userToCertMap("new",c1);
+
+        //  }
+
+
+        // Following code will fetch Certificate for userid.
+        /*Certificate c=IM.fetchuserCerti("hardy");
+        System.out.println(c.getPublicKey());*/
+
+
 
 //IM.resultForIndexingManager();
         //System.out.println(Thread.currentThread()+"This is main");
@@ -59,44 +154,7 @@ IIT Kgp_MTP_Thesis template(1)*/
         //String filepath="Table1_RootNodeCheck.xml";
         //File f=responseForIndexingManager(filepath);
     }
-        /*public static File responseForIndexingManager (String indexFileName){
-            DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder documentBuilder = null;
-            String selfNodeID = null;
-            try {
-                documentBuilder = builderFactory.newDocumentBuilder();
-                Document doc = documentBuilder.parse(new File(indexFileName));
-                doc.getDocumentElement().normalize();
-                String rootElement = doc.getDocumentElement().getNodeName();
-                String layerIDS = doc.getDocumentElement().getAttribute("LayerID");
-                int layerID = Integer.parseInt(layerIDS);
-                NodeList nodeList1 = doc.getElementsByTagName("DATA");
-                for (int i = 0; i < nodeList1.getLength(); i++) {
-                    Node node = nodeList1.item(i);
 
-                    if (node.getNodeType() == node.ELEMENT_NODE) {
-                        Element element = (Element) node;
-                        String index = node.getAttributes().getNamedItem("INDEX").getNodeValue();
-
-                        //Get value of all sub-Elements
-                        String key = element.getElementsByTagName("KEY").item(0).getTextContent();
-                        element.getElementsByTagName("HASHID").item(0).setTextContent("1252623738");
-                    }
-                }
-                TransformerFactory transformerFactory = TransformerFactory.newInstance();
-                Transformer transformer = transformerFactory.newTransformer();
-                DOMSource domSource = new DOMSource(doc);
-                StreamResult streamResult = new StreamResult(new File("ResponseToIndexM.xml"));
-                transformer.transform(domSource, streamResult);
-                System.out.println("ResponseToIndexM.xml" + "file updated");
-            } catch (ParserConfigurationException | IOException | TransformerException e) {
-
-            } catch (org.xml.sax.SAXException e) {
-                e.printStackTrace();
-            }
-            return new File("ResponseToIndexM.xml");
-
-        }*/
 
     }
 
