@@ -450,7 +450,7 @@ public class IndexingManager {
         boolean b = obj.timerType1;
         s = obj.getValue1();
         System.out.println(s);
-        if(!(s.isEmpty())){
+        if(!(s. .equals(null))){
             if (!b) {
                 updateIndex(Key, layerID);
                 f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
