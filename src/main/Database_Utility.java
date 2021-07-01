@@ -96,12 +96,36 @@ public class Database_Utility {
 
     }
 
+    public void createtable2(String name) {
+        try {
+
+            String sql = "CREATE TABLE " + name + "("
+                    + "[Key] STRING (30) PRIMARY key NOT NULL,"
+                    + "value STRING (255),"
+                    + "timer STRING(30),"
+                    + "totalCopies INTEGER,"
+                    + "copyNum INTEGER,"
+                    + "timerType INTEGER,"
+                    + "userId STRING(30) ,"
+                    + "LayerId INTEGER ,"
+                    + " time STRING(30) NOT NULL ,"
+                    + " Certificate VARCHAR NOT NULL " + ")";
+
+
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     /**
      * This method is created to create table for userid to certificate mapping.Table number for this is kept as 101.
      */
     public void createtable1(){
         try {
-            String fileName = "Table" + 101;
+            String fileName = "UserToCertMap";
             String sql = "CREATE TABLE " + fileName + "("
                     + "[userId] STRING (30) PRIMARY key NOT NULL,"
                     + " Certificate VARCHAR NOT NULL " + ")";
@@ -142,6 +166,34 @@ public class Database_Utility {
             pstmt.setString(7, userId);
             pstmt.setString(8, time);
             pstmt.setString(9, b);
+
+            pstmt.executeUpdate();
+            pstmt.close();
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CertificateEncodingException e) {
+            e.printStackTrace();
+        }
+
+    }
+    public void add_entryforpurge(int layerID, String key, String value, String timer, int totalCopies, int copyNum, boolean timerType, String userId, String time, Certificate c) {
+        try {
+            String b = java.util.Base64.getEncoder().encodeToString(c.getEncoded());
+
+            String tableName = "PurgeTable";
+            String sql = "INSERT INTO " + tableName + " (key,value,timer,totalCopies,copyNum,timerType,userId,LayerId,time,Certificate) VALUES(?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, key);
+            pstmt.setString(2, value);
+            pstmt.setString(3, timer);
+            pstmt.setInt(4, totalCopies);
+            pstmt.setInt(5, copyNum);
+            pstmt.setBoolean(6, timerType);
+            pstmt.setString(7, userId);
+            pstmt.setInt(8,layerID);
+            pstmt.setString(9, time);
+            pstmt.setString(10, b);
 
             pstmt.executeUpdate();
             pstmt.close();
@@ -196,6 +248,55 @@ public class Database_Utility {
                 obj1.setCopyNum1(copNum);
                 obj1.setTimerType1(timeTyp);
                 obj1.setUserId(hashId);
+                obj1.setTime(time);
+                obj1.setCert(cert);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(Database_Utility.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (CertificateException e) {
+            e.printStackTrace();
+        }
+
+        return obj1;
+    }
+
+    public ObjReturn search_entryinpurge(String Key) {
+        ObjReturn obj1 = new ObjReturn();
+
+        try {
+
+            String filename = "PurgeTable" ;
+            PreparedStatement stmt = conn.prepareStatement(" select value,timer,totalCopies,copyNum,timerType,userId,LayerId,time,Certificate from " + filename + " where Key=? ");
+            stmt.setString(1, Key);
+            ResultSet rs = stmt.executeQuery();
+
+            while (rs.next()) {
+
+
+                String val = rs.getString(1);
+                String tim = rs.getString(2);
+                int totCo = rs.getInt(3);
+                int copNum = rs.getInt(4);
+                boolean timeTyp = rs.getBoolean(5);
+                String hashId = rs.getString(6);
+                int ld=rs.getInt(7);
+                String time = rs.getString(8);
+                String s=rs.getString(9);
+
+
+                byte[] decodedByte = java.util.Base64.getMimeDecoder().decode(s);
+                CertificateFactory cf=CertificateFactory.getInstance("X.509");
+                ByteArrayInputStream bis=new ByteArrayInputStream(decodedByte);
+                Certificate cert=cf.generateCertificate(bis);
+
+                obj1.setValue1(val);
+                obj1.setTime1(tim);
+                obj1.setTotalCopies1(totCo);
+                obj1.setCopyNum1(copNum);
+                obj1.setTimerType1(timeTyp);
+                obj1.setUserId(hashId);
+                obj1.setLayerid(ld);
                 obj1.setTime(time);
                 obj1.setCert(cert);
 

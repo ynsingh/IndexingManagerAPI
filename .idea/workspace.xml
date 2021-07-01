@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ArtifactsWorkspaceSettings">
     <artifacts-to-build>
-      <artifact name="IndexingManagerAPI" />
+      <artifact name="IndexingManagerAPI:jar" />
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
@@ -10,8 +10,9 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/KeyValuePairs.db" afterPath="$PROJECT_DIR$/KeyValuePairs.db" />
       <change beforePath="$PROJECT_DIR$/src/Testing/Testing.java" afterPath="$PROJECT_DIR$/src/Testing/Testing.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/Cryptography.java" afterPath="$PROJECT_DIR$/src/main/Cryptography.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/Database_Utility.java" afterPath="$PROJECT_DIR$/src/main/Database_Utility.java" />
       <change beforePath="$PROJECT_DIR$/src/main/IndexingManager.java" afterPath="$PROJECT_DIR$/src/main/IndexingManager.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/ObjReturn.java" afterPath="$PROJECT_DIR$/src/main/ObjReturn.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,11 +27,61 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IndexingManager.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Database_Utility.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="236" column="41" lean-forward="true" selection-start-line="236" selection-start-column="41" selection-end-line="236" selection-end-column="41" />
+              <folding>
+                <element signature="docComment;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
+                <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
+                <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+                <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+                <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+                <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+                <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+                <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+                <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+                <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+                <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Testing.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="171">
+              <caret line="81" column="74" lean-forward="false" selection-start-line="81" selection-start-column="74" selection-end-line="81" selection-end-column="74" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexingManager.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="529" column="63" lean-forward="false" selection-start-line="529" selection-start-column="63" selection-end-line="529" selection-end-column="63" />
+            <state relative-caret-position="134">
+              <caret line="452" column="8" lean-forward="false" selection-start-line="452" selection-start-column="8" selection-end-line="452" selection-end-column="8" />
               <folding>
                 <element signature="docComment;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
@@ -47,7 +98,6 @@
                 <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-                <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -55,77 +105,38 @@
                 <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-                <element signature="e#13520#13542#0" expanded="false" />
+                <element signature="e#14581#14603#0" expanded="false" />
                 <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-                <element signature="e#18668#18690#0" expanded="false" />
+                <element signature="e#20809#20831#0" expanded="false" />
                 <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-                <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-                <element signature="class#22358:22817" expanded="false" />
-                <element signature="method#run#0;class#22358:22817" expanded="false" />
-                <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-                <element signature="class#23334:23910" expanded="false" />
-                <element signature="method#run#0;class#23334:23910" expanded="false" />
+                <element signature="method#run#0;class#25533:26174" expanded="false" />
                 <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-                <element signature="e#27219#27328#0" expanded="false" />
+                <element signature="e#29502#29611#0" expanded="false" />
                 <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
                 <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+                <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+                <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
                 <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-                <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-                <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-                <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-                <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-                <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+                <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+                <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+                <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+                <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+                <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Database_Utility.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="113" column="9" lean-forward="false" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
-              <folding>
-                <element signature="docComment;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;field#conn#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;method#Database_Utility#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;method#getInstance#0;class#Database_Utility#0" expanded="false" />
-                <element signature="method#getInstance#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;method#getConnection#0;class#Database_Utility#0" expanded="false" />
-                <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
-                <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-                <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
-                <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
-                <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
-                <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-                <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-                <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Testing.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="46" column="96" lean-forward="true" selection-start-line="46" selection-start-column="96" selection-end-line="46" selection-end-column="96" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -145,11 +156,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/Cache/InMemoryCache.java" />
         <option value="$PROJECT_DIR$/src/Cache/Cache.java" />
+        <option value="$PROJECT_DIR$/src/main/Cryptography.java" />
         <option value="$PROJECT_DIR$/src/main/ObjReturn.java" />
         <option value="$PROJECT_DIR$/src/main/Database_Utility.java" />
-        <option value="$PROJECT_DIR$/src/main/Cryptography.java" />
-        <option value="$PROJECT_DIR$/src/main/IndexingManager.java" />
         <option value="$PROJECT_DIR$/src/Testing/Testing.java" />
+        <option value="$PROJECT_DIR$/src/main/IndexingManager.java" />
       </list>
     </option>
   </component>
@@ -180,9 +191,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -190,21 +201,6 @@
             <path>
               <item name="IndexingManagerAPI" type="b2602c69:ProjectViewProjectNode" />
               <item name="IndexingManagerAPI" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IndexingManagerAPI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IndexingManagerAPI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IndexingManagerAPI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="IndexingManagerAPI" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="IndexingManagerAPI" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
             </path>
           </expand>
           <select />
@@ -408,7 +404,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624107075317</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Testing class Finalised">
+      <created>1624350900576</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1624350900576</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TodoView">
@@ -439,8 +442,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32952693" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20347957" sideWeight="0.8743883" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17927383" sideWeight="0.8743883" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24963397" sideWeight="0.4874214" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -452,6 +454,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32952693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -464,16 +467,12 @@
     <MESSAGE value="Userid to Certificate Mapping tested" />
     <MESSAGE value="Cryptography class updated" />
     <MESSAGE value="Testing class updated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Testing class updated" />
+    <MESSAGE value="Testing class Finalised" />
+    <option name="LAST_COMMIT_MESSAGE" value="Testing class Finalised" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/Database_Utility.java</url>
-          <line>165</line>
-          <properties />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/main/Database_Utility.java</url>
           <line>73</line>
@@ -482,8 +481,16 @@
           </properties>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/Database_Utility.java</url>
+          <line>152</line>
+          <properties class="src.main.Database_Utility" method="add_entry">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="2" />
+      <option name="time" value="4" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -508,7 +515,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -516,36 +522,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -565,15 +572,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -606,7 +623,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -614,36 +630,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -676,7 +693,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -684,36 +700,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -722,7 +739,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2499">
           <caret line="147" column="0" lean-forward="true" selection-start-line="147" selection-start-column="0" selection-end-line="147" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -741,15 +757,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -782,7 +808,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -790,36 +815,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -839,15 +865,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -880,7 +916,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -888,36 +923,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -945,15 +981,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -978,7 +1024,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -986,36 +1031,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -1035,15 +1081,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -1052,7 +1108,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
           <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1084,7 +1139,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -1092,36 +1146,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -1138,7 +1193,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
           <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1157,15 +1211,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -1190,7 +1254,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -1198,36 +1261,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -1247,15 +1311,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -1280,7 +1354,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -1288,36 +1361,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -1326,7 +1400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1581">
           <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1353,15 +1426,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -1394,7 +1477,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -1402,36 +1484,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -1459,15 +1542,25 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
@@ -1500,7 +1593,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -1508,36 +1600,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -1562,7 +1655,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -1570,36 +1662,37 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
         </state>
       </provider>
@@ -1640,14 +1733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ObjReturn.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="105" column="5" lean-forward="true" selection-start-line="105" selection-start-column="5" selection-end-line="105" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManagerBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="35">
@@ -1676,10 +1761,47 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Table0_RootNodeCheck.xml" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/security/KeyStore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="1074" column="29" lean-forward="false" selection-start-line="1074" selection-start-column="29" selection-end-line="1074" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Verif.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1156">
+          <caret line="83" column="0" lean-forward="false" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ObjReturn.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1140">
+          <caret line="105" column="30" lean-forward="false" selection-start-line="105" selection-start-column="30" selection-end-line="105" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/lang/Integer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="614" column="0" lean-forward="false" selection-start-line="614" selection-start-column="0" selection-end-line="614" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/Database_Utility.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="113" column="9" lean-forward="false" selection-start-line="113" selection-start-column="9" selection-end-line="113" selection-end-column="9" />
+        <state relative-caret-position="268">
+          <caret line="236" column="41" lean-forward="true" selection-start-line="236" selection-start-column="41" selection-end-line="236" selection-end-column="41" />
           <folding>
             <element signature="docComment;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;field#utility#0;class#Database_Utility#0" expanded="false" />
@@ -1691,50 +1813,41 @@
             <element signature="method#getConnection#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#createtable#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#createtable2#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#createtable1#0;class#Database_Utility#0" expanded="false" />
-            <element signature="method#createtable1#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entry#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#add_entryforpurge#0;class#Database_Utility#0" expanded="false" />
+            <element signature="method#search_entryinpurge#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#delete_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="docComment;method#update_entry#0;class#Database_Utility#0" expanded="false" />
             <element signature="method#update_entry#0;class#Database_Utility#0" expanded="false" />
-            <marker date="1623851381445" expanded="true" signature="5157:5284" ph=" INSERT statement (MISSINGVALUE)" />
-            <marker date="1623851381445" expanded="true" signature="6496:6602" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="2212:2225" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="3057:3070" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="4066:4079" ph=" CREATE statement" />
+            <marker date="1625048359856" expanded="true" signature="6000:6127" ph=" INSERT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="7193:7330" ph=" INSERT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="8580:8686" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="10277:10391" ph=" SELECT statement (PURGETABLE)" />
+            <marker date="1625048359856" expanded="true" signature="12231:12271" ph=" DELETE statement (MISSINGVALUE)" />
+            <marker date="1625048359856" expanded="true" signature="12965:13015" ph=" UPDATE statement (MISSINGVALUE)" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_211/src.zip!/java/security/KeyStore.java">
+    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="1074" column="29" lean-forward="false" selection-start-line="1074" selection-start-column="29" selection-end-line="1074" selection-end-column="29" />
+        <state relative-caret-position="171">
+          <caret line="81" column="74" lean-forward="false" selection-start-line="81" selection-start-column="74" selection-end-line="81" selection-end-column="74" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Cryptography.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="74" column="46" lean-forward="false" selection-start-line="74" selection-start-column="46" selection-end-line="74" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Verif.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="23" column="8" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="8" />
-          <folding>
-            <element signature="docComment;class#Verif#0" expanded="false" />
-            <element signature="docComment;method#Verify_Digital_Signature#0;class#Verif#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/IndexingManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="529" column="63" lean-forward="false" selection-start-line="529" selection-start-column="63" selection-end-line="529" selection-end-column="63" />
+        <state relative-caret-position="134">
+          <caret line="452" column="8" lean-forward="false" selection-start-line="452" selection-start-column="8" selection-end-line="452" selection-end-column="8" />
           <folding>
             <element signature="docComment;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#indexManager#0;class#IndexingManager#0" expanded="false" />
@@ -1751,7 +1864,6 @@
             <element signature="docComment;field#utility#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;field#IMbuffer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkTable#0;class#IndexingManager#0" expanded="false" />
-            <element signature="method#checkTable#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#checkiforiginal#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#addIndex#0;class#IndexingManager#0" expanded="false" />
@@ -1759,45 +1871,38 @@
             <element signature="method#rootcalc#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#XMLforRoot#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#13520#13542#0" expanded="false" />
+            <element signature="e#14581#14603#0" expanded="false" />
             <element signature="docComment;method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#updateIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#searchIndex#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#makeXML#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#makeXML#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#18668#18690#0" expanded="false" />
+            <element signature="e#20809#20831#0" expanded="false" />
             <element signature="docComment;method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
-            <element signature="docComment;method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#maintenancethread#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread1#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#22358:22817" expanded="false" />
-            <element signature="method#run#0;class#22358:22817" expanded="false" />
-            <element signature="docComment;method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#maintenancethread2#0;class#IndexingManager#0" expanded="false" />
-            <element signature="class#23334:23910" expanded="false" />
-            <element signature="method#run#0;class#23334:23910" expanded="false" />
+            <element signature="method#run#0;class#25533:26174" expanded="false" />
             <element signature="docComment;method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfertopurge#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#transfer#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#transfer#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#IndexingManager#0;class#IndexingManager#0" expanded="false" />
-            <element signature="e#27219#27328#0" expanded="false" />
+            <element signature="e#29502#29611#0" expanded="false" />
             <element signature="docComment;method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#getInstance#0;class#IndexingManager#0" expanded="false" />
             <element signature="docComment;method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#queryForRoutingManager#0;class#IndexingManager#0" expanded="false" />
+            <element signature="docComment;method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
+            <element signature="method#userToCertMap#0;class#IndexingManager#0" expanded="false" />
             <element signature="method#fetchuserCerti#0;class#IndexingManager#0" expanded="false" />
-            <marker date="1624350611335" expanded="true" signature="20611:20625" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="23689:23701" ph=" DELETE statement (TABLE100)" />
-            <marker date="1624350611335" expanded="true" signature="29528:29572" ph=" SELECT statement (MISSINGVALUE)" />
-            <marker date="1624350611335" expanded="true" signature="32083:32144" ph=" INSERT statement (TABLE101)" />
-            <marker date="1624350611335" expanded="true" signature="33021:33076" ph=" SELECT statement (TABLE101)" />
+            <marker date="1625108052845" expanded="true" signature="22792:22806" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="25887:25899" ph=" DELETE statement (PURGETABLE)" />
+            <marker date="1625108052845" expanded="true" signature="31614:31658" ph=" SELECT statement (MISSINGVALUE)" />
+            <marker date="1625108052845" expanded="true" signature="34112:34173" ph=" INSERT statement (USERTOCERTMAP)" />
+            <marker date="1625108052845" expanded="true" signature="35080:35135" ph=" SELECT statement (USERTOCERTMAP)" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Testing/Testing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="46" column="96" lean-forward="true" selection-start-line="46" selection-start-column="96" selection-end-line="46" selection-end-column="96" />
-          <folding />
         </state>
       </provider>
     </entry>

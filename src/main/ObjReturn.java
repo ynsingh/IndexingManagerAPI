@@ -32,6 +32,7 @@ public class ObjReturn {
      * Userid for Key.
      */
         String userId;
+        int layerid;
     /**
      * Time at which entry was added to database.
      */
@@ -95,6 +96,14 @@ public class ObjReturn {
 
     public void setUserId(String userId) {
         this.userId = userId;
+    }
+
+    public int getLayerid() {
+        return layerid;
+    }
+
+    public void setLayerid(int layerid) {
+        this.layerid = layerid;
     }
 
     public String getTime() {
