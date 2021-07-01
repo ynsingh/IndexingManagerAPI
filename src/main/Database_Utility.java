@@ -263,7 +263,6 @@ public class Database_Utility {
 
     public ObjReturn search_entryinpurge(String Key) {
         ObjReturn obj1 = new ObjReturn();
-
         try {
 
             String filename = "PurgeTable" ;

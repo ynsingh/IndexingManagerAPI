@@ -19,10 +19,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.Provider;
-import java.security.Security;
+import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
@@ -449,8 +446,7 @@ public class IndexingManager {
         obj = utility.search_entry(Key, layerID);
         boolean b = obj.timerType1;
         s = obj.getValue1();
-        System.out.println(s);
-        if(!(s. .equals(null))){
+        if(!(s==null)){
             if (!b) {
                 updateIndex(Key, layerID);
                 f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
@@ -463,9 +459,10 @@ public class IndexingManager {
             }   
         }
         else {
-            System.out.println("hiiii");
+            System.out.println(Key);
             obj1 = utility.search_entryinpurge(Key);
-            utility.add_entry(obj1.getLayerid(), obj1.getKey1(), obj1.getValue1(), obj1.getTime1(), obj1.getTotalCopies1(), obj1.getCopyNum1(), obj1.getTimerType1(), obj1.getUserId(), obj1.getTime(), obj1.getcert());
+            System.out.println(obj1.key1);
+            utility.add_entry(obj1.getLayerid(),Key , obj1.getValue1(), obj1.getTime1(), obj1.getTotalCopies1(), obj1.getCopyNum1(), obj1.getTimerType1(), obj1.getUserId(), obj1.getTime(), obj1.getcert());
 
 
         }

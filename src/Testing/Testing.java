@@ -79,9 +79,9 @@ public class Testing {
 
         // Error - If not in main table
 
-        File f=IM.searchIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904",2);
+        /*File f=IM.searchIndex("FD2051C7A9CD59A1BE822F699267C42DE64C0904",2);
         System.out.println(f.getName());
-
+*/
         //  }
 
         // Following block will test updation of an entry.
