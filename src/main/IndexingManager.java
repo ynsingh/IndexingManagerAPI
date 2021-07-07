@@ -19,10 +19,7 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.security.Provider;
-import java.security.Security;
+import java.security.*;
 import java.security.cert.Certificate;
 import java.security.cert.CertificateEncodingException;
 import java.security.cert.CertificateException;
@@ -113,8 +110,17 @@ public class IndexingManager {
                 String ld = rs1.getString("TABLE_NAME");
 
                 //This statement will extract digits from table names.
-
-                String intValue = ld.replaceAll("[^0-9]", "");
+                if(!(ld.equals("PurgeTable")||ld.equals("UserToCertMap"))){
+                    String intValue = ld.replaceAll("[^0-9]", "");
+                    int v;
+                    if (intValue != null) {
+                        v = Integer.parseInt(intValue);
+                        if (v == layerId) {
+                            isAvailable = true;
+                        }
+                    }
+                }
+               /* String intValue = ld.replaceAll("[^0-9]", "");
                 int v;
                 if (intValue != null) {
                     v = Integer.parseInt(intValue);
@@ -122,7 +128,7 @@ public class IndexingManager {
                         isAvailable = true;
                     }
                 }
-                //This statement will compare layerid with digits of table names.
+                //This statement will compare layerid with digits of table names.*/
 
             }
             rs1.close();
@@ -132,6 +138,34 @@ public class IndexingManager {
 
         return isAvailable;
     }
+
+    public boolean checkTable1(String tablename)
+
+    {
+        boolean isAvailable = false;
+        try {
+
+            //This statement will fetch all tables available in database.
+
+            ResultSet rs1 = conn.getMetaData().getTables(null, null, null, null);
+            while (rs1.next()) {
+
+                String ld = rs1.getString("TABLE_NAME");
+                if (ld.equals(tablename))
+                {
+                    isAvailable = true;
+
+                }
+
+            }
+            rs1.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return isAvailable;
+    }
+
 
     /**
      * This method will check whether index which is to be added is Copy0/Copy1/Copy2.If Copy0 it will return true.
@@ -407,11 +441,34 @@ public class IndexingManager {
 
         ObjReturn obj = new ObjReturn();
         ObjReturn obj1 = new ObjReturn();
-        File f;
+        String s=null;
+        File f = null;
         obj = utility.search_entry(Key, layerID);
         boolean b = obj.timerType1;
-        String s = obj.getValue1();
-        if (!b) {
+        s = obj.getValue1();
+        if(!(s==null)){
+            if (!b) {
+                updateIndex(Key, layerID);
+                f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
+                IMbuffer.addToIMOutputBuffer(f);
+
+            } else {
+                f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
+                IMbuffer.addToIMOutputBuffer(f);
+
+            }   
+        }
+        else {
+            System.out.println(Key);
+            obj1 = utility.search_entryinpurge(Key);
+            System.out.println(obj1.key1);
+            utility.add_entry(obj1.getLayerid(),Key , obj1.getValue1(), obj1.getTime1(), obj1.getTotalCopies1(), obj1.getCopyNum1(), obj1.getTimerType1(), obj1.getUserId(), obj1.getTime(), obj1.getcert());
+
+
+        }
+        
+        
+     /*   if (!b) {
             updateIndex(Key, layerID);
             f = makeXML(Key, layerID, obj.getValue1(), obj.getTime1(), obj.getTotalCopies1(), obj.getCopyNum1(), obj.getTimerType1(), obj.getUserId(), obj.getTime(), obj.getcert());
             IMbuffer.addToIMOutputBuffer(f);
@@ -423,10 +480,11 @@ public class IndexingManager {
         }
 
         if (s.equals("null")) {
-            obj1 = utility.search_entry(Key, 100);
-            utility.add_entry(layerID, obj1.getKey1(), obj1.getValue1(), obj1.getTime1(), obj1.getTotalCopies1(), obj1.getCopyNum1(), obj1.getTimerType1(), obj1.getUserId(), obj1.getTime(), obj1.getcert());
+            System.out.println("hiiii");
+            obj1 = utility.search_entryinpurge(Key);
+            utility.add_entry(obj1.getLayerid(), obj1.getKey1(), obj1.getValue1(), obj1.getTime1(), obj1.getTotalCopies1(), obj1.getCopyNum1(), obj1.getTimerType1(), obj1.getUserId(), obj1.getTime(), obj1.getcert());
 
-        }
+        }*/
         return f;
 
     }
@@ -540,10 +598,9 @@ public class IndexingManager {
 
                             String ld = rs.getString("TABLE_NAME");
                             String intValue = ld.replaceAll("[^0-9]", "");
-                            int layerid = Integer.parseInt(intValue);
 
-                            if (!(layerid == 101)) {
-
+                            if (!(ld.equals("PurgeTable")||ld.equals("UserToCertMap"))) {
+                                int layerid = Integer.parseInt(intValue);
                                 String filename = "Table" + layerid;
                                 PreparedStatement pst = conn.prepareStatement("SELECT * FROM " + filename);
                                 ResultSet rs2 = pst.executeQuery();
@@ -574,7 +631,8 @@ public class IndexingManager {
             });
             maintenanceThread.start();
             try {
-                Thread.sleep(900000);
+                Thread.sleep(5000);
+                //Thread.sleep(900000);
                 System.out.println("Thread going to sleep");
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -584,7 +642,7 @@ public class IndexingManager {
 
     /**
      * This thread will run continuously after every 30 minutes to ascertain for which nodes I am root.
-     * For which I am not, will be transferred to Purge table whose layerid is 100.
+     * For which I am not, will be transferred to Purge table .
      */
     public void maintenancethread1() {
         while (true) {
@@ -622,13 +680,13 @@ public class IndexingManager {
 
                     // This statement will delete entries of purge table after 90 minutes.
 
-                    String filename = "Table" + 100;
+                    String filename = "PurgeTable";
 
                     PreparedStatement stmt1 = null;
                     try {
                         stmt1 = conn.prepareStatement("delete from " + filename);
-
                         stmt1.executeUpdate();
+                        System.out.println("Deletion successful");
                     } catch (SQLException e) {
                         e.printStackTrace();
                     }
@@ -675,7 +733,7 @@ public class IndexingManager {
                     String key = element.getElementsByTagName("KEY").item(0).getTextContent();
                     String hashid = String.valueOf(element.getElementsByTagName("NEXTHOP").item(0).getTextContent());
                     if (!(hashid.equals("RootNode"))) {
-                        ObjReturn obj3 = utility.search_entry(key, layerID);
+                        ObjReturn obj3 = utility.search_entry(key,layerID);
                         transfer(key, obj3);
                         utility.delete_entry(layerID, key);
 
@@ -699,7 +757,7 @@ public class IndexingManager {
      */
     public void transfer(String key, ObjReturn obj4) {
 
-        utility.add_entry(100, key, obj4.getValue1(), obj4.getTime1(), obj4.getTotalCopies1(), obj4.getCopyNum1(), obj4.getTimerType1(), obj4.getUserId(), obj4.getTime(), obj4.getcert());
+        utility.add_entryforpurge(obj4.getLayerid(), key, obj4.getValue1(), obj4.getTime1(), obj4.getTotalCopies1(), obj4.getCopyNum1(), obj4.getTimerType1(), obj4.getUserId(), obj4.getTime(), obj4.getcert());
 
     }
 
@@ -713,15 +771,13 @@ public class IndexingManager {
         conn = utility.getConnection();
         IMbuffer = IndexingManagerBuffer.getInstance();
 
-        // This statement is to create purge table. I have kept its layer id as 100.
+        // This statement is to create purge table.
 
-        boolean k = checkTable(100);
-
+        boolean k = checkTable1("PurgeTable");
         if (!k) {
-            utility.createtable(100);
+            utility.createtable2("PurgeTable");
         }
-        boolean k1 = checkTable(101);
-
+        boolean k1 = checkTable1("UserToCertMap");
         if (!k1) {
             utility.createtable1();
         }
@@ -773,16 +829,11 @@ public class IndexingManager {
                 Document doc = builder.newDocument();
 
                 String ld = rs.getString("TABLE_NAME");
-                System.out.println(ld);
-                //This statement will extract digits from table names.
 
-                String intValue = ld.replaceAll("[^0-9]", "");
-                int v = Integer.parseInt(intValue);
-                System.out.println(v);
+                if (!(ld.equals("PurgeTable")||ld.equals("UserToCertMap"))) {
 
-                //create root Element
-                if (!(v == 100 || v == 101)) {
-                    System.out.println("hiii");
+                    String intValue = ld.replaceAll("[^0-9]", "");
+                    int v = Integer.parseInt(intValue);
                     Element root = doc.createElement("CheckingRootNodeForIndex");
                     doc.appendChild(root);
 
@@ -816,12 +867,12 @@ public class IndexingManager {
                     File f = new File(ld + "_RootNodeCheck" + ".xml");
                     IMbuffer.addToIMOutputBuffer(f);
 
-                    //rs.close();
 
                 } else {
-                    System.out.println("No valid table exists");
+
+                    // System.out.println("No valid table exists");
                 }
-                //rs.close();
+
             }
             rs.close();
         } catch (TransformerException | SQLException e) {
@@ -840,7 +891,7 @@ public class IndexingManager {
             String b = null;
             b = java.util.Base64.getEncoder().encodeToString(c.getEncoded());
             PreparedStatement pstmt = null;
-            String filename = "Table" + 101;
+            String filename = "UserToCertMap";
             /*PreparedStatement stmt = conn.prepareStatement(" select * from " + filename);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()) {
@@ -872,18 +923,21 @@ public class IndexingManager {
 
     public Certificate fetchuserCerti(String userid) {
 
-        String filename = "Table" + 101;
+        String filename = "UserToCertMap" ;
         PreparedStatement stmt = null;
+        ResultSet rs=null;
         Certificate cert = null;
         try {
             stmt = conn.prepareStatement(" select Certificate from " + filename + " where userId=? ");
             stmt.setString(1, userid);
-            ResultSet rs = stmt.executeQuery();
+            rs = stmt.executeQuery();
             String s = rs.getString("Certificate");
             byte[] decodedByte = java.util.Base64.getMimeDecoder().decode(s);
             CertificateFactory cf = CertificateFactory.getInstance("X.509");
             ByteArrayInputStream bis = new ByteArrayInputStream(decodedByte);
             cert = cf.generateCertificate(bis);
+            stmt.close();
+            rs.close();
 
         } catch (SQLException e) {
             e.printStackTrace();
